@@ -1,0 +1,165 @@
+.ed-section { padding-block: 76px; background: #f5f8f7; }
+.ed-heading { max-width: 720px; margin-bottom: 34px; }
+.ed-heading h2 { margin-bottom: 14px; }
+.ed-heading h1 { font-size: clamp(36px, 4vw, 48px); margin-bottom: 14px; letter-spacing: -1px; }
+.ed-heading p, .ed-panel-heading p, .ed-process-copy p { color: var(--muted); font-size: 14px; line-height: 1.85; }
+.ed-process { display: grid; grid-template-columns: 1fr 1.15fr; gap: 24px 48px; padding: 32px; background: white; border: 1px solid var(--line); border-radius: 16px; margin-bottom: 28px; }
+.ed-process h3, .ed-panel-heading h3 { font-size: 25px; line-height: 1.4; letter-spacing: -.5px; margin-bottom: 12px; }
+.ed-process-copy .button { margin-top: 22px; }
+.ed-process-copy .button:disabled { opacity: .7; cursor: progress; transform: none; }
+.ed-process-visual { display: flex; align-items: center; justify-content: center; min-height: 220px; gap: 0; }
+.ed-computer { width: 165px; flex-shrink: 0; text-align: center; }
+.ed-screen { position: relative; min-height: 104px; border: 6px solid #27493f; border-bottom-width: 12px; border-radius: 9px 9px 3px 3px; background: #f0f6f3; text-align: left; padding: 10px; }
+.ed-screen b { font-size: 11px; color: var(--forest); }
+.ed-screen p { font-size: 9px; margin-top: 8px; padding: 5px; background: white; border: 1px solid #dce8e1; border-radius: 4px; line-height: 1.5; }
+.ed-computer-base { height: 9px; margin-inline: -9px; background: #a7bcb1; border-radius: 2px 2px 12px 12px; }
+.ed-computer > p, .ed-server figcaption { margin-top: 10px; font-size: 11px; font-weight: 600; color: #456255; }
+.ed-cursor { position: absolute; right: 16px; bottom: 8px; width: 5px; height: 9px; background: var(--green); opacity: 0; }
+.is-playing .ed-cursor { animation: ed-blink .7s steps(2, start) infinite; }
+.ed-connection { height: 2px; position: relative; background: #bdd3c8; width: 76px; min-width: 30px; margin: -22px 12px 0; }
+.ed-connection i { position: absolute; display: block; width: 6px; height: 6px; border-radius: 50%; background: #267955; top: -2px; left: 0; opacity: 0; }
+.is-playing .ed-connection i { animation: ed-packet 1s infinite; }
+.is-playing .ed-connection i:nth-child(2) { animation-delay: .3s; }
+.is-playing .ed-connection i:nth-child(3) { animation-delay: .6s; }
+.ed-connection small { position: absolute; top: 13px; left: 50%; transform: translateX(-50%); font-size: 8px; width: 100px; text-align: center; color: #647168; }
+.ed-server { margin: 0; width: 150px; flex-shrink: 0; text-align: center; }
+.ed-server img { height: 125px; width: 150px; object-fit: cover; border-radius: 8px; }
+.ed-stage-buttons { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 7px; }
+.ed-stage-buttons button { display: flex; gap: 10px; align-items: center; padding: 12px; text-align: left; border: 1px solid var(--line); border-radius: 8px; background: #fbfcfb; font-size: 11px; line-height: 1.6; }
+.ed-stage-buttons button > span:first-child { display: grid; place-items: center; min-width: 25px; height: 25px; border-radius: 50%; background: #e8f0ec; font-weight: 700; color: var(--forest); }
+.ed-stage-buttons button[aria-pressed='true'] { border-color: var(--green); background: #edf6f0; }
+.ed-stage-buttons button[aria-pressed='true'] > span:first-child { background: var(--green); color: white; }
+.ed-stage-description { grid-column: 1 / -1; font-size: 13px; color: var(--muted); min-height: 25px; }
+.ed-data-panel { padding: 32px; background: white; border: 1px solid var(--line); border-radius: 16px; margin-top: 28px; }
+.ed-panel-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+.ed-panel-heading > div:first-child { max-width: 640px; }
+.ed-metric-switch { display: flex; border: 1px solid var(--line); border-radius: 8px; padding: 4px; flex-shrink: 0; background: #f3f6f3; }
+.ed-metric-switch button { background: transparent; border: 0; border-radius: 5px; font-size: 10px; padding: 8px 10px; color: var(--muted); white-space: nowrap; }
+.ed-metric-switch button[aria-pressed='true'] { background: var(--forest); color: white; }
+.ed-chart-layout { display: grid; grid-template-columns: minmax(0, 1fr) 245px; gap: 28px; align-items: start; }
+.ed-task-chart, .ed-water-chart { min-width: 0; }
+.ed-bar-row { width: 100%; display: grid; grid-template-columns: 146px minmax(40px, 1fr) 125px; align-items: center; gap: 12px; border: 1px solid transparent; border-radius: 7px; padding: 10px 8px; background: transparent; text-align: left; line-height: 1.5; }
+.ed-bar-row:hover { background: #f6f9f6; }
+.ed-bar-row[aria-pressed='true'] { background: #edf5ef; border-color: #cfe0d3; }
+.ed-bar-label { font-size: 11px; }
+.ed-bar-value { font-size: 10px; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.ed-bar-track { position: relative; height: 22px; background: repeating-linear-gradient(to right, #dfe7e1 0, #dfe7e1 1px, transparent 1px, transparent 25%); }
+.ed-bar { height: 22px; display: block; background: #71a789; border-radius: 0 4px 4px 0; transition: width .25s; }
+.ed-bar-row[aria-pressed='true'] .ed-bar { background: var(--green); }
+.ed-axis { display: flex; justify-content: space-between; margin: 8px 133px 0 166px; color: var(--muted); font-size: 8px; font-variant-numeric: tabular-nums; }
+.ed-axis span { width: 0; display: flex; justify-content: center; white-space: nowrap; }
+.ed-chart-caption { font-size: 10px; margin-top: 17px; color: var(--muted); padding-left: 8px; }
+.ed-data-detail { border-radius: 10px; padding: 22px; background: #edf5ef; border: 1px solid #dbe7df; }
+.ed-data-detail > p:first-child { font-size: 12px; font-weight: 600; color: var(--forest); }
+.ed-data-detail > strong { font-family: var(--display); display: block; font-size: 27px; line-height: 1.4; margin-top: 10px; letter-spacing: -.6px; color: var(--forest); font-variant-numeric: tabular-nums; }
+.ed-data-detail > small { font-size: 10px; color: var(--muted); display: block; margin-top: 4px; }
+.ed-data-detail dl { margin: 20px 0 0; font-size: 10px; }
+.ed-data-detail dl > div { border-top: 1px solid #d2e1d7; padding-block: 10px; display: flex; flex-wrap: wrap; gap: 3px 12px; justify-content: space-between; }
+.ed-data-detail dt { color: #5a6f61; }
+.ed-data-detail dd { margin: 0; font-weight: 700; }
+.ed-data-detail .ed-conversion { margin-top: 10px; font-size: 10px; color: #5a6f61; line-height: 1.7; }
+.ed-source { border-top: 1px solid var(--line); padding-top: 18px; margin-top: 24px; display: flex; gap: 15px 28px; justify-content: space-between; align-items: baseline; }
+.ed-source p { max-width: 680px; color: var(--muted); font-size: 10px; line-height: 1.8; }
+.ed-source a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; font-size: 10px; flex-shrink: 0; }
+.ed-model-label { display: grid; gap: 5px; font-size: 10px; color: var(--muted); min-width: 150px; }
+.ed-model-label select { padding: 10px 30px 10px 12px; border-radius: 7px; border: 1px solid #cfded7; background: white; color: var(--ink); font-size: 12px; }
+.ed-water-controls { display: flex; align-items: center; gap: 14px; padding-bottom: 24px; }
+.ed-water-controls p { font-size: 11px; color: #456b82; margin-right: auto; }
+.ed-water-controls label { font-size: 10px; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+.ed-water-controls output { display: inline-block; min-width: 28px; font-size: 12px; font-weight: 700; color: #2c607e; }
+.ed-water-controls input { width: 150px; min-height: 35px; accent-color: #347ca1; }
+.ed-water-bar { display: block; height: 22px; background: #8cb8cc; border-radius: 0 4px 4px 0; overflow: hidden; }
+.ed-water-bar > span { display: block; height: 22px; background: #286e93; }
+.ed-water-chart .ed-bar-row { grid-template-columns: 105px minmax(40px, 1fr) 94px; }
+.ed-water-chart .ed-bar-row[aria-pressed='true'] { background: #edf5f9; border-color: #d0e2ed; }
+.ed-water-detail { background: #edf5f9; border-color: #dae8f0; }
+.ed-water-detail > strong, .ed-water-detail > p:first-child { color: #286482; }
+.ed-water-detail dl > div { border-color: #d0e0e8; }
+.ed-water-axis { display: flex; justify-content: space-between; margin: 8px 103px 0 124px; font-size: 9px; color: #687b86; }
+.ed-water-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; padding-left: 8px; margin-top: 20px; font-size: 10px; color: #5a7180; }
+.ed-water-legend span::before { content: ''; width: 9px; height: 9px; display: inline-block; border-radius: 2px; margin-right: 7px; background: #286e93; }
+.ed-water-legend span + span::before { background: #8cb8cc; }
+.ed-study-note { margin-top: 13px; color: var(--muted); font-size: 10px; line-height: 1.8; }
+.ed-no-data { padding: 28px; background: #f0f6f9; border-radius: 10px; }
+.ed-no-data h4 { margin: 0 0 10px; font-size: 17px; }
+.ed-no-data p { max-width: 630px; color: var(--muted); font-size: 13px; }
+.ed-no-data .button { margin-top: 20px; }
+.ed-static-data { border: 1px solid var(--line); border-radius: 10px; padding: 24px; background: white; margin-top: 25px; }
+.ed-static-data table { width: 100%; border-collapse: collapse; font-size: 12px; margin-block: 15px; }
+.ed-static-data th, .ed-static-data td { text-align: left; padding: 8px; border-bottom: 1px solid var(--line); }
+@keyframes ed-packet { 0% { left: 0; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: calc(100% - 6px); opacity: 0; } }
+@keyframes ed-blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+@media (max-width: 1050px) {
+  .ed-process { gap: 24px; padding: 26px; }
+  .ed-process-visual { transform: scale(.9); transform-origin: center; }
+  .ed-panel-heading { display: block; }
+  .ed-metric-switch { width: fit-content; margin-top: 18px; }
+  .ed-model-label { max-width: 220px; margin-top: 18px; }
+  .ed-chart-layout { grid-template-columns: minmax(0, 1fr) 205px; gap: 18px; }
+  .ed-bar-row { grid-template-columns: 115px minmax(35px, 1fr) 100px; gap: 9px; }
+  .ed-axis { margin-inline: 132px 108px; }
+  .ed-bar-value { font-size: 9px; }
+  .ed-data-detail { padding: 18px; }
+  .ed-data-detail > strong { font-size: 23px; }
+  .ed-source { flex-wrap: wrap; }
+}
+@media (max-width: 760px) {
+  .ed-section { padding-block: 48px; }
+  .ed-process { display: block; padding: 22px; }
+  .ed-process-visual { margin-top: 20px; transform: none; }
+  .ed-process-copy { max-width: 510px; }
+  .ed-stage-buttons { grid-template-columns: repeat(2, 1fr); margin-block: 15px; }
+  .ed-stage-description { min-height: 70px; font-size: 12px; }
+  .ed-data-panel { padding: 24px 18px; }
+  .ed-process h3, .ed-panel-heading h3 { font-size: 23px; }
+  .ed-chart-layout { grid-template-columns: 1fr; }
+  .ed-bar-row { grid-template-columns: 122px minmax(40px, 1fr) 115px; gap: 9px; }
+  .ed-axis { margin-inline: 139px 123px; }
+  .ed-data-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 0 15px; }
+  .ed-data-detail > p:first-child, .ed-data-detail > strong, .ed-data-detail > small { grid-column: 1; }
+  .ed-data-detail dl { grid-column: 2; grid-row: 1 / 4; margin: 0; }
+  .ed-data-detail .ed-conversion { grid-column: 1 / -1; }
+  .ed-water-controls { flex-wrap: wrap; gap: 4px 14px; }
+  .ed-water-controls p { width: 100%; margin-bottom: 10px; }
+  .ed-water-controls input { flex: 1; width: 100%; }
+}
+@media (max-width: 440px) {
+  .ed-process-visual { min-height: 165px; }
+  .ed-computer { width: 120px; }
+  .ed-screen { min-height: 90px; padding: 8px; }
+  .ed-screen p { font-size: 8px; }
+  .ed-server { width: 98px; }
+  .ed-server img { width: 98px; height: 105px; }
+  .ed-connection { margin-inline: 9px; }
+  .ed-connection small { font-size: 7px; width: 65px; }
+  .ed-bar-row { grid-template-columns: 1fr 110px; gap: 5px 10px; padding-block: 12px; }
+  .ed-bar-label { grid-column: 1; grid-row: 1; font-size: 10px; }
+  .ed-bar-value { grid-column: 2; grid-row: 1; }
+  .ed-bar-track { grid-column: 1 / -1; grid-row: 2; height: 18px; }
+  .ed-bar, .ed-water-bar, .ed-water-bar > span { height: 18px; }
+  .ed-axis { margin-inline: 8px; }
+  .ed-water-chart .ed-bar-row { grid-template-columns: 1fr 100px; }
+  .ed-water-axis { margin-inline: 8px; }
+  .ed-data-detail { display: block; }
+  .ed-data-detail dl { margin-top: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed-section *, .ed-section *::before, .ed-section *::after { animation: none !important; transition: none !important; }
+}
+@media (max-width: 360px) {
+  .ed-computer { width: 100px; }
+  .ed-server, .ed-server img { width: 80px; }
+  .ed-connection { min-width: 20px; margin-inline: 6px; }
+  .ed-data-panel { padding-inline: 14px; }
+}
+
+/* Selected task: explain the activity and its scale, without repeating the chart. */
+.ed-data-detail.ed-task-detail { display: block; }
+.ed-task-detail .ed-task-example { color: #526b5d; font-size: 11px; line-height: 1.85; margin-top: 16px; }
+.ed-task-analogy { border-top: 1px solid #cedfd3; padding-top: 16px; margin-top: 18px; }
+.ed-task-analogy > p { font-size: 10px; line-height: 1.7; color: #607766; }
+.ed-task-analogy > strong { display: block; margin-top: 8px; font-family: var(--display); color: var(--forest); font-size: 20px; font-weight: 500; line-height: 1.45; letter-spacing: -.3px; }
+.ed-analogy-method { margin-top: 18px; font-size: 10px; line-height: 1.8; color: #526b5d; }
+.ed-analogy-method summary { cursor: pointer; color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+.ed-analogy-method p { margin-top: 11px; }
+.ed-analogy-method a { display: inline-block; margin-top: 10px; color: var(--green); text-decoration: underline; text-underline-offset: 3px; }

@@ -2,6 +2,10 @@ import { activities } from '../content/activities.js';
 import { articles } from '../content/articles.js';
 import { references } from '../content/references.js';
 import { gameCards } from '../content/game-cards.js';
+import { educationMessages } from '../content/education-data.js';
+import { resultMessages } from '../content/result-insights.js';
+import { portalMessages } from './portal-messages.js';
+import { formulaMessages } from '../features/formula.js';
 import { englishActivities, englishArticles, englishReferences, englishGameCards } from './content-en.js';
 
 // Indonesian source text is the key. Keep translations as plain text, never HTML.
@@ -220,6 +224,10 @@ export const uiTranslations = {
 };
 
 export const translations = new Map(Object.entries(uiTranslations));
+Object.entries(educationMessages).forEach(([source, english]) => translations.set(source, english));
+Object.entries(resultMessages).forEach(([source, english]) => translations.set(source, english));
+Object.entries(formulaMessages).forEach(([source, english]) => translations.set(source, english));
+portalMessages.forEach(([source, english]) => translations.set(source, english));
 function addFields(source, english) {
   for (const [field, translated] of Object.entries(english)) {
     if (Array.isArray(translated)) translated.forEach((value, index) => {

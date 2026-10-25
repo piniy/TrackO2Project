@@ -1,0 +1,31 @@
+<section class="math-explorer math-explorer-compact" x-data="formulaExplorer('result')" :data-phase="phase" :class="{ 'is-playing': playing, 'has-inspector': activeSymbol }" aria-label="Rumus estimasi emisi" @keydown.escape="closeInspector()">
+  <div class="math-surface" x-ref="surface">
+    <div class="math-equation-line" role="group" aria-label="Rumus estimasi emisi">
+      <button class="math-symbol" type="button" data-symbol="total" @click="inspect('total')" @focus="inspect('total')" :class="{ 'is-selected': activeSymbol === 'total' }" :aria-expanded="activeSymbol === 'total'" :aria-label="$t('Jelaskan total estimasi E')"><span data-math-symbol="total" data-i18n-ignore aria-hidden="true">E</span></button>
+      <span class="math-equals" data-math-symbol="equals" data-i18n-ignore aria-hidden="true">=</span>
+      <div class="math-symbols" x-show="phase === 'symbolic'">
+        <button class="math-symbol math-sigma" type="button" data-symbol="sum" @click="inspect('sum')" @focus="inspect('sum')" :class="{ 'is-selected': activeSymbol === 'sum' }" :aria-expanded="activeSymbol === 'sum'" :aria-label="$t('Jelaskan simbol penjumlahan')"><span data-math-symbol="sum" data-i18n-ignore aria-hidden="true">∑</span></button>
+        <button class="math-symbol" type="button" data-symbol="count" @click="inspect('count')" @focus="inspect('count')" :class="{ 'is-selected': activeSymbol === 'count' }" :aria-expanded="activeSymbol === 'count'" :aria-label="$t('Jelaskan jumlah aktivitas nᵢ')"><span data-math-symbol="count" data-i18n-ignore aria-hidden="true">nᵢ</span></button>
+        <button class="math-symbol" type="button" data-symbol="factor" @click="inspect('factor')" @focus="inspect('factor')" :class="{ 'is-selected': activeSymbol === 'factor' }" :aria-expanded="activeSymbol === 'factor'" :aria-label="$t('Jelaskan faktor emisi fᵢ')"><span data-math-symbol="factor" data-i18n-ignore aria-hidden="true">fᵢ</span></button>
+      </div>
+      <div class="math-terms" x-show="phase !== 'symbolic' && phase !== 'total'" x-cloak>
+        <template x-for="(item, index) in activities" :key="item.id"><span class="math-term-wrap"><span class="math-plus" x-show="index > 0" aria-hidden="true">+</span><button type="button" class="math-product" :class="{ 'is-active': activeIndex === index, 'is-resolved': resolvedThrough >= index }" @click="inspect('activity', item.id)" @focus="inspect('activity', item.id)" :aria-label="$t(item.title)"><span :data-math-product="index" data-i18n-ignore aria-hidden="true"></span></button></span></template>
+      </div>
+      <button class="math-final-total" type="button" x-show="phase === 'total'" x-cloak @click="inspect('total')" @focus="inspect('total')" :aria-label="caption"><span data-math-total data-i18n-ignore aria-hidden="true"></span></button>
+    </div>
+    <div class="math-playback-controls" x-cloak>
+      <button class="math-play" :class="{ 'is-pending': pending }" type="button" @click="play()" :aria-label="$t(hasData ? 'Putar ulang perhitungan' : 'Putar contoh perhitungan')"><span aria-hidden="true" x-text="playing ? '↻' : '▶'">▶</span></button>
+      <button class="math-return" type="button" x-show="phase !== 'symbolic'" @click="resetView()" aria-label="Kembali ke rumus"><span aria-hidden="true">∑</span></button>
+    </div>
+    <p class="math-stage-caption" x-cloak x-show="playing" x-text="caption" aria-live="polite"></p>
+    <span class="sr-only" data-math-accessible data-i18n-ignore>E = ∑ nᵢ fᵢ</span>
+    <p class="sr-only" role="status" x-text="phase === 'total' ? caption : ''"></p>
+  </div>
+  <aside class="math-inspector" x-show="activeSymbol" x-cloak x-transition:enter="math-inspector-enter" x-transition:enter-start="math-inspector-hidden" x-transition:enter-end="math-inspector-visible" x-transition:leave="math-inspector-leave" x-transition:leave-start="math-inspector-visible" x-transition:leave-end="math-inspector-hidden" aria-live="polite">
+    <button class="math-inspector-close" type="button" @click="closeInspector()" aria-label="Tutup penjelasan simbol">×</button>
+    <h3 x-text="symbolTitle"></h3><p x-text="symbolDescription"></p>
+    <dl class="math-inspection-values" x-show="inspectionRows.length"><template x-for="item in inspectionRows" :key="item.id"><div><dt x-text="$t(item.title)"></dt><dd x-text="activeSymbol === 'count' ? format(item.count, 0) : activeSymbol === 'factor' ? format(item.factor, 1) + ' ' + $t('g CO₂e per permintaan') : format(item.count, 0) + ' × ' + format(item.factor, 1) + ' = ' + format(item.emission, 2) + ' g CO₂e'"></dd></div></template></dl>
+    <strong class="math-inspected-total" x-show="activeSymbol === 'total' || activeSymbol === 'sum'" x-text="inspectedTotal"></strong>
+  </aside>
+  <p class="math-error" x-cloak x-show="mathError" x-text="$t('Rumus belum dapat ditampilkan.')" role="status"></p>
+</section>

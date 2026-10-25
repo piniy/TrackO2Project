@@ -1,14 +1,14 @@
 <a class="skip-link" href="#main">Langsung ke konten</a>
 <header class="site-header" x-data="{ menuOpen: false }" @keydown.escape.window="if (menuOpen) { menuOpen = false; $refs.menu.focus() }">
   <div class="header-inner container">
-    <a class="brand" href="./index.html" aria-label="TraCkO2 beranda"><span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-leaf"></use></svg></span><span>TraCkO<span class="brand-two">2</span><span class="brand-dot">.</span></span></a>
-    <nav class="primary-nav" id="primary-nav" aria-label="Navigasi utama" :class="{ 'is-open': menuOpen }">
-      <a data-page="home" href="./index.html">Beranda</a>
+    <a class="brand" href="./index.html" aria-label="TraCkO2 beranda"><img class="brand-logo" src="/assets/images/tracko2-logo.png" alt="TraCkO₂!" width="200" height="48"></a>
+    <nav class="primary-nav" id="primary-nav" aria-label="Navigasi utama" :class="{ 'is-open': menuOpen }" @click="if ($event.target.closest('a')) menuOpen = false">
+      <a data-page="home" href="./index.html">Home</a>
+      <a href="./index.html#layanan">Layanan</a>
       <a data-page="education" href="./edukasi.html">Edukasi</a>
       <a data-page="calculator" href="./kalkulator.html">CarbsCulator</a>
-      <a data-page="campaign" href="./kampanye.html">Kampanye</a>
-      <a data-page="references" href="./referensi.html">Referensi &amp; Data</a>
-      <a data-page="game" href="./game.html">Game</a>
+      <a data-page="game" href="./game.html">Games</a>
+      <a href="./index.html#tentang">About Team</a>
     </nav>
     <a class="button button-small header-cta" href="./kalkulator.html">Mulai hitung <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
     <div class="header-controls">

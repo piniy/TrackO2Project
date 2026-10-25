@@ -128,10 +128,11 @@ export default () => ({
   goTo(index) {
     if (!this.enhanced) return;
     const scene = this.$refs.scene;
+    const section = scene.closest('.prompt-journey');
     const stickyTop = parseFloat(getComputedStyle(scene).top) || 0;
-    const travel = Math.max(1, this.$el.offsetHeight - scene.offsetHeight);
+    const travel = Math.max(1, section.offsetHeight - scene.offsetHeight);
     const fraction = [0, .38, .64, .94][index];
     if (index === 0) this._startTyping?.();
-    window.scrollTo({ top: window.scrollY + this.$el.getBoundingClientRect().top - stickyTop + travel * fraction, behavior: 'smooth' });
+    window.scrollTo({ top: window.scrollY + section.getBoundingClientRect().top - stickyTop + travel * fraction, behavior: 'smooth' });
   }
 });

@@ -8,12 +8,23 @@ import '@fontsource/plus-jakarta-sans/latin-700.css';
 import './styles/main.css';
 import './styles/welcome.css';
 import './styles/journey.css';
+import './styles/content-additions.css';
+import './styles/education.css';
+import './styles/calculator-refresh.css';
+import './styles/calculator-trial.css';
+import './styles/team.css';
+import './styles/formula.css';
+import './styles/page-motion.css';
 import Alpine from 'alpinejs';
 import calculator from './features/calculator.js';
+import teamProfiles from './features/team.js';
+import formulaExplorer from './features/formula.js';
+import education from './features/education.js';
 import promptJourney from './features/journey.js';
 import library from './features/library.js';
 import game from './features/game.js';
 import { createI18n } from './i18n/index.js';
+import { initPageMotion } from './features/page-motion.js';
 
 let languageStorage;
 try { languageStorage = window.localStorage; } catch { /* Storage may be disabled by the browser. */ }
@@ -21,8 +32,12 @@ Alpine.store('i18n', createI18n(document, languageStorage));
 Alpine.magic('t', () => (text, values) => Alpine.store('i18n').t(text, values));
 
 Alpine.data('calculator', calculator);
+Alpine.data('teamProfiles', teamProfiles);
+Alpine.data('formulaExplorer', formulaExplorer);
+Alpine.data('education', education);
 Alpine.data('promptJourney', promptJourney);
 Alpine.data('library', library);
 Alpine.data('learningGame', game);
 document.documentElement.classList.add('js-ready');
 Alpine.start();
+initPageMotion();

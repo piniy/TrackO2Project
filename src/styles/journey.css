@@ -19,6 +19,7 @@
 .route-glow { display: none; }
 .journey-signals { display: none; }
 .prompt-cursor { display: none; }
+.energy-halo, .energy-current, .emission-halo { display: none; }
 .journey-chapters { display: none; }
 .journey-copy { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 22px; }
 .journey-copy article { border-top: 1px solid var(--line); padding-top: 18px; }
@@ -50,20 +51,35 @@
 .is-enhanced .server-halo { fill: #59855c; opacity: .16; }
 .is-enhanced .energy-orbit { stroke-dasharray: 400; stroke-dashoffset: calc(400px * (1 - var(--journey-progress))); }
 .is-enhanced[data-stage='2'] .energy-orbit { animation: energy-pulse 1.3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.is-enhanced .energy-halo, .is-enhanced .energy-current, .is-enhanced .emission-halo { display: block; }
+.is-enhanced .energy-halo { opacity: .12; filter: blur(8px); transform-box: fill-box; transform-origin: center; }
+.is-enhanced .energy-current { opacity: .35; stroke-dasharray: 8 394; filter: drop-shadow(0 0 3px #d8f5ae); }
+.is-enhanced[data-stage='2'] .energy-halo { animation: electricity-glow 2.2s ease-in-out infinite; }
+.is-enhanced[data-stage='2'] .energy-current { opacity: 1; animation: electricity-flow 2.6s linear infinite; }
+.is-enhanced[data-stage='2'] .energy-bolt { animation: electricity-bolt 1.8s ease-in-out infinite; }
 .is-enhanced .emission-particles { transform: translateY(calc(16px * (1 - var(--journey-progress)))); }
+.is-enhanced .emission-cloud { transform-box: fill-box; transform-origin: center; filter: drop-shadow(0 5px 5px #061c2250); }
+.is-enhanced .emission-halo { opacity: .16; filter: blur(9px); transform-box: fill-box; transform-origin: center; }
+.is-enhanced[data-stage='3'] .emission-cloud { animation: emission-billow 4.8s ease-in-out infinite; }
+.is-enhanced[data-stage='3'] .emission-halo { animation: emission-aura 4.8s ease-in-out infinite; }
+.is-enhanced[data-stage='3'] .emission-particles > circle,
+.is-enhanced[data-stage='3'] .emission-motes > circle { animation: emission-drift 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.is-enhanced[data-stage='3'] .emission-particles > circle:nth-child(2),
+.is-enhanced[data-stage='3'] .emission-motes > circle:nth-child(3) { animation-delay: -1.2s; animation-duration: 4.3s; }
+.is-enhanced[data-stage='3'] .emission-particles > circle:nth-child(3),
+.is-enhanced[data-stage='3'] .emission-motes > circle:nth-child(2) { animation-delay: -2.3s; animation-duration: 3.1s; }
 .is-enhanced .journey-signals { display: block; }
 .is-enhanced .journey-chapters { display: flex; justify-content: space-between; position: relative; max-width: 760px; margin-block: 0; isolation: isolate; }
-.journey-chapters::before { content: ''; height: 1px; position: absolute; left: 30px; right: 30px; top: 21px; background: #d8e4d1; z-index: -1; }
-.journey-chapters button { display: flex; align-items: center; gap: 9px; border: none; background: var(--paper); min-height: 44px; padding: 6px 12px; font-size: 11px; color: #83937a; line-height: 1.3; transition: color .2s; }
+.journey-chapters button { display: flex; align-items: center; gap: 9px; border: none; border-radius: 999px; background: transparent; min-height: 44px; padding: 6px 12px; font-size: 11px; color: #83937a; line-height: 1.3; transition: color .2s, background .2s, box-shadow .2s; }
 .journey-chapters button > span { width: 27px; height: 27px; display: inline-grid; place-items: center; border: 1px solid #d5e0cf; background: var(--paper); border-radius: 50%; font: 500 11px var(--display); transition: background .2s; }
 .journey-chapters button.is-current { color: var(--forest); font-weight: 700; }
 .journey-chapters button.is-current > span { background: var(--forest); border-color: var(--forest); color: white; }
 .journey-chapters button.is-done { color: var(--green); }
 .journey-chapters button.is-done > span { background: #e2eddb; border-color: #c3d6b8; }
-.is-enhanced .journey-chapters::before { background: #45634d; }
-.is-enhanced .journey-chapters button { background: #102c29; color: #9ab49e; }
+.is-enhanced .journey-chapters button { background: transparent; color: #9ab49e; }
+.is-enhanced .journey-chapters button:hover { background: #cce3bb0d; }
 .is-enhanced .journey-chapters button > span { background: #102c29; border-color: #527054; }
-.is-enhanced .journey-chapters button.is-current { color: #e2efd8; }
+.is-enhanced .journey-chapters button.is-current { color: #e2efd8; background: #cce3bb12; box-shadow: inset 0 0 0 1px #cce3bb14; }
 .is-enhanced .journey-chapters button.is-current > span { background: #cce3bb; border-color: #cce3bb; color: #163d32; }
 .is-enhanced .journey-chapters button.is-done { color: #c0d7b4; }
 .is-enhanced .journey-chapters button.is-done > span { background: #274c39; color: #c0d7b4; }
@@ -108,7 +124,6 @@
   .journey-chapters { width: calc(100% - 30px); }
   .journey-chapters button { flex-direction: column; gap: 6px; font-size: 9px; padding: 3px 8px; min-height: 55px; }
   .journey-chapters button > span { width: 24px; height: 24px; font-size: 10px; }
-  .journey-chapters::before { top: 15px; left: 38px; right: 38px; }
   .is-enhanced .journey-copy { min-height: 127px; }
   .is-enhanced .journey-copy h2 { font-size: 23px; max-width: 320px; margin-inline: auto; }
   .is-enhanced .journey-copy p { font-size: 11px; max-width: 350px; margin-inline: auto; line-height: 1.85; }
@@ -144,8 +159,17 @@
 @media (prefers-reduced-motion: reduce) {
   .journey-pin { position: static; height: auto; }
   .motion-node { transition: none; }
+  .prompt-journey .energy-halo, .prompt-journey .energy-current, .prompt-journey .energy-bolt,
+  .prompt-journey .emission-cloud, .prompt-journey .emission-halo,
+  .prompt-journey .emission-particles > circle, .prompt-journey .emission-motes > circle { animation: none !important; }
 }
 @keyframes prompt-caret { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
 @keyframes processing-led { 0%, 45% { --led-strength: .22; } 46%, 100% { --led-strength: 1; } }
 @keyframes processing-wires { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
 @keyframes energy-pulse { 0%, 100% { transform: scale(1); opacity: .55; } 50% { transform: scale(1.13); opacity: 1; } }
+@keyframes electricity-glow { 0%, 100% { opacity: .1; transform: scale(.94); } 50% { opacity: .34; transform: scale(1.12); } }
+@keyframes electricity-flow { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -402; } }
+@keyframes electricity-bolt { 0%, 100% { fill: #d7e6b8; filter: drop-shadow(0 0 0 #c8ed9300); } 50% { fill: #e9f6bb; filter: drop-shadow(0 0 5px #c8ed9380); } }
+@keyframes emission-billow { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-3px) scale(1.025, 1.04); } }
+@keyframes emission-aura { 0%, 100% { opacity: .12; transform: scale(1.03); } 50% { opacity: .27; transform: translateY(-3px) scale(1.12); } }
+@keyframes emission-drift { 0%, 100% { transform: translate(0, 4px) scale(.85); opacity: .35; } 50% { transform: translate(5px, -12px) scale(1.12); opacity: .9; } }

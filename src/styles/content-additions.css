@@ -1,0 +1,24 @@
+/* Local additions only; the original hero, navigation, journey and base UI stay intact. */
+.interior-main { padding-top: 42px; }
+.brand-logo { display: block; width: 200px; height: auto; flex-shrink: 0; }
+.site-footer .brand { padding: 7px 12px; border-radius: 8px; background: var(--paper); }
+.home-service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.home-service { padding: 25px; }
+.home-service > .icon { width: 30px; height: 30px; margin-bottom: 20px; }
+.home-service h3 { font-size: 23px; }
+.home-service p { margin-bottom: 0; }
+.team-service { background: var(--purple); }
+.education-reading > p { font-size: 13px; color: var(--muted); margin-top: 15px; }
+.equivalent-icon > span { font-size: 22px; }
+.ed-section { background: #eff4ee; }
+@media (max-width: 960px) { .home-service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) {
+  .site-header .brand-logo { width: 150px; }
+  .home-service { display: block; padding: 22px; }
+  .home-service h3 { font-size: 21px; }
+  .home-service p { font-size: 11px; }
+}
+@media (max-width: 380px) {
+  .home-service-grid { grid-template-columns: 1fr; }
+  .site-header .brand-logo { width: 112px; }
+}

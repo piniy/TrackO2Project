@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { equivalentActivities, dominantActivity } from '../src/features/result-insights.js';
+import { equivalentActivities, dominantActivity, oneFewerRequest } from '../src/features/result-insights.js';
 import { comparisonBasis, activityAdvice } from '../src/content/result-insights.js';
 import { estimate } from '../src/features/calculation.js';
 import { translate } from '../src/i18n/index.js';
@@ -40,6 +40,23 @@ test('advice targets the largest submitted contribution with stable tie handling
   }
   assert.equal(dominantActivity(estimate({ chat: 4, summary: 1 })).id, 'chat');
   assert.equal(dominantActivity(estimate({ chat: 10, image: 1 })).id, 'image');
+});
+
+test('one-request simulation changes exactly one dominant activity without changing submitted data', () => {
+  const result = estimate({ chat: 10, summary: 3, longText: 1, image: 2 });
+  const original = structuredClone(result);
+  const scenario = oneFewerRequest(result);
+  assert.equal(scenario.activity.id, 'image');
+  assert.equal(scenario.before, 13.2);
+  assert.equal(scenario.after, 8.7);
+  assert.equal(scenario.delta, 4.5);
+  assert.ok(Math.abs(scenario.after + scenario.delta - scenario.before) < 1e-10);
+  assert.ok(Math.abs(scenario.percent - 4.5 / 13.2 * 100) < 1e-10);
+  assert.deepEqual(result, original);
+  assert.equal(oneFewerRequest(estimate({ chat: 1 })).after, 0);
+  assert.equal(oneFewerRequest(estimate({ chat: 1 })).percent, 100);
+  assert.equal(oneFewerRequest(estimate({})), null);
+  assert.equal(oneFewerRequest(null), null);
 });
 
 test('all contextual advice and comparison labels are available in English', () => {

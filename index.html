@@ -5,54 +5,37 @@
   <section class="welcome-hero" aria-labelledby="welcome-heading">
     <div class="container welcome-layout">
       <div class="welcome-copy">
-        <p class="welcome-label">TraCkO2 · AI &amp; lingkungan</p>
         <h1 id="welcome-heading">AI membantu belajarmu.<br>Kenali juga <span>jejaknya.</span></h1>
         <p class="welcome-description">Kenali hubungan AI dengan karbon, air, dan energi. Bersama TraCkO2, pahami proses di balik layar dan coba estimasi jejak aktivitasmu.</p>
         <div class="button-row"><a class="button" href="#jejak-ai">Lihat perjalanan AI <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"></use></svg></a><a class="button button-quiet" href="#carbsculator">Langsung hitung <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
-        <p class="welcome-note">Belajar, jelajahi, lalu pilih lebih bijak.</p>
       </div>
-      <div class="welcome-visual" aria-hidden="true">
-        <svg viewBox="0 0 480 450" class="welcome-globe">
-          <defs><radialGradient id="welcome-globe-fill" cx=".3" cy=".25" r=".9"><stop stop-color="#e1efdb"/><stop offset="1" stop-color="#bdd5b6"/></radialGradient></defs>
-          <circle cx="240" cy="218" r="167" fill="none" stroke="#e1e9dc" stroke-width="1" stroke-dasharray="3 9"/>
-          <ellipse cx="240" cy="218" rx="205" ry="87" fill="none" stroke="#dbe7d5" stroke-width="1.2" transform="rotate(-27 240 218)"/>
-          <circle cx="240" cy="218" r="126" fill="url(#welcome-globe-fill)"/>
-          <g fill="none" stroke="#97b68e" stroke-width="1" opacity=".7"><ellipse cx="240" cy="218" rx="126" ry="43"/><ellipse cx="240" cy="218" rx="126" ry="87"/><ellipse cx="240" cy="218" rx="47" ry="126"/><ellipse cx="240" cy="218" rx="91" ry="126"/><path d="M114 218h252M240 92v252"/></g>
-          <path d="m159 163 22-17 26 4 10 20-9 17 15 15-12 23-23-6-9-28-24-5Zm78 74 24-9 27 14 10 26-16 17-8 30-18-14-7-29-16-16Zm53-97 30 15 17 28-17 15-25-10-11-22Z" fill="#83a87b" opacity=".7"/>
-          <g class="welcome-topic welcome-carbon"><rect x="52" y="73" width="110" height="66" rx="18" fill="#eff5e9" stroke="#d9e6d0"/><text x="107" y="115" text-anchor="middle">CO₂e</text></g>
-          <g class="welcome-topic welcome-water"><rect x="344" y="197" width="84" height="84" rx="23" fill="#e1eef5" stroke="#d1e2ec"/><path d="M386 217s-15 18-15 27a15 15 0 0 0 30 0c0-9-15-27-15-27Z" fill="none" stroke="#7196a6" stroke-width="2"/><path d="M379 244a7 7 0 0 0 7 7" fill="none" stroke="#7196a6" stroke-width="2" stroke-linecap="round"/></g>
-          <g class="welcome-topic welcome-energy"><rect x="73" y="308" width="107" height="62" rx="18" fill="#f4ecdc" stroke="#e9ddc7"/><text x="126" y="347" text-anchor="middle">kWh</text></g>
-          <circle cx="343" cy="101" r="5" fill="#91b286"/><circle cx="311" cy="377" r="4" fill="#b2c8a8"/>
-        </svg>
-        <div class="welcome-topics"><span>Karbon</span><span>Air</span><span>Energi</span></div>
-      </div>
+      <figure class="welcome-visual">
+        <img class="welcome-photo" src="/assets/images/data-center.webp" alt="Bangunan pusat data dan infrastruktur energi di sekitarnya" width="1536" height="864" fetchpriority="high">
+        <figcaption>Pusat data membutuhkan pasokan listrik dan pendinginan.</figcaption>
+      </figure>
     </div>
-    <a class="welcome-scroll" href="#jejak-ai"><span>Mulai dari satu prompt</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-down"></use></svg></a>
+  </section>
+  <section class="section container home-services" id="layanan" aria-labelledby="services-title">
+    <div class="section-heading"><div><h2 id="services-title">Layanan</h2></div></div>
+    <div class="home-service-grid">
+      <a class="resource-card carbon-card home-service" href="#jejak-ai"><img class="icon" src="/assets/icons/book-open.svg" alt="" aria-hidden="true"><h3>Edukasi</h3><p>Pelajari proses AI dan jelajahi data penelitiannya.</p></a>
+      <a class="resource-card water-card home-service" href="#carbsculator"><img class="icon" src="/assets/icons/calculator.svg" alt="" aria-hidden="true"><h3>CarbsCulator</h3><p>Hitung estimasi jejak karbon dari aktivitas AI-mu.</p></a>
+      <a class="resource-card energy-card home-service" href="./game.html"><img class="icon" src="/assets/icons/gamepad-2.svg" alt="" aria-hidden="true"><h3>Games</h3><p>Uji pemahaman melalui lima situasi penggunaan AI.</p></a>
+      <a class="resource-card home-service team-service" href="#tentang"><img class="icon" src="/assets/icons/users.svg" alt="" aria-hidden="true"><h3>About Team</h3><p>Kenali tim pelajar di balik proyek TraCkO2.</p></a>
+    </div>
   </section>
   <!-- site:journey -->
+  <!-- site:education -->
   <section class="home-calculator" id="carbsculator" aria-labelledby="home-calculator-heading">
     <div class="container">
-      <div class="home-calculator-intro"><div><span class="eyebrow">CarbsCulator</span><h2 id="home-calculator-heading">Sekarang, coba hitung<br>jejak aktivitasmu.</h2></div><p>Masukkan aktivitas AI dalam satu hari untuk menjelajahi estimasi jejak karbonnya.</p></div>
-      <!-- site:calculator -->
+      <div class="home-calculator-intro"><div><h2 id="home-calculator-heading">CarbsCulator</h2></div></div>
+      <!-- site:calculator-trial -->
       <div class="home-calculator-method"><span>Estimasi pembelajaran menggunakan parameter proposal TraCkO2.</span><a href="./kalkulator.html#metode">Lihat cara hitung &amp; parameter</a></div>
     </div>
   </section>
-  <div class="purpose-strip"><div class="container"><span>Lebih paham teknologi.</span><span>Lebih sadar dampaknya.</span><span>Lebih bijak memilih.</span></div></div>
-  <section class="section container" aria-labelledby="resources-title"><div class="section-heading"><div><span class="eyebrow">Kenali yang tak terlihat</span><h2 id="resources-title">Jejak AI lebih dari karbon.</h2></div><a class="text-link" href="./edukasi.html">Jelajahi materi <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
-    <div class="resource-grid">
-      <a class="resource-card carbon-card" href="./edukasi.html#jejak-karbon"><span class="resource-art"><svg class="icon" aria-hidden="true"><use href="#i-leaf"></use></svg><span class="science-label">CO₂e</span></span><h3>Jejak karbon</h3><p>Komputasi membutuhkan listrik. Kenali hubungannya dengan emisi.</p><span class="card-link">Pahami jejaknya <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span></a>
-      <a class="resource-card water-card" href="./edukasi.html#jejak-air"><span class="resource-art"><svg class="icon" aria-hidden="true"><use href="#i-drop"></use></svg><span class="science-label">H₂O</span></span><h3>Jejak air</h3><p>Ada air di balik infrastruktur digital. Konteks penggunaannya penting.</p><span class="card-link">Kenali perannya <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span></a>
-      <a class="resource-card energy-card" href="./edukasi.html#energi-pusat-data"><span class="resource-art"><svg class="icon" aria-hidden="true"><use href="#i-bolt"></use></svg><span class="science-label">kWh</span></span><h3>Kebutuhan energi</h3><p>Dari server hingga pendinginan: pelajari proses di balik layar.</p><span class="card-link">Lihat prosesnya <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span></a>
-    </div>
-  </section>
-  <section class="learning-path"><div class="container path-layout"><div><span class="eyebrow">Dari tahu, jadi lebih bijak</span><h2>Mulai dari<br>rasa ingin tahu.</h2><p>Jelajahi dengan caramu sendiri.<br>Sedikit pemahaman bisa menjadi awal kebiasaan baru.</p><a class="text-link" href="./referensi.html">Baca sumber di baliknya <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div><div class="path-steps">
-    <a href="./edukasi.html"><span class="path-number">1</span><div><h3>Kenali dampaknya</h3><p>Baca materi ringkas tentang AI dan sumber daya.</p></div><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-    <a href="./kalkulator.html"><span class="path-number">2</span><div><h3>Jelajahi estimasinya</h3><p>Masukkan aktivitasmu ke CarbsCulator.</p></div><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-    <a href="./game.html"><span class="path-number">3</span><div><h3>Coba ambil keputusan</h3><p>Uji pemahaman melalui situasi sehari-hari.</p></div><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
-  </div></div></section>
-  <section class="section container"><div class="section-heading"><div><span class="eyebrow">Belajar dengan cara lain</span><h2>Tonton. Mainkan. Pikirkan lagi.</h2></div></div><div class="experience-grid">
-    <a class="campaign-preview" href="./kampanye.html"><div class="campaign-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><svg class="icon planet-leaf" aria-hidden="true"><use href="#i-leaf"></use></svg><span class="play-circle"><svg class="icon" aria-hidden="true"><use href="#i-play"></use></svg></span><span class="visual-caption">Bumi kita. Pilihan kita.</span></div><div class="experience-copy"><span class="eyebrow">Video kampanye</span><h3>Pesan yang layak dibagikan.</h3><p>Mulai percakapan tentang lingkungan bersama teman sekelas.</p><span class="text-link">Tonton videonya <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span></div></a>
+  <section class="section container"><div class="section-heading"><div><h2>Games dan Video Edukasi</h2></div></div><div class="experience-grid">
+    <a class="campaign-preview" href="./kampanye.html"><div class="campaign-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><svg class="icon planet-leaf" aria-hidden="true"><use href="#i-leaf"></use></svg><span class="play-circle"><svg class="icon" aria-hidden="true"><use href="#i-play"></use></svg></span><span class="visual-caption">Bumi kita. Pilihan kita.</span></div><div class="experience-copy"><h3>Video Edukasi</h3><p>Mulai percakapan tentang lingkungan bersama teman sekelas.</p><span class="text-link">Tonton videonya <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span></div></a>
     <a class="game-preview" href="./game.html"><div class="game-preview-art"><span class="pill">5 situasi sehari-hari</span><svg class="icon game-large" aria-hidden="true"><use href="#i-game"></use></svg><div class="preview-choice"><span class="little-check"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span> Pilih. Pelajari. Coba lagi.</div></div><div class="experience-copy"><span class="eyebrow">Game edukasi</span><h3>Kalau kamu, pilih yang mana?</h3><p>Ambil keputusan tentang AI sambil belajar membaca dampaknya.</p><span class="text-link">Mulai bermain <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></span></div></a>
   </div></section>
-  <section class="about-project container" id="tentang"><div><span class="eyebrow">Tentang TraCkO2</span><h2>Dari pelajar,<br>untuk kebiasaan digital yang lebih sadar.</h2><p>TraCkO2 adalah proyek edukasi tim SMA Negeri 2 Semarang. Kami mengajak pelajar memahami sisi lingkungan dari AI melalui materi berbasis sumber, estimasi interaktif, dan pengalaman belajar.</p><a class="text-link" href="/assets/documents/tracko2-proposal.pdf" target="_blank" rel="noopener noreferrer">Baca proposal proyek <svg class="icon" aria-hidden="true"><use href="#i-external"></use></svg><span class="sr-only"> (tab baru)</span></a></div><div class="team-list"><div><img src="/assets/images/hisyam.jpg" alt="" loading="lazy" width="56" height="56"><span>Muhammad Hisyam<small>Tim TraCkO2</small></span></div><div><img src="/assets/images/nadin.jpg" alt="" loading="lazy" width="56" height="56"><span>Nadin Al-Madia Sheraz<small>Tim TraCkO2</small></span></div><div><img src="/assets/images/naufal.jpg" alt="" loading="lazy" width="56" height="56"><span>Naufal Evano<small>Tim TraCkO2</small></span></div></div></section>
+  <!-- site:team -->
 </main><!-- site:footer --></body></html>

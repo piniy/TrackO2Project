@@ -1,0 +1,16 @@
+<div class="calculator-layout calculator-trial" x-data="calculator('trial')">
+  <form class="calculator-form panel" @submit.prevent="calculate">
+    <div class="panel-heading"><h2>Jumlah aktivitas AI</h2><button type="button" class="text-button" @click="example">Isi contoh</button></div>
+    <p class="calculator-description small muted">Masukkan jumlah permintaan untuk setiap jenis aktivitas dalam satu hari.</p>
+    <!-- site:activity-inputs -->
+    <p x-cloak x-show="error" x-text="$t(error)" class="form-error" role="alert"></p>
+    <div class="form-actions"><button class="button" type="submit" x-ref="trialSubmit">Hitung estimasi <span aria-hidden="true">→</span></button><button class="button button-quiet" type="button" @click="reset">Atur ulang</button></div>
+  </form>
+  <dialog class="trial-dialog" x-ref="trialDialog" aria-labelledby="trial-dialog-title" aria-describedby="trial-dialog-description" @cancel.prevent="closeTrial()" @click="onTrialBackdrop($event)">
+    <button class="trial-dialog-close" type="button" @click="closeTrial()" aria-label="Tutup pop-up"><span aria-hidden="true">×</span></button>
+    <h2 id="trial-dialog-title">Lihat hasil perhitunganmu</h2>
+    <p id="trial-dialog-description">Lihat rincian emisi, analogi, dan saran penggunaan AI di CarbsCulator.</p>
+    <div class="trial-dialog-actions"><a class="button" href="./kalkulator.html" :href="trialResultUrl" @click="closeTrial()" autofocus>Lihat hasil <span aria-hidden="true">→</span></a><button class="button button-quiet" type="button" @click="closeTrial()">Ubah input</button></div>
+  </dialog>
+</div>
+<noscript><p class="notice">Aktifkan JavaScript untuk menggunakan kalkulator. <a href="./kalkulator.html#metode">Baca metode dan parameternya.</a></p></noscript>

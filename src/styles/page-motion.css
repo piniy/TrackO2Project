@@ -1,0 +1,37 @@
+/* Deliberate entrances and tangible interaction feedback; no hidden base state. */
+.home-service, .resource-card, .campaign-preview, .game-preview, .reference-card {
+  transition: transform 360ms cubic-bezier(.16,1,.3,1), box-shadow 360ms ease, border-color 260ms ease;
+}
+.button { transition: background 220ms ease, color 220ms ease, transform 300ms cubic-bezier(.16,1,.3,1), box-shadow 300ms ease; }
+.button:active { transform: translateY(0) scale(.96); }
+.stepper button { transition: color 200ms ease, background 200ms ease; }
+.activity-row { border-radius: 8px; transition: background 250ms ease; }
+.activity-row:focus-within { background: #eaf3e5; }
+.filter-tabs button, .result-tabs button, .language-switch button, .ed-metric-switch button {
+  transition: background 260ms ease, color 260ms ease, box-shadow 260ms ease, transform 260ms ease;
+}
+.filter-tabs button:active, .result-tabs button:active, .ed-metric-switch button:active { transform: scale(.95); }
+.ed-bar, .ed-water-bar { transition: width 650ms cubic-bezier(.16,1,.3,1), background 260ms ease; }
+.ed-data-detail { transition: background 300ms ease, border-color 300ms ease; }
+.learning-article details[open] .article-body { animation: reading-open 400ms cubic-bezier(.16,1,.3,1); }
+@media (hover: hover) and (pointer: fine) {
+  .home-service:hover, .resource-card:hover, .reference-card:hover { transform: translateY(-8px); box-shadow: 0 16px 30px #163d321a; }
+  .campaign-preview:hover, .game-preview:hover { transform: translateY(-6px); box-shadow: 0 16px 32px #163d3215; }
+  .button:hover { transform: translateY(-4px); box-shadow: 0 8px 18px #163d3220; }
+}
+.home-service:focus-visible, .resource-card:focus-visible, .reference-card:focus-within { transform: translateY(-4px); box-shadow: 0 10px 22px #163d3215; }
+@media (max-width: 960px) {
+  .js-ready .primary-nav.is-open { animation: navigation-open 320ms cubic-bezier(.16,1,.3,1); }
+}
+@keyframes reading-open { from { opacity: .15; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes navigation-open { from { opacity: .15; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .home-service, .resource-card, .campaign-preview, .game-preview, .reference-card, .button,
+  .activity-row, .stepper button, .filter-tabs button, .result-tabs button, .language-switch button,
+  .ed-metric-switch button, .ed-bar, .ed-water-bar, .ed-data-detail { transition: none; }
+  .button:active, .button:hover, .home-service:hover, .resource-card:hover, .reference-card:hover,
+  .campaign-preview:hover, .game-preview:hover, .home-service:focus-visible, .resource-card:focus-visible,
+  .reference-card:focus-within, .filter-tabs button:active, .result-tabs button:active, .ed-metric-switch button:active { transform: none; }
+  .learning-article details[open] .article-body, .js-ready .primary-nav.is-open { animation: none; }
+}

@@ -22,3 +22,18 @@ export function dominantActivity(result) {
     return activity;
   }, null);
 }
+
+// A comparison within the prototype's own parameters. This is a hypothetical
+// change to a count, not a measurement of emissions avoided in the real world.
+export function oneFewerRequest(result) {
+  const activity = dominantActivity(result);
+  if (!activity || !Number.isSafeInteger(activity.count) || activity.count < 1) return null;
+  const delta = activity.factor;
+  return {
+    activity,
+    before: result.total,
+    after: Math.max(0, Math.round((result.total - delta) * 10) / 10),
+    delta,
+    percent: delta / result.total * 100
+  };
+}

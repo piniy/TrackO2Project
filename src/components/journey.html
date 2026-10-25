@@ -1,6 +1,6 @@
 <section class="prompt-journey" id="jejak-ai" x-data="promptJourney" :class="{ 'is-enhanced': enhanced }" :data-stage="stage" aria-labelledby="journey-heading">
   <div class="journey-pin" x-ref="scene">
-    <div class="journey-top container"><div><h2 id="journey-heading">Di balik <span>satu prompt.</span></h2><p>Ikuti contoh perjalanan AI dari layar ke pusat data.</p></div><a class="journey-skip" href="#carbsculator">Langsung hitung <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"></use></svg></a></div>
+    <div class="journey-top container"><div><h2 id="journey-heading">Di balik <span>satu prompt.</span></h2><p>Ikuti contoh perjalanan AI dari layar ke pusat data.</p></div></div>
     <div class="journey-art container">
       <svg class="journey-svg" viewBox="0 0 1120 360" :view-box.camel="compact ? '0 0 600 520' : '0 0 1120 360'" role="img" aria-labelledby="journey-svg-title journey-svg-desc">
         <title id="journey-svg-title">Perjalanan prompt AI dan jejak karbonnya</title><desc id="journey-svg-desc">Permintaan dari laptop diproses oleh server. Server dan pendinginan membutuhkan listrik. Penyediaan listrik dapat menghasilkan emisi karbon.</desc>
@@ -65,9 +65,11 @@
           <text x="108" y="251" text-anchor="middle" class="scene-label">Pusat data</text>
         </g>
         <g class="motion-node scene-electricity" transform="translate(718 120)" :transform="nodeTransform('electricity')">
+          <circle class="energy-halo" cx="65" cy="59" r="59" fill="#c9e8a3" opacity="0"/>
           <circle class="energy-orbit" cx="65" cy="59" r="64" fill="none" stroke="#d1e2c6" stroke-width="1.5"/>
+          <circle class="energy-current" cx="65" cy="59" r="64" fill="none" stroke="#efffcf" stroke-width="3" stroke-linecap="round"/>
           <circle cx="65" cy="59" r="48" fill="#f3f7ed" stroke="#a3bb8e" stroke-width="1.5"/>
-          <path d="m70 22-29 44h23l-7 31 33-46H67Z" fill="#d7e6b8" stroke="#6f8d44" stroke-width="2" stroke-linejoin="round"/>
+          <path class="energy-bolt" d="m70 22-29 44h23l-7 31 33-46H67Z" fill="#d7e6b8" stroke="#6f8d44" stroke-width="2" stroke-linejoin="round"/>
           <path d="M34 126h63m-57 0v-11h12v11m25 0v-17h12v17" fill="none" stroke="#91aa7b" stroke-width="1.4"/>
           <text x="65" y="158" text-anchor="middle" class="scene-label">Pasokan listrik</text>
         </g>
@@ -77,10 +79,11 @@
           <g fill="#f5eac4"><circle cx="33" cy="-63" r="2"/><circle cx="-56" cy="-26" r="3"/><circle cx="-32" cy="69" r="2"/><circle cx="66" cy="31" r="2.5"/></g>
         </g>
         <g class="motion-node scene-emissions" transform="translate(895 80)" :transform="nodeTransform('emissions')" :style="{ opacity: emissionReveal }">
+          <path class="emission-halo" d="M35 155C-7 154-8 95 32 91c-9-47 57-65 77-25 35-27 80 3 68 40 42 10 34 64-8 64H45Z" fill="#bbd8b0"/>
           <g class="emission-particles"><circle cx="47" cy="41" r="7" fill="#d7e5d2"/><circle cx="152" cy="29" r="12" fill="#e3ebdd"/><circle cx="180" cy="68" r="5" fill="#c7dbc0"/></g>
-          <path d="M35 155C-7 154-8 95 32 91c-9-47 57-65 77-25 35-27 80 3 68 40 42 10 34 64-8 64H45Z" fill="#e6eee1" stroke="#9cb494" stroke-width="1.5"/>
+          <path class="emission-cloud" d="M35 155C-7 154-8 95 32 91c-9-47 57-65 77-25 35-27 80 3 68 40 42 10 34 64-8 64H45Z" fill="#e6eee1" stroke="#9cb494" stroke-width="1.5"/>
           <text x="101" y="133" text-anchor="middle" class="scene-co2">CO₂</text>
-          <g fill="#f6f9f2" stroke="#a3b99a" stroke-width="1.5"><circle cx="62" cy="185" r="8"/><circle cx="103" cy="196" r="4"/><circle cx="140" cy="184" r="6"/></g>
+          <g class="emission-motes" fill="#f6f9f2" stroke="#a3b99a" stroke-width="1.5"><circle cx="62" cy="185" r="8"/><circle cx="103" cy="196" r="4"/><circle cx="140" cy="184" r="6"/></g>
           <text x="101" y="226" text-anchor="middle" class="scene-label">Emisi terkait</text>
         </g>
         </g>

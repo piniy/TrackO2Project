@@ -1,0 +1,60 @@
+/* The selected portrait makes room for its person; the other five remain in view. */
+.team-section { border-top: 1px solid var(--line); padding-block: 68px 80px; }
+.team-section-heading { margin-bottom: 34px; }
+.team-section-heading h2 { font-size: 39px; text-align: center; }
+.team-profile-details { min-height: 150px; margin-bottom: 12px; }
+.team-profile-copy { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; animation: team-profile-reveal 620ms cubic-bezier(.16,1,.3,1) both; }
+.team-profile-identity h3 { max-width: 420px; font-size: clamp(25px, 2.6vw, 34px); line-height: 1.18; letter-spacing: -.8px; }
+.team-profile-job { display: flex; flex-direction: column; gap: 3px; margin-top: 16px; font-size: 12px; color: var(--muted); }
+.team-profile-job > span:first-child { color: var(--green); font-size: 10px; font-weight: 600; }
+.team-profile-quote { margin: 0; padding-left: 26px; border-left: 2px solid #c7d9bf; color: var(--forest); }
+.team-profile-quote p { font-family: var(--display); font-weight: 500; font-size: clamp(19px, 1.8vw, 24px); line-height: 1.5; letter-spacing: -.3px; }
+.team-portraits { display: flex; align-items: end; gap: 14px; min-height: 390px; padding-block: 24px 12px; position: relative; }
+.team-portrait-button { flex: 1 1 0; min-width: 0; padding: 0; border: 0; background: transparent; text-align: left; transform-origin: center bottom; transition: flex-grow 620ms cubic-bezier(.22,.7,.2,1), transform 620ms cubic-bezier(.22,.7,.2,1); }
+.team-portrait-button.is-active { flex-grow: 2.4; transform: translateY(-14px); }
+.team-profile-image { display: grid; place-items: center; width: 100%; height: 230px; overflow: hidden; border: 2px solid transparent; border-radius: 20px; background: #dfe8d8; transition: height 620ms cubic-bezier(.22,.7,.2,1), border-color 400ms ease, box-shadow 620ms ease, background 400ms ease; }
+.team-portrait-button:nth-of-type(even) .team-profile-image { background: #e7ede2; }
+.team-profile-image > img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: saturate(.75); transition: filter 500ms ease; }
+.team-portrait-button.is-active .team-profile-image { height: 320px; border-color: #89ad7c; box-shadow: 0 18px 34px #163d321a; }
+.team-portrait-button.is-active .team-profile-image > img { filter: saturate(1); }
+.team-profile-placeholder { display: grid; place-items: center; width: 76%; max-width: 142px; aspect-ratio: 1; border: 1px solid #98b38c66; border-radius: 50%; background: #ffffff4d; color: #78936b; font-family: var(--display); font-weight: 500; font-size: clamp(27px, 3.2vw, 48px); transition: transform 620ms cubic-bezier(.22,.7,.2,1), background 400ms ease; }
+.team-portrait-button.is-active .team-profile-placeholder { transform: scale(1.08); background: #ffffff80; }
+.team-profile-label { display: block; min-height: 42px; padding: 12px 2px 0; color: var(--muted); font-size: 11px; line-height: 1.5; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; transition: color 400ms ease; }
+.team-portrait-button.is-active .team-profile-label { color: var(--forest); font-weight: 700; }
+.team-portrait-button:focus-visible { outline-offset: 7px; border-radius: 22px; }
+@media (hover: hover) and (pointer: fine) {
+  .team-portrait-button:not(.is-active):hover { transform: translateY(-8px); }
+  .team-portrait-button:not(.is-active):hover .team-profile-image { border-color: #a6bca0; }
+}
+@keyframes team-profile-reveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 960px) {
+  .team-profile-copy { gap: 28px; }
+  .team-portraits { gap: 10px; min-height: 355px; }
+  .team-profile-image { height: 210px; border-radius: 17px; }
+  .team-portrait-button.is-active .team-profile-image { height: 285px; }
+  .team-profile-label { font-size: 10px; }
+}
+@media (max-width: 760px) {
+  .team-section { padding-block: 50px 55px; }
+  .team-section-heading { margin-bottom: 30px; }
+  .team-section-heading h2 { font-size: 32px; }
+  .team-profile-details { min-height: 255px; margin-bottom: 4px; }
+  .team-profile-copy { grid-template-columns: 1fr; gap: 20px; }
+  .team-profile-identity h3 { max-width: 350px; font-size: 27px; }
+  .team-profile-job { margin-top: 12px; }
+  .team-profile-quote { padding-left: 18px; }
+  .team-profile-quote p { font-size: 19px; line-height: 1.5; }
+  .team-portraits { gap: 12px; min-height: 365px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: #b7c9ad transparent; scroll-padding-inline: 12px; padding: 26px 10px 16px; margin-inline: -10px; }
+  .team-portrait-button { flex: 0 0 148px; transition: flex-basis 620ms cubic-bezier(.22,.7,.2,1), transform 620ms cubic-bezier(.22,.7,.2,1); }
+  .team-portrait-button.is-active { flex: 0 0 242px; }
+  .team-profile-image { height: 218px; }
+  .team-portrait-button.is-active .team-profile-image { height: 288px; }
+  .team-profile-placeholder { font-size: 42px; }
+  .team-profile-label { min-height: 40px; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .team-profile-copy { animation: none; }
+  .team-portrait-button, .team-profile-image, .team-profile-image > img, .team-profile-placeholder, .team-profile-label { transition: none; }
+  .team-portrait-button.is-active, .team-portrait-button:not(.is-active):hover { transform: none; }
+  .team-portrait-button.is-active .team-profile-placeholder { transform: none; }
+}
