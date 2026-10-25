@@ -1,0 +1,178 @@
+/* =========================
+   ABOUT HERO
+========================= */
+
+.about-hero{
+
+  height:70vh;
+
+  background-image:url("krbon.jpg");
+
+  background-size:cover;
+
+  background-position:center;
+
+  position:relative;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  text-align:center;
+}
+
+.overlay{
+
+  position:absolute;
+
+  inset:0;
+
+  background:rgba(0,0,0,0.45);
+}
+
+.about-hero-content{
+
+  position:relative;
+
+  z-index:10;
+
+  color:white;
+
+  max-width:700px;
+}
+
+.about-hero-content h1{
+
+  font-size:70px;
+
+  margin-bottom:20px;
+}
+
+.about-hero-content p{
+
+  font-size:20px;
+
+  line-height:1.8;
+}
+
+
+/* =========================
+   TEAM SECTION
+========================= */
+
+.team-section{
+
+  background:#edf4df;
+
+  padding:120px 8%;
+}
+
+.team-title{
+
+  text-align:center;
+
+  font-size:48px;
+
+  color:#3e6f2f;
+
+  margin-bottom:70px;
+}
+
+.team-cards{
+
+  display:grid;
+
+  grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+
+  gap:35px;
+}
+
+.team-card{
+
+  background:white;
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  box-shadow:0 15px 30px rgba(0,0,0,0.1);
+
+  transition:.4s;
+}
+
+.team-card:hover{
+
+  transform:translateY(-15px) scale(1.02);
+}
+
+.team-card img{
+
+  width:100%;
+
+  height:350px;
+
+  object-fit:cover;
+}
+
+.team-content{
+
+  padding:30px;
+}
+
+.team-content h3{
+
+  font-size:28px;
+
+  margin-bottom:10px;
+
+  color:#2f4f23;
+}
+
+.team-content span{
+
+  display:inline-block;
+
+  margin-bottom:18px;
+
+  padding:8px 18px;
+
+  background:#b8d28f;
+
+  border-radius:20px;
+
+  color:#2d5d20;
+
+  font-weight:600;
+}
+
+.team-content p{
+
+  color:#666;
+
+  line-height:1.8;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+  .about-hero-content h1{
+
+    font-size:45px;
+  }
+
+  .about-hero-content p{
+
+    font-size:17px;
+  }
+
+  .team-title{
+
+    font-size:36px;
+  }
+}

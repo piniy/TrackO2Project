@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Tycoon: Balancing Act</title>
+    <style>
+        :root {
+            --bg-color: #eef2f3;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-image 0.8s ease; /* Transisi halus saat gambar berubah */
+    
+    /* Pengaturan gambar latar belakang agar memenuhi layar */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 95vh;
+}
+
+        h1 {
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .subtitle {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #7f8c8d;
+        }
+
+        /* Stats Container */
+        .stats-container {
+            width: 100%;
+            max-width: 500px;
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .stat-row {
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 16px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 50%;
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+
+        /* Specific Colors */
+        #budget-fill { background-color: #2ecc71; }
+        #carbon-fill { background-color: #e74c3c; }
+        #welfare-fill { background-color: #3498db; }
+
+        /* Game Card */
+        .game-card {
+            width: 100%;
+            max-width: 500px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            padding: 25px;
+            box-sizing: border-box;
+            text-align: center;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .question {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .choice-btn {
+            background-color: #34495e;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            width: 100%;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .choice-btn:hover {
+            background-color: #2c3e50;
+            transform: translateY(-2px);
+        }
+
+        .choice-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Game Over Screen */
+        .hidden {
+            display: none !important;
+        }
+
+        #game-over-screen {
+            text-align: center;
+        }
+
+        .restart-btn {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .restart-btn:hover { background-color: #d35400; }
+    </style>
+</head>
+<body>
+
+    <h1>Carbon Tycoon 🌍</h1>
+    <p class="subtitle">Tahun Bertahan: <span id="years-counter">0</span></p>
+
+    <div class="stats-container">
+        <div class="stat-row">
+            <div class="stat-label"><span>💰 Anggaran Kota (Budget)</span><span id="budget-text">50%</span></div>
+            <div class="progress-bar"><div id="budget-fill" class="progress-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-label"><span>☁️ Emisi Karbon (Carbon)</span><span id="carbon-text">40%</span></div>
+            <div class="progress-bar"><div id="carbon-fill" class="progress-fill"></div></div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-label"><span>😊 Kebahagiaan Warga (Welfare)</span><span id="welfare-text">60%</span></div>
+            <div class="progress-bar"><div id="welfare-fill" class="progress-fill"></div></div>
+        </div>
+    </div>
+
+    <div id="game-card" class="game-card">
+        <div id="question" class="question">Memuat pilihan...</div>
+        <div class="choices-container">
+            <button id="btn-optionA" class="choice-btn" onclick="makeChoice('optionA')">Pilihan A</button>
+            <button id="btn-optionB" class="choice-btn" onclick="makeChoice('optionB')">Pilihan B</button>
+        </div>
+    </div>
+
+    <div id="game-over-screen" class="game-card hidden">
+        <h2 id="game-over-title">Game Over!</h2>
+        <p id="game-over-reason">Alasan kekalahan akan muncul di sini.</p>
+        <p>Anda berhasil memimpin kota selama <strong><span id="final-years">0</span> tahun</strong>.</p>
+        <button class="restart-btn" onclick="startGame()">Main Lagi</button>
+    </div>
+
+    <script>
+        // DATA KARTU / PERTANYAAN
+        const databaseCards = [
+            {
+                question: "Kota kekurangan pasokan listrik darurat. Apa sumber energi yang akan dibangun?",
+                optionA: { text: "Bangun PLTU Batubara murah", budget: 20, carbon: 25, welfare: 5 },
+                optionB: { text: "Investasi Ladang Panel Surya mahal", budget: -30, carbon: -20, welfare: 15 }
+            },
+            {
+                question: "Banyak warga mengeluhkan kemacetan parah di pusat kota.",
+                optionA: { text: "Lebarkan jalan raya untuk mobil", budget: -15, carbon: 15, welfare: 10 },
+                optionB: { text: "Subsidi bus listrik & jalur sepeda", budget: -25, carbon: -15, welfare: 15 }
+            },
+            {
+                question: "Investor ingin membangun Mall raksasa di atas lahan hutan kota.",
+                optionA: { text: "Izinkan (Pajak tinggi untuk kota)", budget: 35, carbon: 20, welfare: -10 },
+                optionB: { text: "Tolak dan jadikan Hutan Lindung", budget: -10, carbon: -25, welfare: 20 }
+            },
+            {
+                question: "Sampah plastik menumpuk di tempat pembuangan akhir.",
+                optionA: { text: "Bakar sampah agar cepat habis", budget: -5, carbon: 25, welfare: -15 },
+                optionB: { text: "Buat sistem daur ulang & bank sampah", budget: -20, carbon: -10, welfare: 10 }
+            },
+            {
+                question: "Sekolah-sekolah meminta kurikulum baru mengenai perubahan iklim.",
+                optionA: { text: "Setujui dan beri dana pelatihan", budget: -10, carbon: -5, welfare: 15 },
+                optionB: { text: "Abaikan, fokus pada materi bisnis", budget: 5, carbon: 5, welfare: -10 }
+            }
+        ];
+
+        // STATE GAME (VARIABEL KONTROL)
+        let stats = { budget: 50, carbon: 40, welfare: 60 };
+        let years = 0;
+        let currentCard = {};
+
+        // MEMULAI GAME
+        function startGame() {
+            stats = { budget: 50, carbon: 40, welfare: 60 };
+            years = 0;
+            
+            document.getElementById('game-card').classList.remove('hidden');
+            document.getElementById('game-over-screen').classList.add('hidden');
+            
+            updateUI();
+            nextTurn();
+        }
+
+        // MEMILIH KARTU SECARA ACAK
+        function nextTurn() {
+            const randomIndex = Math.floor(Math.random() * databaseCards.length);
+            currentCard = databaseCards[randomIndex];
+
+            document.getElementById('question').innerText = currentCard.question;
+            document.getElementById('btn-optionA').innerText = currentCard.optionA.text;
+            document.getElementById('btn-optionB').innerText = currentCard.optionB.text;
+        }
+
+        // EKSEKUSI PILIHAN PEMAIN
+        function makeChoice(option) {
+            const effect = currentCard[option];
+
+            // Tambahkan efek ke stats
+            stats.budget = Math.max(0, Math.min(100, stats.budget + effect.budget));
+            stats.carbon = Math.max(0, Math.min(100, stats.carbon + effect.carbon));
+            stats.welfare = Math.max(0, Math.min(100, stats.welfare + effect.welfare));
+
+            years++;
+
+            updateUI();
+
+            // Cek kondisi kalah
+            if (checkGameOver()) {
+                return;
+            }
+
+            nextTurn();
+        }
+
+        // UPDATE TAMPILAN WEB
+        function updateUI() {
+    document.getElementById('years-counter').innerText = years;
+
+    // Update Progress Bars
+    document.getElementById('budget-fill').style.width = stats.budget + '%';
+    document.getElementById('budget-text').innerText = stats.budget + '%';
+
+    document.getElementById('carbon-fill').style.width = stats.carbon + '%';
+    document.getElementById('carbon-text').innerText = stats.carbon + '%';
+
+    document.getElementById('welfare-fill').style.width = stats.welfare + '%';
+    document.getElementById('welfare-text').innerText = stats.welfare + '%';
+
+    // === LOGIKA PERUBAHAN GAMBAR BACKGROUND ===
+    if (stats.carbon > 70) {
+        // Jika karbon tinggi: Kota Berpolusi/Industri
+        document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=1600')"; 
+    } else if (stats.carbon < 35) {
+        // Jika karbon rendah: Kota Hijau/Masa Depan
+        document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1600')"; 
+    } else {
+        // Kondisi Normal: Kota Standar
+        document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1600')"; 
+    }
+}
+
+        // VALIDASI KONDISI KALAH
+        function checkGameOver() {
+            let reason = "";
+            let lost = false;
+
+            if (stats.carbon >= 100) {
+                reason = "Bumi mengalami pemanasan ekstrem! Polusi udara tak terkendali dan kota hancur oleh bencana iklim. 🔥";
+                lost = true;
+            } else if (stats.budget <= 0) {
+                reason = "Kota Anda bangkrut! Tidak ada uang tersisa untuk mengelola fasilitas publik. 💸";
+                lost = true;
+            } else if (stats.welfare <= 0) {
+                reason = "Warga mengamuk dan melakukan demo besar-besaran karena kualitas hidup yang buruk. Anda digulingkan! 😡";
+                lost = true;
+            }
+
+            if (lost) {
+                document.getElementById('game-card').classList.add('hidden');
+                document.getElementById('game-over-screen').classList.remove('hidden');
+                document.getElementById('game-over-reason').innerText = reason;
+                document.getElementById('final-years').innerText = years;
+                return true;
+            }
+            return false;
+        }
+
+        // JALANKAN GAME PERTAMA KALI SAAT WEBSITE DIBUKA
+        window.onload = startGame;
+    </script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Track02 Login</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      height:100vh;
+      overflow:hidden;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      background:
+      linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+      url("krbon.jpg");
+
+      background-size:cover;
+      background-position:center;
+    }
+
+    .login-box{
+
+      width:400px;
+
+      background:rgba(255,255,255,0.12);
+
+      backdrop-filter:blur(12px);
+
+      border:1px solid rgba(255,255,255,0.2);
+
+      border-radius:35px;
+
+      padding:40px;
+
+      text-align:center;
+
+      box-shadow:0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    .character{
+
+      width:180px;
+      height:180px;
+
+      background:#b8d28f;
+
+      border-radius:50%;
+
+      margin:0 auto 30px;
+
+      position:relative;
+
+      overflow:hidden;
+
+      box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    /* EYES */
+
+    .eye{
+
+      width:45px;
+      height:45px;
+
+      background:white;
+
+      border-radius:50%;
+
+      position:absolute;
+
+      top:60px;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .eye.left{
+      left:38px;
+    }
+
+    .eye.right{
+      right:38px;
+    }
+
+    .pupil{
+
+      width:18px;
+      height:18px;
+
+      background:#222;
+
+      border-radius:50%;
+
+      position:absolute;
+
+      transition:0.05s linear;
+    }
+
+    /* SMILE */
+
+    .mouth{
+
+      width:70px;
+      height:35px;
+
+      border-bottom:6px solid #2f4f23;
+
+      border-radius:0 0 60px 60px;
+
+      position:absolute;
+
+      bottom:40px;
+      left:50%;
+
+      transform:translateX(-50%);
+    }
+
+    h1{
+
+      color:white;
+
+      margin-bottom:25px;
+
+      font-size:38px;
+    }
+
+    .input-box{
+
+      margin-bottom:20px;
+    }
+
+    .input-box input{
+
+      width:100%;
+
+      padding:16px 20px;
+
+      border:none;
+
+      border-radius:30px;
+
+      outline:none;
+
+      font-size:16px;
+    }
+
+    .login-btn{
+
+      width:100%;
+
+      padding:16px;
+
+      border:none;
+
+      border-radius:30px;
+
+      background:#4f8a38;
+
+      color:white;
+
+      font-size:18px;
+
+      font-weight:600;
+
+      cursor:pointer;
+
+      transition:0.3s;
+    }
+
+    .login-btn:hover{
+
+      background:#366b25;
+
+      transform:translateY(-3px);
+    }
+
+    .bottom-text{
+
+      margin-top:20px;
+
+      color:white;
+
+      font-size:14px;
+    }
+
+    .bottom-text a{
+
+      color:#b8d28f;
+
+      text-decoration:none;
+
+      font-weight:600;
+    }
+    .google-btn{
+  width:100%;
+  padding:16px;
+  margin-top:15px;
+
+  border:none;
+  border-radius:30px;
+
+  background:white;
+  color:#333;
+
+  font-size:18px;
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.google-btn:hover{
+  transform:translateY(-3px);
+  background:#f1f1f1;
+}
+
+  </style>
+
+</head>
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup
+}
+from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBPIhrGW1Jblwp84guhydvxLc9BMMuk8ZE",
+  authDomain: "track02smanda.firebaseapp.com",
+  projectId: "track02smanda",
+  storageBucket: "track02smanda.firebasestorage.app",
+  messagingSenderId: "703953923222",
+  appId: "1:703953923222:web:b0c84fe440d89d90d0a6b7"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const provider = new GoogleAuthProvider();
+
+document
+.getElementById("googleLogin")
+.addEventListener("click", async () => {
+
+  try{
+
+    const result =
+      await signInWithPopup(auth, provider);
+
+    const user = result.user;
+
+    localStorage.setItem(
+      "username",
+      user.displayName
+    );
+
+    localStorage.setItem(
+      "email",
+      user.email
+    );
+
+    localStorage.setItem(
+      "photo",
+      user.photoURL
+    );
+
+    window.location.href = "index.html";
+
+  }catch(error){
+
+    alert(error.message);
+
+  }
+
+});
+
+</script>
+<body>
+
+  <div class="login-box">
+
+    <!-- CHARACTER -->
+    <div class="character">
+
+      <div class="eye left">
+        <div class="pupil" id="leftPupil"></div>
+      </div>
+
+      <div class="eye right">
+        <div class="pupil" id="rightPupil"></div>
+      </div>
+
+      <div class="mouth"></div>
+
+    </div>
+
+    <h1>Login</h1>
+
+    <div class="input-box">
+      <input type="text" placeholder="Username">
+    </div>
+
+    <div class="input-box">
+      <input type="password" placeholder="Password">
+    </div>
+
+    <button class="login-btn" id="loginBtn">
+  Sign In
+</button>
+<button class="google-btn" id="googleLogin">
+  🔵 Sign In with Google
+</button>
+
+    <div class="bottom-text">
+      Track02 © 2026
+    </div>
+
+  </div>
+
+  <script>
+
+    const pupils = document.querySelectorAll(".pupil");
+
+    document.addEventListener("mousemove", (e) => {
+
+      pupils.forEach((pupil) => {
+
+        const eye = pupil.parentElement;
+
+        const rect = eye.getBoundingClientRect();
+
+        const eyeX = rect.left + rect.width / 2;
+        const eyeY = rect.top + rect.height / 2;
+
+        const angle = Math.atan2(
+          e.clientY - eyeY,
+          e.clientX - eyeX
+        );
+
+        const moveX = Math.cos(angle) * 10;
+        const moveY = Math.sin(angle) * 10;
+
+        pupil.style.transform =
+          `translate(${moveX}px, ${moveY}px)`;
+
+      });
+
+    });
+
+  </script>
+<script>
+
+  const loginBtn = document.getElementById("loginBtn");
+
+  loginBtn.addEventListener("click", () => {
+
+    const username =
+      document.querySelector('input[type="text"]').value;
+
+    const password =
+      document.querySelector('input[type="password"]').value;
+
+    // validasi
+    if(username === "" || password === ""){
+
+      alert("Please fill username and password!");
+
+      return;
+    }
+
+    // simpan username & password
+    localStorage.setItem("username", username);
+
+    localStorage.setItem("password", password);
+
+    // kembali ke home
+    window.location.href = "index.html";
+
+  });
+
+</script>
+</body>
+</html>
