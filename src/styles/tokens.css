@@ -1,0 +1,17 @@
+:root {
+  --forest: #163d32;
+  --green: #347b57;
+  --mint: #d8efdf;
+  --water: #dcecf5;
+  --paper: #f8faf7;
+  --ink: #23372e;
+  --muted: #647168;
+  --line: #dfe6df;
+  --white: #ffffff;
+  --orange: #f3e6cf;
+  --purple: #eae5f3;
+  --display: 'Outfit', sans-serif;
+  --body: 'Plus Jakarta Sans', sans-serif;
+  --radius: 22px;
+  --shadow: 0 18px 55px #163d320a;
+}

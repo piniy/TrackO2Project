@@ -1,0 +1,22 @@
+{
+  "name": "tracko2-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "TraCkO2: an educational website about the environmental footprint of AI",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {
+    "@fontsource/outfit": "5.3.0",
+    "@fontsource/plus-jakarta-sans": "5.3.0",
+    "alpinejs": "3.17.5"
+  },
+  "devDependencies": {
+    "vite": "8.3.5"
+  },
+  "engines": { "node": ">=22.12.0" }
+}

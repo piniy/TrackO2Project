@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Track02</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2=family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script type="module" src="firebase.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="TraCkO (420 x 100 mm)_20260513_113737_0000.png" alt="Logo">
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#education">Edukasi</a>
+      <a href="#calculator">Kalkulator Emisi Karbon</a>
+      <a href="#game">Game Emisi Karbon</a>
+      <a href="#ab">Tentang Kami</a>
+    </nav>
+
+    <div class="user-name" id="userName"></div>
+    <a href="login.html" class="login-btn" id="loginLink">Sign In</a>
+  </header>
+
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content reveal">
+      <h1>Hitung Emisi Karbonmu Sekarang!</h1>
+      <p>
+        Tahukah Anda bahwa menggunakan AI untuk menghasilkan satu gambar dapat menghasilkan emisi karbon lebih banyak daripada mengisi daya penuh ponsel cerdas Anda?
+      </p>
+      <a href="#education" class="hero-btn">Jelajah Sekarang</a>
+    </div>
+  </section>
+
+  <section class="services-section">
+    <h2 class="section-title">Layanan</h2>
+
+    <div class="services-grid">
+      <div class="service-item">
+        <a href="#education">
+          📚 <span>Edukasi</span>
+        </a>
+      </div>
+
+      <div class="service-item">
+        <a href="#calculator">
+          🧮 <span>Hitung Emisi Karbon Yuk</span>
+        </a>
+      </div>
+
+      <div class="service-item">
+        <a href="#game">
+          🎮 <span>Game Emisi Karbon</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards-section" id="education">
+    <h2 class="section-title reveal">Edukasi</h2>
+
+    <div class="cards">
+      <div class="card reveal">
+        <div class="card-content">
+          <h3>Apakah Kamu Tahu ?</h3>
+          <p>
+            Menurut penelitian oleh (Shanji Yao dkk., 2025), AI meningkatkan produktivitas karbon dengan mengoptimalkan struktur industri, mempercepat inovasi teknologi hijau, dan meningkatkan efisiensi alokasi sumber daya untuk mengurangi limbah. Dampak positif ini mengikuti efek ambang batas, artinya manfaat lingkungan dari AI hanya akan melebihi biaya energinya setelah suatu wilayah mencapai tingkat kematangan ekonomi dan digital tertentu. Pada akhirnya, AI mengkonfigurasi ulang produksi tradisional menjadi sistem yang lebih cerdas dan bersih dengan mengintegrasikan pemantauan lingkungan dan biaya emisi secara langsung ke dalam pengambilan keputusan perusahaan.
+          </p>
+          <a href="https://www.frontiersin.org/journals/environmental-science/articles/10.3389/fenvs.2025.1603633/full" target="_blank" class="learn-btn">
+            Pelajari
+          </a>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-content">
+          <h3>Skala Emisi Karbon AI</h3>
+          <p>
+            📊 Skala Emisi Aktivitas AI <br>
+            Setiap instruksi (prompt) yang kita berikan ke AI membutuhkan daya komputasi yang berbeda di pusat data. Berdasarkan studi ilmiah internasional (Luccioni et al., 2023), berikut adalah perbandingan nyata jumlah emisi karbon yang dihasilkan per satu kali interaksi.
+          </p>
+          <img src="d23.png" alt="AI Carbon Emission Chart" class="chart-image">
+          <p>
+            Proses komputasi piksel untuk Membuat 1 Gambar Baru membutuhkan energi yang sangat masif. Emisi yang dilepaskan setara dengan melakukan 22x merangkum teks atau 450x tanya jawab pendek dalam satu waktu!
+            Meskipun angka per prompt terlihat kecil dalam hitungan gram, akumulasi penggunaan harian oleh jutaan pelajar di seluruh dunia menciptakan jejak karbon raksasa yang membebani bumi kita.
+          </p>
+          <a href="https://www.jmlr.org/papers/volume24/23-0069/23-0069.pdf" target="_blank" class="learn-btn">
+            Pelajari
+          </a>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-content">
+          <h3>Solusi</h3>
+          <p>
+            Langkah Nyata Menjadi Wise User<br>
+            Menyelamatkan bumi bukan berarti kita harus berhenti total menggunakan teknologi. Kuncinya ada pada efisiensi. Sebagai pelajar, kamu bisa menekan angka emisi digital secara signifikan dengan menerapkan 3 kebiasaan hijau berikut:
+          </p>
+          <p>
+            <strong>Terapkan Konstruksi Prompt Efektif</strong><br>
+            Buat instruksi yang jelas, spesifik, dan langsung pada inti tugas sejak awal. Cara ini menghindari proses generasi ulang (re-prompt) berulang kali yang membuang-buang energi listrik pusat data secara sia-sia.
+          </p>
+          <p>
+            <strong>Batasi Fitur Generatif Gambar</strong><br>
+            Gunakan fitur pembuat gambar AI (Text-to-Image) hanya saat benar-benar krusial atau sangat dibutuhkan untuk visualisasi tugas. Ingat, emisi 1 gambar setara dengan energi ratusan kali chat teks biasa!
+          </p>
+          <p>
+            <strong>Jaga Keseimbangan Kognitif</strong><br>
+            Jadikan AI murni sebagai asisten untuk memantik ide awal atau mencari referensi, bukan untuk menyalin tugas secara utuh. Utamakan analisis dan pemikiran kritismu sendiri agar kreativitasmu tetap tajam sekaligus menghemat daya komputasi bumi.
+          </p>
+          <p>
+            <em>"Mulai dari Diri Sendiri!"</em><br><br>
+            Langkah kecilmu dalam menghemat prompt hari ini adalah investasi oksigen yang berharga untuk masa depan bumi. Yuk, langsung uji seberapa hijau aktivitas digitalmu lewat fitur CarbsCulator di bawah ini! 👇
+          </p>
+          <a href="#calculator" class="card-btn">Hitung Emisimu Sekarang</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-image reveal-left">
+      <video autoplay muted loop controls>
+        <source src="Efek rumah kaca itu apa sih_.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="about-text reveal-right">
+      <h2>Cek Video Ini!</h2>
+      <p>
+        Mengapa emisi karbon yang dihasilkan dari penggunaan AI dapat mengancam lingkungan? Meskipun kontribusinya masih kecil, seiring waktu hal itu pada akhirnya akan menjadi masalah besar.
+      </p>
+      <a href="https://www.youtube.com/results?search_query=hubungan+ai+dengan+peningkatan+gas+emisi+karbon" target="_blank" class="learn-btn">
+        Learn More
+      </a>
+    </div>
+  </section>
+
+  <div class="calculate-result" id="calculateResult">
+    Carbon emission result: <span id="resultText">0%</span>
+  </div>
+
+  <section class="carbon-section reveal" id="calculator">
+    <div class="carbon-box">
+      <h2>Kalkulator Emisi Karbon AI</h2>
+
+      <div class="activity-item">
+        <label for="chatCount">Tanya Jawab Singkat (0.1 g CO₂e)</label>
+        <input type="number" id="chatCount" min="0" value="0">
+      </div>
+
+      <div class="activity-item">
+        <label for="summaryCount">Merangkum Teks (0.5 g CO₂e)</label>
+        <input type="number" id="summaryCount" min="0" value="0">
+      </div>
+
+      <div class="activity-item">
+        <label for="longTextCount">Menulis Teks Panjang (2 g CO₂e)</label>
+        <input type="number" id="longTextCount" min="0" value="0">
+      </div>
+
+      <div class="activity-item">
+        <label for="imageCount">Generasi Gambar (4.5 g CO₂e)</label>
+        <input type="number" id="imageCount" min="0" value="0">
+      </div>
+
+      <button id="calculateCarbon">HITUNG EMISI</button>
+
+      <div class="result-box">
+        <h3>Total Emisi</h3>
+        <p id="carbonResult">0 gram CO₂e</p>
+      </div>
+    </div>
+
+    <div class="article-box">
+      <img id="carbonImage" src="krtun.jpg" alt="Analogi Emisi">
+      <h3 id="carbonTitle">🌍 Ayo Hitung Emisi Karbonmu!</h3>
+      <p id="carbonDescription">
+        🤖✨ Masukkan aktivitas AI yang kamu lakukan,
+        lalu lihat berapa jejak karbon digital yang
+        dihasilkan hari ini. Yuk jadi pengguna AI yang
+        lebih bijak dan ramah lingkungan! 🌱💚
+      </p>
+    </div>
+  </section>
+
+  <section class="game-preview reveal" id="game">
+    <div class="game-box">
+      <div class="game-text">
+        <h2>🎮 Carbon Emission Game</h2>
+        <p>
+          Kelola kota, jaga anggaran, kurangi emisi karbon,
+          dan tingkatkan kesejahteraan warga.
+        </p>
+        <a href="game.html" class="play-btn">Mainkan Sekarang</a>
+      </div>
+
+      <div class="game-image">
+        <img src="j12.png" alt="Carbon Tycoon">
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section" id="ab">
+    <h2 class="team-title reveal">Meet The Team</h2>
+
+    <div class="team-cards">
+      <div class="team-card reveal">
+        <img src="h1.jpeg" alt="Muhammad Hisyam Adz Dzaki">
+        <div class="team-content">
+          <h3>Muhammad Hisyam Adz Dzaki</h3>
+          <span>Frontend Developer</span>
+          <p>
+            Saya sangat antusias dengan pengembangan web, desain UI/UX, dan membangun proyek teknologi kreatif yang meningkatkan kesadaran terhadap isu-isu lingkungan.
+          </p>
+        </div>
+      </div>
+
+      <div class="team-card reveal">
+        <img src="n1.jpeg" alt="Nadine Al Madia Sheraz">
+        <div class="team-content">
+          <h3>Nadine Al Madia Sheraz</h3>
+          <span>Research & Design</span>
+          <p>
+            Berfokus pada penelitian lingkungan, ide keberlanjutan, dan menciptakan konsep visual yang menarik untuk TraCkO2.
+          </p>
+        </div>
+      </div>
+
+      <div class="team-card reveal">
+        <img src="v1.jpeg" alt="Naufal Evano">
+        <div class="team-content">
+          <h3>Naufal Evano</h3>
+          <span>Project Analyst</span>
+          <p>
+            Tertarik dengan inovasi teknologi dan menganalisis bagaimana penggunaan AI dapat memengaruhi emisi karbon di masa depan.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h2>Track02</h2>
+        <p>
+          TrackO2 is a platform that helps users understand the carbon emissions generated from AI usage and raises awareness about environmental sustainability.
+        </p>
+      </div>
+
+      <div class="footer-school">
+        <h3>SMAN 2 SEMARANG</h3>
+        <p>
+          SMA Negeri 2 Semarang is one of the leading senior high schools in Semarang that supports innovation, technology, and environmental awareness.
+        </p>
+        <div class="map-box">
+          <iframe
+            src="https://www.google.com/maps?q=SMAN+2+Semarang&output=embed"
+            width="100%"
+            height="250"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
+           Bled
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2026 Track02 — All Rights Reserved
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const savedUser =
+  localStorage.getItem("username");
+
+const userNameBox =
+  document.getElementById("userName");
+
+if(savedUser){
+
+  userNameBox.innerHTML = `
+    👋 ${savedUser}
+    <button id="logoutBtn" class="logout-btn">
+      Logout
+    </button>
+  `;
+
+  loginLink.style.display = "none";
+}
+  </script>
+</body>
+</html>

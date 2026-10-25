@@ -1,0 +1,103 @@
+<section class="prompt-journey" id="jejak-ai" x-data="promptJourney" :class="{ 'is-enhanced': enhanced }" :data-stage="stage" aria-labelledby="journey-heading">
+  <div class="journey-pin" x-ref="scene">
+    <div class="journey-top container"><div><h2 id="journey-heading">Di balik <span>satu prompt.</span></h2><p>Ikuti contoh perjalanan AI dari layar ke pusat data.</p></div><a class="journey-skip" href="#carbsculator">Langsung hitung <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"></use></svg></a></div>
+    <div class="journey-art container">
+      <svg class="journey-svg" viewBox="0 0 1120 360" :view-box.camel="compact ? '0 0 600 520' : '0 0 1120 360'" role="img" aria-labelledby="journey-svg-title journey-svg-desc">
+        <title id="journey-svg-title">Perjalanan prompt AI dan jejak karbonnya</title><desc id="journey-svg-desc">Permintaan dari laptop diproses oleh server. Server dan pendinginan membutuhkan listrik. Penyediaan listrik dapat menghasilkan emisi karbon.</desc>
+        <defs>
+          <pattern id="journey-grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#b8cbbb"/></pattern>
+          <linearGradient id="journey-screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9fcf7"/><stop offset="1" stop-color="#e7f0e4"/></linearGradient>
+          <radialGradient id="journey-burst"><stop stop-color="#fff8d5"/><stop offset=".3" stop-color="#e9d28c" stop-opacity=".8"/><stop offset="1" stop-color="#adcfa0" stop-opacity="0"/></radialGradient>
+          <g id="journey-rack">
+            <path d="M0 12 17 0h55L55 12Z" fill="#d4e3d2" stroke="#93ad93" stroke-width="1.4"/>
+            <path d="m55 12 17-12v152l-17 12Z" fill="#b7ceb9" stroke="#8ca68b" stroke-width="1.4"/>
+            <rect y="12" width="55" height="152" rx="4" fill="#f9fcf6" stroke="#88a584" stroke-width="1.4"/>
+            <rect x="7" y="24" width="41" height="34" rx="3" fill="#e3eddf"/>
+            <rect x="7" y="66" width="41" height="34" rx="3" fill="#e3eddf"/>
+            <rect x="7" y="108" width="41" height="34" rx="3" fill="#e3eddf"/>
+            <g class="rack-leds" fill="var(--server-led, #9bb995)" style="opacity: var(--led-strength, 1)"><circle cx="15" cy="35" r="3"/><circle cx="15" cy="77" r="3"/><circle cx="15" cy="119" r="3"/></g>
+            <g stroke="#8ba685" stroke-width="1.5" stroke-linecap="round"><path d="M24 35h15m-15 7h15M24 77h15m-15 7h15M24 119h15m-15 7h15"/></g>
+            <g fill="#9ab18f"><circle cx="12" cy="150" r="1.5"/><circle cx="18" cy="150" r="1.5"/><circle cx="24" cy="150" r="1.5"/></g>
+          </g>
+        </defs>
+        <rect class="journey-grid" x="0" y="10" width="1120" height="330" rx="30" fill="url(#journey-grid)" :width="compact ? 600 : 1120" :height="compact ? 500 : 330" opacity=".3"/>
+        <g class="journey-camera" :transform="cameraTransform">
+        <g class="journey-routes" fill="none" stroke-linecap="round">
+          <path class="route-base" d="M285 190C330 190 330 180 385 180" :d="connectionPath(0)"/>
+          <path class="route-base" d="M610 178H718" :d="connectionPath(1)"/>
+          <path class="route-base" d="M840 178C865 178 875 170 913 170" :d="connectionPath(2)"/>
+          <path class="route-glow" pathLength="1" :d="connectionPath(0)" :style="{ strokeDashoffset: 1 - route(0) }"/>
+          <path class="route-glow" pathLength="1" :d="connectionPath(1)" :style="{ strokeDashoffset: 1 - route(1) }"/>
+          <path class="route-glow" pathLength="1" :d="connectionPath(2)" :style="{ strokeDashoffset: 1 - route(2) }"/>
+          <path class="route-trace" pathLength="1" d="M285 190C330 190 330 180 385 180" :d="connectionPath(0)" :style="{ strokeDashoffset: 1 - route(0) }"/>
+          <path class="route-trace" pathLength="1" d="M610 178H718" :d="connectionPath(1)" :style="{ strokeDashoffset: 1 - route(1) }"/>
+          <path class="route-trace" pathLength="1" d="M840 178C865 178 875 170 913 170" :d="connectionPath(2)" :style="{ strokeDashoffset: 1 - route(2) }"/>
+        </g>
+        <g class="journey-signals" fill="#efffd0">
+          <circle class="signal-halo" r="13" opacity="0" :cx="signal(0).x" :cy="signal(0).y" :opacity="signal(0).opacity"/>
+          <circle r="5" opacity="0" :cx="signal(0).x" :cy="signal(0).y" :opacity="signal(0).opacity"/>
+          <circle r="3" opacity="0" :cx="signal(0, .025).x" :cy="signal(0, .025).y" :opacity="signal(0, .025).opacity"/>
+          <circle class="signal-halo" r="13" opacity="0" :cx="signal(1).x" :cy="signal(1).y" :opacity="signal(1).opacity"/>
+          <circle r="5" opacity="0" :cx="signal(1).x" :cy="signal(1).y" :opacity="signal(1).opacity"/>
+          <circle r="3" opacity="0" :cx="signal(1, .025).x" :cy="signal(1, .025).y" :opacity="signal(1, .025).opacity"/>
+          <circle class="signal-halo" r="13" opacity="0" :cx="signal(2).x" :cy="signal(2).y" :opacity="signal(2).opacity"/>
+          <circle r="5" opacity="0" :cx="signal(2).x" :cy="signal(2).y" :opacity="signal(2).opacity"/>
+          <circle r="3" opacity="0" :cx="signal(2, .025).x" :cy="signal(2, .025).y" :opacity="signal(2, .025).opacity"/>
+        </g>
+        <g class="motion-node scene-prompt" transform="translate(35 105)" :transform="nodeTransform('prompt')">
+          <ellipse cx="118" cy="153" rx="132" ry="13" fill="#dfeadb"/>
+          <rect x="10" y="1" width="220" height="139" rx="11" fill="#d8e7d4" stroke="#7f9b7c" stroke-width="1.5"/>
+          <rect x="18" y="9" width="204" height="122" rx="6" fill="url(#journey-screen)"/>
+          <path d="M0 140h240l-15 11H15Z" fill="#d7e3d2" stroke="#8ca187" stroke-width="1.5"/>
+          <path d="M99 141h42l-5 5h-32Z" fill="#a9bfa1"/>
+          <g class="prompt-bubble"><rect x="38" y="32" width="165" height="75" rx="11" fill="#fff" stroke="#c5d6bf"/>
+            <circle cx="54" cy="48" r="3" fill="#81a279"/><text x="66" y="52" class="scene-micro">Kamu</text>
+            <text x="52" y="75" class="scene-prompt-text" x-text="promptLine(0)">Bantu ringkas</text><text x="52" y="94" class="scene-prompt-text" x-text="promptLine(1)">materi ini.</text>
+            <rect class="prompt-cursor" x="123" y="82" :x="cursorX" :y="cursorY" width="2" height="15" fill="#347b57"/>
+          </g>
+          <text x="120" y="185" text-anchor="middle" class="scene-label">Promptmu</text>
+        </g>
+        <g class="motion-node scene-servers" transform="translate(385 65)" :transform="nodeTransform('servers')">
+          <ellipse cx="106" cy="219" rx="128" ry="19" fill="#e1ebdc"/>
+          <path class="server-halo" d="M-17 74 116 2l116 51v144l-130 55-119-48Z" fill="#dcebd4" opacity=".4"/>
+          <use class="rack-bank bank-a" href="#journey-rack" x="0" y="45"/><use class="rack-bank bank-b" href="#journey-rack" x="72" y="24"/><use class="rack-bank bank-c" href="#journey-rack" x="144" y="3"/>
+          <g class="server-compute" fill="none" stroke="#709568" stroke-width="1.2"><path d="M72 204h33v-17m15 10v20h39m-36-26 16-8"/><circle cx="105" cy="184" r="3"/><circle cx="162" cy="217" r="3"/><circle cx="141" cy="181" r="3"/></g>
+          <text x="108" y="251" text-anchor="middle" class="scene-label">Pusat data</text>
+        </g>
+        <g class="motion-node scene-electricity" transform="translate(718 120)" :transform="nodeTransform('electricity')">
+          <circle class="energy-orbit" cx="65" cy="59" r="64" fill="none" stroke="#d1e2c6" stroke-width="1.5"/>
+          <circle cx="65" cy="59" r="48" fill="#f3f7ed" stroke="#a3bb8e" stroke-width="1.5"/>
+          <path d="m70 22-29 44h23l-7 31 33-46H67Z" fill="#d7e6b8" stroke="#6f8d44" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M34 126h63m-57 0v-11h12v11m25 0v-17h12v17" fill="none" stroke="#91aa7b" stroke-width="1.4"/>
+          <text x="65" y="158" text-anchor="middle" class="scene-label">Pasokan listrik</text>
+        </g>
+        <g class="energy-burst" opacity="0" :opacity="burstOpacity" :transform="'translate(2190 180) scale(' + (.25 + burstPhase * 3) + ')'">
+          <circle r="90" fill="url(#journey-burst)"/><circle r="33" fill="none" stroke="#f2daa0" stroke-width="1.5"/><circle r="47" fill="none" stroke="#b5d6aa" stroke-width=".6"/>
+          <path d="M0-65v-20M46-46l14-14M65 0h20M46 46l14 14M0 65v20M-46 46l-14 14M-65 0h-20M-46-46l-14-14" fill="none" stroke="#f1dda6" stroke-width="2" stroke-linecap="round"/>
+          <g fill="#f5eac4"><circle cx="33" cy="-63" r="2"/><circle cx="-56" cy="-26" r="3"/><circle cx="-32" cy="69" r="2"/><circle cx="66" cy="31" r="2.5"/></g>
+        </g>
+        <g class="motion-node scene-emissions" transform="translate(895 80)" :transform="nodeTransform('emissions')" :style="{ opacity: emissionReveal }">
+          <g class="emission-particles"><circle cx="47" cy="41" r="7" fill="#d7e5d2"/><circle cx="152" cy="29" r="12" fill="#e3ebdd"/><circle cx="180" cy="68" r="5" fill="#c7dbc0"/></g>
+          <path d="M35 155C-7 154-8 95 32 91c-9-47 57-65 77-25 35-27 80 3 68 40 42 10 34 64-8 64H45Z" fill="#e6eee1" stroke="#9cb494" stroke-width="1.5"/>
+          <text x="101" y="133" text-anchor="middle" class="scene-co2">CO₂</text>
+          <g fill="#f6f9f2" stroke="#a3b99a" stroke-width="1.5"><circle cx="62" cy="185" r="8"/><circle cx="103" cy="196" r="4"/><circle cx="140" cy="184" r="6"/></g>
+          <text x="101" y="226" text-anchor="middle" class="scene-label">Emisi terkait</text>
+        </g>
+        </g>
+      </svg>
+    </div>
+    <nav class="journey-chapters container" aria-label="Tahap perjalanan prompt">
+      <button type="button" @click="goTo(0)" :aria-current="stage === 0 ? 'step' : null" :class="{ 'is-current': stage === 0, 'is-done': stage > 0 }"><span>1</span>Prompt</button>
+      <button type="button" @click="goTo(1)" :aria-current="stage === 1 ? 'step' : null" :class="{ 'is-current': stage === 1, 'is-done': stage > 1 }"><span>2</span>Pusat data</button>
+      <button type="button" @click="goTo(2)" :aria-current="stage === 2 ? 'step' : null" :class="{ 'is-current': stage === 2, 'is-done': stage > 2 }"><span>3</span>Listrik</button>
+      <button type="button" @click="goTo(3)" :aria-current="stage === 3 ? 'step' : null" :class="{ 'is-current': stage === 3 }"><span>4</span>Emisi</button>
+    </nav>
+    <div class="journey-copy container" aria-live="polite" aria-atomic="true">
+      <article :class="{ 'is-current': stage === 0 }"><h2>Kamu mengirim sebuah pertanyaan.</h2><p>Pada contoh ini, prompt dari perangkatmu dikirim ke model AI di pusat data.</p></article>
+      <article :class="{ 'is-current': stage === 1 }"><h2>Di balik layar, komputer bekerja.</h2><p>Server menjalankan model untuk mengolah permintaan dan menghasilkan jawaban.</p></article>
+      <article :class="{ 'is-current': stage === 2 }"><h2>Proses ini membutuhkan listrik.</h2><p>Server dan sistem pendingin memakai energi agar pusat data tetap bekerja.</p></article>
+      <article :class="{ 'is-current': stage === 3 }"><h2>Ada jejak di balik energinya.</h2><p>Penyediaan listrik dapat menimbulkan emisi. Besarnya bergantung pada sumber listrik dan kondisi komputasi.</p><a class="text-link journey-next" href="#carbsculator">Sekarang, coba hitung aktivitasmu <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"></use></svg></a></article>
+    </div>
+    <div class="journey-scroll-cue" aria-hidden="true"><span></span><span class="journey-cue-text" x-text="$t(stage === 0 ? 'Gulir untuk mengirim prompt' : 'Gulir untuk melanjutkan')">Gulir untuk mengirim prompt</span></div>
+  </div>
+</section>

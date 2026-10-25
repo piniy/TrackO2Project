@@ -1,0 +1,53 @@
+.welcome-hero { min-height: calc(100svh - 88px); display: flex; flex-direction: column; justify-content: center; padding-block: 48px 22px; background: var(--paper); }
+.welcome-layout { display: grid; grid-template-columns: 1.3fr 1fr; align-items: center; gap: 55px; flex: 1; }
+.welcome-label { font-size: 11px; font-weight: 600; color: var(--green); margin-bottom: 23px; }
+.welcome-copy h1 { font-size: clamp(45px, 4.65vw, 67px); line-height: 1.12; letter-spacing: -2px; }
+.welcome-copy h1 > span { color: var(--green); }
+.welcome-description { font-size: 14px; line-height: 1.95; color: var(--muted); max-width: 460px; margin-block: 25px 28px; }
+.welcome-note { font-size: 10px; color: #74836c; margin-top: 21px; }
+.welcome-visual { min-width: 0; }
+.welcome-globe { display: block; width: 100%; max-height: 470px; }
+.welcome-topic text { font: 500 28px var(--display); letter-spacing: -1px; fill: #75946a; }
+.welcome-energy text { fill: #a58c5d; font-size: 25px; }
+.welcome-topics { display: flex; align-items: center; justify-content: center; gap: 34px; font-size: 10px; color: #71826a; margin-top: -10px; }
+.welcome-topics > span::before { content: ''; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #95b58b; vertical-align: middle; margin-right: 7px; }
+.welcome-topics > span:nth-child(2)::before { background: #9dbbc9; }
+.welcome-topics > span:nth-child(3)::before { background: #c7b389; }
+.welcome-scroll { display: inline-flex; align-items: center; justify-content: center; align-self: center; gap: 12px; padding-top: 30px; font-size: 10px; color: #6b8163; }
+.welcome-scroll > .icon { width: 17px; height: 17px; }
+#jejak-ai { scroll-margin-top: 0; }
+@media (max-width: 1180px) {
+  .welcome-layout { gap: 30px; }
+  .welcome-copy h1 { font-size: 53px; }
+}
+@media (max-width: 960px) {
+  .welcome-hero { min-height: calc(100svh - 76px); }
+  .welcome-copy h1 { font-size: 43px; }
+  .welcome-description { font-size: 12px; }
+  .welcome-layout { gap: 15px; grid-template-columns: 1.2fr 1fr; }
+  .welcome-copy .button { font-size: 11px; padding-inline: 16px; }
+  .welcome-copy .button-row { gap: 9px; }
+}
+@media (max-width: 720px) {
+  .welcome-hero { min-height: calc(100svh - 76px); padding-block: 35px 24px; }
+  .welcome-layout { grid-template-columns: 1fr; gap: 12px; }
+  .welcome-label { font-size: 10px; margin-bottom: 17px; }
+  .welcome-copy h1 { font-size: clamp(35px, 8.5vw, 45px); letter-spacing: -1.3px; }
+  .welcome-description { font-size: 12px; margin-block: 20px 22px; }
+  .welcome-note { font-size: 9px; margin-top: 16px; }
+  .welcome-copy .button { min-height: 47px; font-size: 10px; padding-inline: 15px; gap: 9px; }
+  .welcome-visual { width: min(290px, 85%); margin-inline: auto; }
+  .welcome-globe { max-height: 250px; }
+  .welcome-topics { font-size: 9px; gap: 25px; margin-top: -8px; }
+  .welcome-scroll { padding-top: 27px; font-size: 9px; }
+}
+@media (max-width: 380px) {
+  .welcome-copy h1 { font-size: 34px; }
+  .welcome-visual { width: 230px; }
+  .welcome-copy .button-row { display: grid; grid-template-columns: 1fr; }
+  .welcome-copy .button { width: 100%; }
+}
+@media (max-height: 560px) {
+  .welcome-hero { min-height: 0; padding-top: 35px; }
+  .welcome-scroll { padding-top: 25px; }
+}
