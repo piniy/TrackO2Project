@@ -47,7 +47,7 @@ export const uiTranslations = {
   'Lihat perjalanan AI': 'Explore the AI journey',
   'Belajar, jelajahi, lalu pilih lebih bijak.': 'Learn, explore, and make thoughtful choices.',
   'Mulai dari satu prompt': 'Start with a single prompt',
-  'Ikuti contoh perjalanan AI dari layar ke pusat data.': 'Follow an example AI journey from your screen to a data center.',
+  'Ikuti perjalanan Energy': 'Follow the energy journey',
   'Langsung hitung': 'Go to calculator',
   'Perjalanan prompt AI dan jejak karbonnya': 'An AI prompt’s journey and carbon footprint',
   'Permintaan dari laptop diproses oleh server. Server dan pendinginan membutuhkan listrik. Penyediaan listrik dapat menghasilkan emisi karbon.': 'A request from a laptop is processed by servers. Servers and cooling need electricity. Supplying electricity can produce carbon emissions.',

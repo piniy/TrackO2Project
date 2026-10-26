@@ -1,17 +1,26 @@
 :root {
-  --forest: #163d32;
-  --green: #347b57;
-  --mint: #d8efdf;
-  --water: #dcecf5;
-  --paper: #f8faf7;
-  --ink: #23372e;
-  --muted: #647168;
-  --line: #dfe6df;
+  /* Logo greens anchor the identity; lime is reserved for highlights. */
+  --brand-leaf: #579f3f;
+  --brand-slate: #6d7889;
+  --forest: #103f35;
+  --forest-hover: #1b5948;
+  --green: #397b2d;
+  --lime: #b9ef78;
+  --mint: #e7f2df;
+  --water: #e8edf2;
+  --paper: #f5f6f7;
+  --surface-soft: #eef1f0;
+  --ink: #202b2a;
+  --muted: #5f6b75;
+  --line: #dce3df;
   --white: #ffffff;
-  --orange: #f3e6cf;
-  --purple: #eae5f3;
-  --display: 'Outfit', sans-serif;
-  --body: 'Plus Jakarta Sans', sans-serif;
+  --orange: #f2efdf;
+  --purple: #edf0f3;
+  --on-dark: #f3f7f2;
+  --muted-on-dark: #c0d3c9;
+  --focus: #397b2d;
+  --body: 'Inter', sans-serif;
+  --display: var(--body);
   --radius: 22px;
-  --shadow: 0 18px 55px #163d320a;
+  --shadow: 0 18px 55px #103f350d;
 }

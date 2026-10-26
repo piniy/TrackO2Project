@@ -20,7 +20,7 @@ h2 { font-size: 39px; letter-spacing: -1.1px; }
 h3 { font-size: 24px; letter-spacing: -.4px; }
 p + p { margin-top: 14px; }
 ::selection { background: var(--mint); color: var(--forest); }
-:focus-visible { outline: 3px solid #488164; outline-offset: 5px; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 5px; }
 [x-cloak] { display: none !important; }
 [id] { scroll-margin-top: 110px; }
 .container { width: min(1200px, calc(100% - 96px)); margin-inline: auto; }
@@ -33,7 +33,7 @@ p + p { margin-top: 14px; }
 .muted { color: var(--muted); }
 .button-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 15px; min-height: 52px; border: 1px solid var(--forest); background: var(--forest); color: var(--white); border-radius: 9px; padding: 12px 22px; font-size: 12px; line-height: 1.5; font-weight: 600; transition: background .18s, transform .18s; }
-.button:hover { background: #265b44; transform: translateY(-2px); }
+.button:hover { background: var(--forest-hover); transform: translateY(-2px); }
 .button .icon { width: 18px; height: 18px; }
 .button-small { min-height: 42px; padding: 9px 15px; font-size: 11px; }
 .button-quiet { background: transparent; color: var(--forest); border-color: var(--line); }
@@ -46,7 +46,7 @@ p + p { margin-top: 14px; }
 .pill .icon { width: 15px; height: 15px; }
 .pill-blue { background: #e6f0f8; color: #365b73; }
 .icon-tile { width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border-radius: 13px; flex-shrink: 0; }
-.icon-tile.green { background: #e5f1e7; color: #347b57; }
+.icon-tile.green { background: var(--mint); color: var(--green); }
 .icon-tile.blue { background: #e4eef6; color: #3b6885; }
 .icon-tile.orange { background: #f6ebd9; color: #916128; }
 .icon-tile.purple { background: #eee8f6; color: #735a98; }
@@ -54,15 +54,15 @@ p + p { margin-top: 14px; }
 .skip-link:focus { top: 12px; }
 
 /* Shared navigation is rendered into every HTML page at build time. */
-.site-header { position: sticky; top: 0; z-index: 30; background: #f8faf7f5; border-bottom: 1px solid #e4eae3; backdrop-filter: blur(14px); }
+.site-header { position: sticky; top: 0; z-index: 30; background: color-mix(in srgb, var(--paper) 96%, transparent); border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 87px; }
 .brand { display: inline-flex; align-items: center; gap: 8px; font-family: var(--display); font-weight: 600; font-size: 29px; line-height: 1; letter-spacing: -.8px; white-space: nowrap; }
-.brand-mark { width: 31px; height: 35px; display: grid; place-items: center; color: var(--green); }
+.brand-mark { width: 31px; height: 35px; display: grid; place-items: center; color: var(--brand-leaf); }
 .brand-mark .icon { width: 30px; height: 30px; stroke-width: 1.8; }
 .brand-two { font-size: 22px; }
 .brand-dot { color: var(--green); }
 .primary-nav { display: flex; align-items: center; gap: 25px; }
-.primary-nav a { font-size: 12px; font-weight: 500; white-space: nowrap; padding: 31px 0; color: #667369; position: relative; }
+.primary-nav a { font-size: 12px; font-weight: 500; white-space: nowrap; padding: 31px 0; color: var(--muted); position: relative; }
 .primary-nav a:hover, .primary-nav a[aria-current] { color: var(--forest); }
 .primary-nav a[aria-current] { font-weight: 700; }
 .primary-nav a[aria-current]::after { content: ''; position: absolute; width: 15px; height: 3px; border-radius: 3px; background: var(--green); bottom: 20px; left: calc(50% - 7.5px); }
@@ -88,9 +88,9 @@ p + p { margin-top: 14px; }
 .resource-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .resource-card { border-radius: var(--radius); padding: 27px 28px; transition: transform .2s; }
 .resource-card:hover { transform: translateY(-5px); }
-.carbon-card { background: #e5efe2; }
-.water-card { background: #e4eff4; }
-.energy-card { background: #f3ecdc; }
+.carbon-card { background: var(--mint); }
+.water-card { background: var(--water); }
+.energy-card { background: var(--orange); }
 .resource-art { display: flex; align-items: center; justify-content: space-between; height: 94px; margin-bottom: 18px; }
 .resource-art > .icon { width: 61px; height: 61px; stroke-width: 1; color: #73916c; }
 .water-card .resource-art > .icon { color: #7194a6; }
@@ -119,19 +119,19 @@ p + p { margin-top: 14px; }
 .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
 .campaign-preview, .game-preview { border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: white; transition: box-shadow .2s; }
 .campaign-preview:hover, .game-preview:hover { box-shadow: var(--shadow); }
-.campaign-visual { height: 230px; position: relative; overflow: hidden; background: #1c493c; display: flex; align-items: center; justify-content: center; color: white; }
+.campaign-visual { height: 230px; position: relative; overflow: hidden; background: var(--forest); display: flex; align-items: center; justify-content: center; color: var(--on-dark); }
 .orbit { position: absolute; width: 300px; height: 300px; border: 1px solid #8dbe9a40; border-radius: 50%; right: -40px; top: -30px; }
 .orbit-two { width: 230px; height: 230px; right: -5px; top: 5px; }
-.planet-leaf { width: 170px; height: 170px; position: absolute; right: 35px; bottom: -25px; color: #9dc78d; stroke-width: .65; }
+.planet-leaf { width: 170px; height: 170px; position: absolute; right: 35px; bottom: -25px; color: var(--lime); stroke-width: .65; }
 .play-circle { width: 57px; height: 57px; display: grid; place-items: center; border-radius: 50%; border: 1px solid #cee4d5; background: #ffffff18; z-index: 1; }
 .play-circle .icon { width: 24px; height: 24px; margin-left: 3px; }
 .visual-caption { position: absolute; left: 28px; bottom: 24px; font-family: var(--display); font-size: 22px; }
 .experience-copy { padding: 26px 28px 29px; }
 .experience-copy h3 { margin-top: 10px; font-size: 27px; }
 .experience-copy p { font-size: 12px; color: var(--muted); margin: 12px 0 18px; }
-.game-preview-art { background: #e8ecf5; height: 230px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 11px; }
-.game-preview-art .pill { font-size: 8px; background: #ffffff9e; color: #5a6680; }
-.game-large { width: 112px; height: 80px; color: #7783a3; stroke-width: .9; }
+.game-preview-art { background: var(--lime); height: 230px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 11px; }
+.game-preview-art .pill { font-size: 8px; background: #ffffff9e; color: var(--brand-slate); }
+.game-large { width: 112px; height: 80px; color: var(--forest); stroke-width: .9; }
 .preview-choice { display: flex; align-items: center; gap: 7px; background: #ffffffab; border: 1px solid #d8dfe9; border-radius: 7px; font-size: 9px; padding: 7px 16px; color: #5f6b80; }
 .about-project { border-top: 1px solid var(--line); display: grid; grid-template-columns: 1.5fr 1fr; gap: 120px; padding-block: 65px 80px; }
 .about-project h2 { margin: 14px 0 20px; font-size: 33px; }
@@ -361,13 +361,13 @@ tbody tr + tr { border-top: 1px solid #edf0ea; }
 .game-finish p strong { font-size: 27px; font-family: var(--display); color: var(--forest); }
 .game-finish .button-row { justify-content: center; margin-top: 26px; }
 
-.site-footer { background: var(--forest); color: #d7e6dc; }
+.site-footer { --focus: var(--lime); background: var(--forest); color: var(--on-dark); }
 .footer-main { display: grid; grid-template-columns: 1.3fr .9fr 1.1fr 1.2fr; gap: 40px; padding-block: 50px 40px; }
 .site-footer .brand { font-size: 28px; color: #f1f6ef; }
 .site-footer .brand-mark { color: #b3d2a8; }
-.footer-main > div > p { font-size: 10px; line-height: 2; margin-top: 20px; color: #b8cdbf; }
+.footer-main > div > p { font-size: 10px; line-height: 2; margin-top: 20px; color: var(--muted-on-dark); }
 .footer-links { display: flex; flex-direction: column; gap: 9px; font-size: 10px; }
-.site-footer .eyebrow { color: #b8d3b2; font-size: 8px; margin-bottom: 10px; }
+.site-footer .eyebrow { color: var(--lime); font-size: 8px; margin-bottom: 10px; }
 .footer-links a:hover { color: white; text-decoration: underline; }
 .footer-note > p { margin-top: 0 !important; }
 .footer-note .pill { margin-top: 15px; background: #2b5340; color: #c1d9bb; font-size: 8px; }

@@ -6,7 +6,7 @@
 .home-service { padding: 25px; }
 .home-service > .icon { width: 30px; height: 30px; margin-bottom: 20px; }
 .home-service h3 { font-size: 23px; }
-.home-service p { margin-bottom: 0; }
+.home-service p { margin-bottom: 0; color: var(--muted); }
 .team-service { background: var(--purple); }
 .education-reading > p { font-size: 13px; color: var(--muted); margin-top: 15px; }
 .equivalent-icon > span { font-size: 22px; }

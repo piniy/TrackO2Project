@@ -20,7 +20,9 @@ export default defineConfig({
             : renderContent(name);
           const content = name === 'education' && page === 'education'
             ? fragment.replace('<h2 id="ed-heading">Edukasi</h2>', '<h1 id="ed-heading">Edukasi</h1>')
-            : fragment;
+            : name === 'journey' && page === 'education'
+              ? fragment.replace('href="#carbsculator"', 'href="./kalkulator.html"')
+              : fragment;
           return expand(content, [...stack, name]).replace(/data-page="([^"]+)"/g, (match, key) => `${match}${page === key ? ' aria-current="page"' : ''}`);
         });
         return expand(html.replace('</head>', '<link rel="icon" type="image/svg+xml" href="/favicon.svg"></head>'));

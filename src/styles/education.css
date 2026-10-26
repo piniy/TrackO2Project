@@ -1,4 +1,4 @@
-.ed-section { padding-block: 76px; background: #f5f8f7; }
+.ed-section { padding-block: 76px; background: var(--surface-soft); }
 .ed-heading { max-width: 720px; margin-bottom: 34px; }
 .ed-heading h2 { margin-bottom: 14px; }
 .ed-heading h1 { font-size: clamp(36px, 4vw, 48px); margin-bottom: 14px; letter-spacing: -1px; }
