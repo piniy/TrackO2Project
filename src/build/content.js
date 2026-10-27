@@ -11,9 +11,9 @@ const sourceLink = id => {
 };
 
 export function renderContent(name) {
-  if (name === 'activity-inputs') return activities.map(item => `
-    <div class="activity-row">
-      <span class="icon-tile ${item.color}">${icon(item.icon)}</span>
+  if (name === 'activity-inputs' || name === 'trial-activity-inputs') return activities.map(item => `
+    <div class="activity-row${name === 'trial-activity-inputs' ? ` trial-activity trial-activity-${item.id}` : ''}">
+      ${name === 'trial-activity-inputs' ? `<span class="trial-activity-art"><img src="/assets/images/calculator/${({ chat: 'chat', summary: 'summary', longText: 'writing', image: 'image' })[item.id]}.webp" alt="" width="256" height="256" loading="lazy" decoding="async"></span>` : `<span class="icon-tile ${item.color}">${icon(item.icon)}</span>`}
       <div class="activity-label"><label for="count-${item.id}">${escape(item.title)}</label><p>${escape(item.description)}</p><span class="factor"><span data-i18n-number="${item.factor}">${formatNumber(item.factor)}</span> <span>g CO₂e / aktivitas</span></span></div>
       <div class="stepper"><button type="button" @click="adjust('${item.id}', -1)" :aria-label="$t('Kurangi {activity}', { activity: $t('${escape(item.title)}') })" aria-label="Kurangi ${escape(item.title.toLowerCase())}">−</button><input id="count-${item.id}" name="${item.id}" type="number" inputmode="numeric" min="0" max="10000" step="1" value="0" x-model="counts.${item.id}" @input="dirty = true"><button type="button" @click="adjust('${item.id}', 1)" :aria-label="$t('Tambah {activity}', { activity: $t('${escape(item.title)}') })" aria-label="Tambah ${escape(item.title.toLowerCase())}">+</button></div>
     </div>`).join('');

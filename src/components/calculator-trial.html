@@ -1,8 +1,13 @@
 <div class="calculator-layout calculator-trial" x-data="calculator('trial')">
+  <aside class="trial-intro" aria-labelledby="trial-intro-heading">
+    <div class="trial-intro-copy"><h3 id="trial-intro-heading">Kenali jejak aktivitasmu.</h3><p>Mulai dari aktivitas AI yang kamu lakukan hari ini.</p></div>
+    <img class="trial-calculator-art" src="/assets/images/services/calculator.webp" alt="" width="360" height="360" loading="lazy" decoding="async">
+    <p class="trial-art-caption">Dari aktivitas, jadi estimasi.</p>
+  </aside>
   <form class="calculator-form panel" @submit.prevent="calculate">
     <div class="panel-heading"><h2>Jumlah aktivitas AI</h2><button type="button" class="text-button" @click="example">Isi contoh</button></div>
     <p class="calculator-description small muted">Masukkan jumlah permintaan untuk setiap jenis aktivitas dalam satu hari.</p>
-    <!-- site:activity-inputs -->
+    <div class="trial-activity-grid"><!-- site:trial-activity-inputs --></div>
     <p x-cloak x-show="error" x-text="$t(error)" class="form-error" role="alert"></p>
     <div class="form-actions"><button class="button" type="submit" x-ref="trialSubmit">Hitung estimasi <span aria-hidden="true">→</span></button><button class="button button-quiet" type="button" @click="reset">Atur ulang</button></div>
   </form>

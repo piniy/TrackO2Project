@@ -3,26 +3,27 @@
 <body data-page="home"><!-- site:icons --><!-- site:header -->
 <main id="main">
   <section class="welcome-hero" aria-labelledby="welcome-heading">
+    <img class="welcome-photo" src="/assets/images/emissions-hero.jpg" alt="Cerobong industri dengan kepulan asap dan jaringan pipa" width="1920" height="1280" fetchpriority="high">
     <div class="container welcome-layout">
       <div class="welcome-copy">
-        <h1 id="welcome-heading">AI membantu belajarmu.<br>Kenali juga <span>jejaknya.</span></h1>
-        <p class="welcome-description">Kenali hubungan AI dengan karbon, air, dan energi. Bersama TraCkO2, pahami proses di balik layar dan coba estimasi jejak aktivitasmu.</p>
-        <div class="button-row"><a class="button" href="#jejak-ai">Lihat perjalanan AI <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"></use></svg></a><a class="button button-quiet" href="#carbsculator">Langsung hitung <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
+        <p class="welcome-label">Selamat datang di</p>
+        <h1 id="welcome-heading" data-i18n-ignore>Tra<span class="welcome-brand-slate">C</span>k<span class="welcome-brand-slate">O₂</span></h1>
+        <p class="welcome-question">AI juga punya <span>jejak <mark class="welcome-highlight">karbon?</mark></span></p>
+        <p class="welcome-description">Di balik jawaban AI, ada komputasi yang membutuhkan listrik. Bersama TraCkO2, pahami prosesnya dan cari tahu estimasi jejak karbon dari aktivitas AI-mu.</p>
+        <div class="button-row"><a class="button" href="#carbsculator">Cari tahu jejak karbonmu <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a><a class="button button-quiet" href="#jejak-ai">Jelajahi proses AI <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"></use></svg></a></div>
       </div>
-      <figure class="welcome-visual">
-        <img class="welcome-photo" src="/assets/images/data-center.webp" alt="Bangunan pusat data dan infrastruktur energi di sekitarnya" width="1536" height="864" fetchpriority="high">
-        <figcaption>Pusat data membutuhkan pasokan listrik dan pendinginan.</figcaption>
-      </figure>
     </div>
+    <div class="container welcome-caption"><p>Ilustrasi emisi dari aktivitas industri.</p></div>
   </section>
   <section class="section container home-services" id="layanan" aria-labelledby="services-title">
-    <div class="section-heading"><div><h2 id="services-title">Layanan</h2></div></div>
-    <div class="home-service-grid">
-      <a class="resource-card carbon-card home-service" href="#jejak-ai"><img class="icon" src="/assets/icons/book-open.svg" alt="" aria-hidden="true"><h3>Edukasi</h3><p>Pelajari proses AI dan jelajahi data penelitiannya.</p></a>
-      <a class="resource-card water-card home-service" href="#carbsculator"><img class="icon" src="/assets/icons/calculator.svg" alt="" aria-hidden="true"><h3>CarbsCulator</h3><p>Hitung estimasi jejak karbon dari aktivitas AI-mu.</p></a>
-      <a class="resource-card energy-card home-service" href="./game.html"><img class="icon" src="/assets/icons/gamepad-2.svg" alt="" aria-hidden="true"><h3>Games</h3><p>Uji pemahaman melalui lima situasi penggunaan AI.</p></a>
-      <a class="resource-card home-service team-service" href="#tentang"><img class="icon" src="/assets/icons/users.svg" alt="" aria-hidden="true"><h3>About Team</h3><p>Kenali tim pelajar di balik proyek TraCkO2.</p></a>
+    <div class="section-heading"><div><h2 id="services-title">Jelajahi Layanan</h2></div></div>
+    <div class="home-service-grid" tabindex="0" role="region" aria-label="Pilihan layanan TraCkO2">
+      <a class="home-service" href="#jejak-ai"><span class="home-service-art"><img src="/assets/images/services/notebook.webp" alt="" width="320" height="320" loading="lazy" decoding="async"></span><h3>Edukasi</h3></a>
+      <a class="home-service" href="#carbsculator"><span class="home-service-art"><img src="/assets/images/services/calculator.webp" alt="" width="320" height="320" loading="lazy" decoding="async"></span><h3>CarbsCulator</h3></a>
+      <a class="home-service" href="./game.html"><span class="home-service-art"><img src="/assets/images/services/puzzle.webp" alt="" width="320" height="320" loading="lazy" decoding="async"></span><h3>Games</h3></a>
+      <a class="home-service team-service" href="#tentang"><span class="home-service-art home-service-team"><img src="/assets/images/services/girl.webp" alt="" width="320" height="320" loading="lazy" decoding="async"><img src="/assets/images/services/boy.webp" alt="" width="320" height="320" loading="lazy" decoding="async"></span><h3>About Team</h3></a>
     </div>
+    <p class="home-services-hint">Geser untuk menjelajah <span aria-hidden="true">→</span></p>
   </section>
   <!-- site:journey -->
   <!-- site:education -->

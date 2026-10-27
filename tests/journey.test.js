@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { getJourneyState, getCameraFrame } from '../src/features/journey.js';
+import { getJourneyState, getCameraFrame, getSmokeFrame } from '../src/features/journey.js';
 
 test('story follows actual sticky geometry through all four stages', () => {
   // Section starts below an 88px header; 1,600px of natural scroll is available.
@@ -29,4 +29,22 @@ test('cinematic camera remains finite and travels forward across the complete ti
   }
   assert.deepEqual(getCameraFrame(-1), getCameraFrame(0));
   assert.deepEqual(getCameraFrame(2), getCameraFrame(1));
+});
+
+test('emissions smoke is confined to the final transition and dissolves at its end', () => {
+  for (let index = 0; index < 7; index++) {
+    for (const progress of [-1, 0, .5, .68, .95, 1, 2]) assert.equal(getSmokeFrame(progress, index).opacity, 0);
+    const puff = getSmokeFrame(.81, index);
+    assert.ok(puff.opacity > 0 && puff.opacity <= .55);
+    assert.ok(puff.x >= 1632 && puff.x <= 2248);
+    assert.ok(Number.isFinite(puff.y) && puff.scale > 0);
+  }
+});
+
+test('smoke billows travel toward emissions in sequence without moving the earlier camera stages', () => {
+  const leading = getSmokeFrame(.81, 0);
+  const trailing = getSmokeFrame(.81, 6);
+  assert.ok(leading.x > trailing.x);
+  assert.ok(getSmokeFrame(.86, 0).x > leading.x);
+  assert.ok(leading.scale > trailing.scale);
 });

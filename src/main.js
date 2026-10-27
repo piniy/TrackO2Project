@@ -12,6 +12,7 @@ import './styles/calculator-trial.css';
 import './styles/team.css';
 import './styles/formula.css';
 import './styles/page-motion.css';
+import './styles/footer.css';
 import Alpine from 'alpinejs';
 import calculator from './features/calculator.js';
 import teamProfiles from './features/team.js';

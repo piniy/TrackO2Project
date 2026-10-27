@@ -1,5 +1,67 @@
 /* Home offers the input trial; complete results stay on CarbsCulator. */
-.calculator-layout.calculator-trial { grid-template-columns: minmax(0, 1fr); width: min(860px, 100%); margin-inline: auto; }
+.calculator-layout.calculator-trial { grid-template-columns: minmax(220px, .72fr) minmax(0, 1.65fr); width: min(1160px, 100%); margin-inline: auto; gap: 0; align-items: stretch; border-radius: 26px; box-shadow: 0 20px 55px #103f3510; }
+.calculator-trial .trial-intro { position: relative; min-width: 0; display: flex; flex-direction: column; align-items: center; padding: 36px 28px 25px; border-radius: 26px 0 0 26px; color: var(--on-dark); background: var(--forest); overflow: hidden; }
+.calculator-trial .trial-intro-copy { align-self: stretch; position: relative; z-index: 1; }
+.calculator-trial .trial-intro h3 { max-width: 240px; font-size: clamp(26px, 2.7vw, 36px); line-height: 1.15; letter-spacing: -1.1px; color: var(--on-dark); }
+.calculator-trial .trial-intro-copy > p { max-width: 230px; margin-top: 17px; color: #c6d9ce; font-size: 12px; line-height: 1.85; }
+.calculator-trial .trial-calculator-art { width: min(250px, 100%); height: auto; margin: auto -6px; filter: drop-shadow(0 23px 18px #001c1b40); transform: rotate(-9deg); }
+.calculator-trial .trial-art-caption { margin-top: 15px; font-size: 10px; color: #c6d9ce; text-align: center; }
+.calculator-trial .calculator-form { border: 1px solid #dbe7da; border-left: 0; border-radius: 0 26px 26px 0; padding: 30px; background: #fbfdfa; }
+.calculator-trial .panel-heading { align-items: center; }
+.calculator-trial .panel-heading h2 { font-size: 24px; margin-top: 0; }
+.calculator-trial .panel-heading .text-button { min-height: 44px; padding: 8px 0 8px 12px; font-size: 11px; }
+.calculator-trial .calculator-form > .calculator-description { margin-block: 9px 23px; max-width: 440px; font-size: 11px; line-height: 1.8; }
+.calculator-trial .trial-activity-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.calculator-trial .trial-activity { position: relative; min-width: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-content: start; align-items: center; gap: 11px; padding: 17px; border: 1px solid #dfe8db; border-radius: 17px; background: #eff5eb; }
+.calculator-trial .trial-activity-summary { background: #edf3f7; border-color: #dde6eb; }
+.calculator-trial .trial-activity-longText { background: #f1eef7; border-color: #e5e0ed; }
+.calculator-trial .trial-activity-image { background: #faf2e8; border-color: #eee2d4; }
+.calculator-trial .trial-activity-art { display: block; grid-column: 1; grid-row: 1; width: 67px; height: 67px; }
+.calculator-trial .trial-activity-art > img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 7px 6px #103f3510); }
+.calculator-trial .trial-activity .activity-label { grid-column: 1 / -1; grid-row: 2; }
+.calculator-trial .trial-activity .activity-label label { font-size: 12px; }
+.calculator-trial .trial-activity .activity-label p { min-height: 29px; margin-top: 5px; font-size: 10px; line-height: 1.55; }
+.calculator-trial .trial-activity .factor { font-size: 9px; margin-top: 9px; }
+.calculator-trial .trial-activity .stepper { grid-column: 2; grid-row: 1; min-width: 0; align-self: center; border-color: #d4ded0; background: #ffffffa3; }
+.calculator-trial .trial-activity .stepper button { width: 44px; min-height: 44px; font-size: 19px; color: var(--forest); }
+.calculator-trial .trial-activity .stepper input { width: 38px; min-width: 0; font-size: 13px; background: #ffffffb5; }
+.calculator-trial .form-actions { padding-top: 23px; gap: 18px; }
+.calculator-trial .form-actions .button:first-child { min-height: 50px; }
+.calculator-trial .form-actions .button-quiet { min-height: 44px; }
+@media (max-width: 1180px) and (min-width: 961px) {
+  .calculator-layout.calculator-trial { grid-template-columns: minmax(210px, .7fr) minmax(0, 1.8fr); }
+  .calculator-trial .calculator-form { padding: 24px; }
+  .calculator-trial .trial-activity { padding: 13px; gap: 9px; }
+  .calculator-trial .trial-activity-art { width: 55px; height: 55px; }
+}
+@media (max-width: 960px) {
+  .calculator-layout.calculator-trial { grid-template-columns: minmax(0, 1fr); }
+  .calculator-trial .trial-intro { min-height: 180px; align-items: start; justify-content: center; padding: 28px; border-radius: 24px 24px 0 0; }
+  .calculator-trial .trial-intro-copy { width: 65%; }
+  .calculator-trial .trial-intro h3 { max-width: 340px; font-size: 31px; }
+  .calculator-trial .trial-intro-copy > p { max-width: 320px; margin-top: 12px; }
+  .calculator-trial .trial-calculator-art { position: absolute; width: 165px; height: 165px; right: 15px; top: 9px; margin: 0; }
+  .calculator-trial .trial-art-caption { display: none; }
+  .calculator-trial .calculator-form { border-left: 1px solid #dbe7da; border-top: 0; border-radius: 0 0 24px 24px; }
+}
+@media (max-width: 600px) {
+  .calculator-trial .trial-intro { min-height: 170px; padding: 25px 20px; }
+  .calculator-trial .trial-intro-copy { width: 68%; }
+  .calculator-trial .trial-intro h3 { max-width: 200px; font-size: 26px; letter-spacing: -.8px; }
+  .calculator-trial .trial-intro-copy > p { max-width: 185px; font-size: 10px; line-height: 1.7; }
+  .calculator-trial .trial-calculator-art { width: 125px; height: 125px; right: -7px; top: 24px; }
+  .calculator-trial .calculator-form { padding: 23px 17px; }
+  .calculator-trial .panel-heading h2 { font-size: 21px; }
+  .calculator-trial .calculator-form > .calculator-description { margin-bottom: 18px; font-size: 10px; }
+  .calculator-trial .trial-activity-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .calculator-trial .trial-activity { grid-template-columns: minmax(0, 1fr) auto; gap: 7px 10px; padding: 15px; }
+  .calculator-trial .trial-activity-art { width: 62px; height: 62px; }
+  .calculator-trial .trial-activity .activity-label p { min-height: 0; }
+  .calculator-trial .trial-activity .factor { margin-top: 7px; }
+  .calculator-trial .form-actions { gap: 10px; padding-top: 21px; }
+  .calculator-trial .form-actions .button { font-size: 11px; padding-inline: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .calculator-trial .trial-calculator-art { transform: none; } }
 .trial-dialog { width: min(460px, calc(100% - 36px)); max-height: calc(100svh - 48px); overflow-y: auto; border: 1px solid #cfddc9; border-radius: 22px; padding: 38px 32px 32px; background: var(--paper); color: var(--ink); box-shadow: 0 28px 80px #102c2933; }
 .trial-dialog::backdrop { background: #102c2952; }
 .trial-dialog[open] { animation: trial-dialog-enter 240ms cubic-bezier(.16,1,.3,1); }

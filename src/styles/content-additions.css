@@ -1,24 +1,45 @@
-/* Local additions only; the original hero, navigation, journey and base UI stay intact. */
+/* Scoped additions for home services and the education content. */
 .interior-main { padding-top: 42px; }
 .brand-logo { display: block; width: 200px; height: auto; flex-shrink: 0; }
 .site-footer .brand { padding: 7px 12px; border-radius: 8px; background: var(--paper); }
-.home-service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
-.home-service { padding: 25px; }
-.home-service > .icon { width: 30px; height: 30px; margin-bottom: 20px; }
-.home-service h3 { font-size: 23px; }
-.home-service p { margin-bottom: 0; color: var(--muted); }
-.team-service { background: var(--purple); }
+.home-services { padding-block: 70px 80px; }
+.home-services > .section-heading { justify-content: center; text-align: center; margin-bottom: 38px; }
+.home-services .section-heading h2 { margin: 0; font-size: clamp(30px, 3vw, 40px); letter-spacing: -1.2px; }
+.home-service-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; max-width: 1000px; margin-inline: auto; }
+.home-service-grid:focus-visible { outline: 2px solid var(--focus); outline-offset: 5px; border-radius: 12px; }
+.home-services-hint { display: none; }
+.home-service { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 10px 8px 16px; border-radius: 18px; text-align: center; }
+.home-service-art { display: block; position: relative; width: min(180px, 100%); aspect-ratio: 1; transition: transform .45s cubic-bezier(.2,.8,.2,1), filter .45s; filter: drop-shadow(0 15px 13px #103f3512); }
+.home-service-art > img { width: 100%; height: 100%; object-fit: contain; }
+.home-service h3 { font-size: 19px; font-weight: 600; letter-spacing: -.5px; transition: color .2s; }
+.home-service-team > img { position: absolute; width: 74%; height: 74%; left: -1%; bottom: 10%; transform: rotate(-7deg); }
+.home-service-team > img + img { left: 31%; bottom: 1%; transform: rotate(8deg); }
+.home-service:focus-visible { outline: 2px solid var(--focus); outline-offset: 6px; }
+.home-service:focus-visible .home-service-art { transform: translateY(-10px) rotate(-5deg) scale(1.05); filter: drop-shadow(0 24px 15px #103f352b); }
+.home-service:focus-visible h3 { color: var(--green); }
+@media (hover: hover) {
+  .home-service:hover .home-service-art { transform: translateY(-10px) rotate(-5deg) scale(1.05); filter: drop-shadow(0 24px 15px #103f352b); }
+  .home-service:hover h3 { color: var(--green); }
+  .home-service:nth-child(even):hover .home-service-art { transform: translateY(-10px) rotate(5deg) scale(1.05); }
+}
 .education-reading > p { font-size: 13px; color: var(--muted); margin-top: 15px; }
 .equivalent-icon > span { font-size: 22px; }
 .ed-section { background: #eff4ee; }
-@media (max-width: 960px) { .home-service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 960px) { .home-service-grid { gap: 16px; } .home-service-art { width: min(155px, 100%); } .home-service h3 { font-size: 17px; } }
 @media (max-width: 720px) {
   .site-header .brand-logo { width: 150px; }
-  .home-service { display: block; padding: 22px; }
-  .home-service h3 { font-size: 21px; }
-  .home-service p { font-size: 11px; }
+  .home-services { padding-block: 45px 48px; }
+  .home-services > .section-heading { margin-bottom: 8px; }
+  .home-service-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(132px, 43%); gap: 20px; max-width: none; margin-inline: -8px; padding: 20px 8px 18px; overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-inline: 8px; overscroll-behavior-inline: contain; scrollbar-width: thin; scrollbar-color: #bacdbf transparent; }
+  .home-service { padding: 6px; gap: 9px; scroll-snap-align: start; }
+  .home-service-art { width: min(145px, 100%); }
+  .home-service h3 { font-size: 16px; }
+  .home-services-hint { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 16px; font-size: 10px; color: var(--muted); }
 }
 @media (max-width: 380px) {
-  .home-service-grid { grid-template-columns: 1fr; }
   .site-header .brand-logo { width: 112px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-service-art, .home-service h3 { transition: none; }
+  .home-service:hover .home-service-art, .home-service:nth-child(even):hover .home-service-art, .home-service:focus-visible .home-service-art { transform: none; }
 }

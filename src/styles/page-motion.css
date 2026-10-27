@@ -1,5 +1,5 @@
 /* Deliberate entrances and tangible interaction feedback; no hidden base state. */
-.home-service, .resource-card, .campaign-preview, .game-preview, .reference-card {
+.resource-card, .campaign-preview, .game-preview, .reference-card {
   transition: transform 360ms cubic-bezier(.16,1,.3,1), box-shadow 360ms ease, border-color 260ms ease;
 }
 .button { transition: background 220ms ease, color 220ms ease, transform 300ms cubic-bezier(.16,1,.3,1), box-shadow 300ms ease; }
@@ -15,11 +15,11 @@
 .ed-data-detail { transition: background 300ms ease, border-color 300ms ease; }
 .learning-article details[open] .article-body { animation: reading-open 400ms cubic-bezier(.16,1,.3,1); }
 @media (hover: hover) and (pointer: fine) {
-  .home-service:hover, .resource-card:hover, .reference-card:hover { transform: translateY(-8px); box-shadow: 0 16px 30px #163d321a; }
+  .resource-card:hover, .reference-card:hover { transform: translateY(-8px); box-shadow: 0 16px 30px #163d321a; }
   .campaign-preview:hover, .game-preview:hover { transform: translateY(-6px); box-shadow: 0 16px 32px #163d3215; }
   .button:hover { transform: translateY(-4px); box-shadow: 0 8px 18px #163d3220; }
 }
-.home-service:focus-visible, .resource-card:focus-visible, .reference-card:focus-within { transform: translateY(-4px); box-shadow: 0 10px 22px #163d3215; }
+.resource-card:focus-visible, .reference-card:focus-within { transform: translateY(-4px); box-shadow: 0 10px 22px #163d3215; }
 @media (max-width: 960px) {
   .js-ready .primary-nav.is-open { animation: navigation-open 320ms cubic-bezier(.16,1,.3,1); }
 }

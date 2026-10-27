@@ -30,6 +30,14 @@ export function getJourneyState(sectionTop, sectionHeight, sceneHeight, stickyTo
   return { progress, stage, localProgress: clamp(progress * 4 - stage) };
 }
 
+// Soft billows follow the last connection, then dissolve as the factory comes into view.
+export function getSmokeFrame(progress, index) {
+  const t = clamp((clamp(progress) - .68) / .19 - index * .065);
+  const p = points[2];
+  const coord = axis => (1 - t) ** 3 * p[0][axis] + 3 * (1 - t) ** 2 * t * p[1][axis] + 3 * (1 - t) * t ** 2 * p[2][axis] + t ** 3 * p[3][axis];
+  return { x: coord(0), y: coord(1) - t * 28, scale: .4 + t * .65, opacity: t > 0 && t < 1 ? Math.sin(t * Math.PI) * .38 : 0 };
+}
+
 export default () => ({
   progress: 0, stage: 0, localProgress: 0, enhanced: false, compact: false, typedCount: 0,
   get cameraTransform() {
@@ -38,8 +46,11 @@ export default () => ({
     const zoom = this.compact ? camera.zoom * 1.04 : camera.zoom;
     return `translate(${(this.compact ? 300 : 560) - camera.x * zoom} ${(this.compact ? 260 : 180) - camera.y * zoom}) scale(${zoom})`;
   },
-  get burstPhase() { return clamp((this.progress - .74) / .14); },
-  get burstOpacity() { return this.enhanced ? Math.sin(this.burstPhase * Math.PI) * .9 : 0; },
+  smokeTransform(index) {
+    const puff = getSmokeFrame(this.progress, index);
+    return `translate(${puff.x} ${puff.y}) scale(${puff.scale})`;
+  },
+  smokeOpacity(index) { return this.enhanced ? getSmokeFrame(this.progress, index).opacity : 0; },
   get emissionReveal() { return this.enhanced ? clamp((this.progress - .8) / .07) : 1; },
   get promptLines() { return [this.$store.i18n.t('Bantu ringkas'), this.$store.i18n.t('materi ini.')]; },
   // The existing 23 typing steps cover the complete text in either language.
