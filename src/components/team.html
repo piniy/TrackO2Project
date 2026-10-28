@@ -1,28 +1,27 @@
-<section class="team-section container" id="tentang" aria-labelledby="team-heading" x-data="teamProfiles">
-  <div class="team-section-heading">
-    <h2 id="team-heading">About Team</h2>
+<section class="team-section" id="tentang" aria-labelledby="team-heading" x-data="teamProfiles">
+  <div class="team-smoke" aria-hidden="true">
+    <span class="team-smoke-billow"></span>
+    <span class="team-smoke-billow"></span>
+    <span class="team-smoke-billow"></span>
+    <span class="team-smoke-billow"></span>
+    <span class="team-smoke-billow"></span>
   </div>
-  <div class="team-profile-details" id="team-profile-details" aria-live="polite" aria-atomic="true">
-    <template x-for="profile in [activeMember]" :key="profile.id">
-      <article class="team-profile-copy">
-        <div class="team-profile-identity">
-          <h3 x-text="$t(profile.name)"></h3>
-          <p class="team-profile-job"><span x-text="$t('Job desk')">Job desk</span><span x-text="profile.jobDesk"></span></p>
-        </div>
-        <blockquote class="team-profile-quote"><p x-text="profile.quote"></p></blockquote>
-      </article>
-    </template>
-  </div>
-  <p class="sr-only" id="team-keyboard-help">Gunakan tombol panah kiri dan kanan untuk memilih anggota tim.</p>
-  <div class="team-portraits" role="group" aria-label="Pilih anggota tim" aria-describedby="team-keyboard-help" x-ref="profileRow" @keydown="handleProfileKeydown($event)">
-    <template x-for="(member, index) in members" :key="member.id">
-      <button class="team-portrait-button" type="button" :class="{ 'is-active': activeIndex === index, 'is-placeholder': member.placeholder }" :data-profile-index="index" :aria-pressed="activeIndex === index" :aria-label="$t('Pilih profil {name}', { name: $t(member.name) })" aria-controls="team-profile-details" :tabindex="activeIndex === index ? 0 : -1" @click="selectProfile(index)">
-        <span class="team-profile-image">
-          <template x-if="member.photo"><img :src="member.photo" alt="" loading="lazy" width="480" height="600"></template>
-          <template x-if="!member.photo"><span class="team-profile-placeholder" aria-hidden="true" x-text="member.initials"></span></template>
-        </span>
-        <span class="team-profile-label" x-text="$t(member.name)"></span>
-      </button>
-    </template>
+  <div class="container">
+    <div class="team-section-heading">
+      <h2 id="team-heading">About Team</h2>
+      <p>Kenali tim di balik TraCkO2.</p>
+    </div>
+    <div class="team-portraits" tabindex="0" role="region" aria-label="Anggota tim TraCkO2">
+      <template x-for="(member, index) in members" :key="member.id">
+        <button class="team-card" type="button" :class="{ 'is-active': activeIndex === index }" :aria-pressed="activeIndex === index" @click="activeIndex = activeIndex === index ? null : index">
+          <span class="team-profile-image">
+            <template x-if="member.photo"><img :src="member.photo" alt="" loading="lazy" width="480" height="600"></template>
+            <template x-if="!member.photo"><span class="team-profile-placeholder" aria-hidden="true" x-text="member.initials"></span></template>
+          </span>
+          <span class="team-profile-label" x-text="$t(member.name)"></span>
+          <span class="team-card-role" x-text="member.jobDesk"></span>
+        </button>
+      </template>
+    </div>
   </div>
 </section>

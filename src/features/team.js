@@ -1,45 +1,50 @@
 import { teamMembers } from '../content/team.js';
 
+const smoothstep = value => {
+  const progress = Math.max(0, Math.min(1, value));
+  return progress * progress * (3 - 2 * progress);
+};
+
 export default () => ({
   members: teamMembers.map(member => ({ ...member })),
-  activeIndex: 0,
-  _scrollTimer: null,
+  activeIndex: null,
 
-  get activeMember() { return this.members[this.activeIndex]; },
-
-  selectProfile(index, moveFocus = false) {
-    if (!Number.isInteger(index) || index < 0 || index >= this.members.length) return;
-    this.activeIndex = index;
-    clearTimeout(this._scrollTimer);
-    this.$nextTick(() => {
-      if (index !== this.activeIndex) return;
-      const row = this.$refs.profileRow;
-      const button = row?.querySelector(`[data-profile-index="${index}"]`);
-      if (moveFocus) button?.focus({ preventScroll: true });
-      const view = row?.ownerDocument?.defaultView;
-      if (!button || !view?.matchMedia('(max-width: 760px)').matches) return;
-      const reduced = view.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      // Centre the final expanded width, without moving the document vertically.
-      this._scrollTimer = setTimeout(() => {
-        const left = button.offsetLeft - (row.clientWidth - button.offsetWidth) / 2;
-        row.scrollTo({ left, behavior: reduced ? 'auto' : 'smooth' });
-      }, reduced ? 0 : 620);
-    });
-  },
-
-  handleProfileKeydown(event) {
-    if (event.altKey || event.ctrlKey || event.metaKey) return;
-    const last = this.members.length - 1;
-    const destinations = {
-      ArrowRight: (this.activeIndex + 1) % this.members.length,
-      ArrowLeft: (this.activeIndex + last) % this.members.length,
-      Home: 0,
-      End: last
+  init() {
+    const view = this.$el.ownerDocument.defaultView;
+    if (!view?.matchMedia) return;
+    const section = this.$el;
+    const portraits = section.querySelector('.team-portraits');
+    const preference = view.matchMedia('(prefers-reduced-motion: reduce)');
+    let frame = 0;
+    const render = () => {
+      frame = 0;
+      const height = Math.max(1, view.innerHeight);
+      const entrance = smoothstep((height * 1.3 - section.getBoundingClientRect().top) / (height * .4));
+      // Clear by the time portraits reach the central reading area, at any screen size.
+      const cleared = smoothstep((height * .94 - portraits.getBoundingClientRect().top) / (height * .42));
+      const opacity = preference.matches ? 0 : entrance * (1 - cleared) * .56;
+      section.style.setProperty('--team-smoke-opacity', String(opacity));
+      section.style.setProperty('--team-smoke-rise', `${-100 * cleared}px`);
+      section.classList.toggle('is-smoke-active', opacity > 0);
     };
-    if (!Object.hasOwn(destinations, event.key)) return;
-    event.preventDefault();
-    this.selectProfile(destinations[event.key], true);
+    const schedule = () => {
+      if (!frame) frame = view.requestAnimationFrame(render);
+    };
+    render();
+    view.addEventListener('scroll', schedule, { passive: true });
+    view.addEventListener('resize', schedule, { passive: true });
+    preference.addEventListener('change', schedule);
+    // Font and portrait layout changes can shift the point at which the smoke clears.
+    const observer = new ResizeObserver(schedule);
+    observer.observe(section);
+    observer.observe(portraits);
+    this._disposeSmoke = () => {
+      view.removeEventListener('scroll', schedule);
+      view.removeEventListener('resize', schedule);
+      preference.removeEventListener('change', schedule);
+      observer.disconnect();
+      view.cancelAnimationFrame(frame);
+    };
   },
-
-  destroy() { clearTimeout(this._scrollTimer); }
+  destroy() { this._disposeSmoke?.(); }
 });

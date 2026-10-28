@@ -1,0 +1,535 @@
+{
+  "base": "http://127.0.0.1:5173/edukasi.html",
+  "uniqueImages": [
+    {
+      "src": "/assets/images/education/articles/electricity-grid.webp",
+      "alt": "Tiang dan jaringan distribusi listrik di antara pepohonan dalam kabut pagi."
+    },
+    {
+      "src": "/assets/images/education/articles/water-cooling.webp",
+      "alt": "Diagram menara pendingin: air panas masuk, udara kering masuk dari samping, udara hangat dan lembap keluar, serta air dingin terkumpul di bawah."
+    },
+    {
+      "src": "/assets/images/education/articles/data-center-power.webp",
+      "alt": "Deretan kabinet UPS yang mendukung pasokan listrik pusat data."
+    },
+    {
+      "src": "/assets/images/education/articles/planning-a-question.webp",
+      "alt": "Seseorang menyusun catatan dengan pena di buku terbuka di samping laptop."
+    },
+    {
+      "src": "/assets/images/education/articles/training-inference.webp",
+      "alt": "Diagram pelatihan dengan propagasi maju, propagasi balik, dan pembaruan bobot, diikuti model terlatih yang menjalankan inferensi pada data baru."
+    },
+    {
+      "src": "/assets/images/education/articles/mean-median-distributions.webp",
+      "alt": "Tiga contoh distribusi: miring ke kiri, simetris, dan miring ke kanan, dengan posisi mean, median, dan modus."
+    },
+    {
+      "src": "/assets/images/education/articles/water-location.webp",
+      "alt": "Seseorang berjalan melewati dasar Danau Sentarum yang retak pada musim kemarau, Kalimantan Barat."
+    }
+  ],
+  "layouts": [
+    {
+      "width": 1440,
+      "locale": "id",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "cards": [
+        {
+          "id": "jejak-karbon",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        },
+        {
+          "id": "jejak-air",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        },
+        {
+          "id": "energi-pusat-data",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        },
+        {
+          "id": "prompt-bijak",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        },
+        {
+          "id": "pelatihan-inferensi",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        },
+        {
+          "id": "membaca-estimasi",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        },
+        {
+          "id": "air-dan-lokasi",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "viewport": 1440,
+      "documentWidth": 1440,
+      "cards": [
+        {
+          "id": "jejak-karbon",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        },
+        {
+          "id": "jejak-air",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        },
+        {
+          "id": "energi-pusat-data",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        },
+        {
+          "id": "prompt-bijak",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        },
+        {
+          "id": "pelatihan-inferensi",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        },
+        {
+          "id": "membaca-estimasi",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        },
+        {
+          "id": "air-dan-lokasi",
+          "width": 589,
+          "overflow": false,
+          "coverWidth": 587
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "locale": "id",
+      "viewport": 390,
+      "documentWidth": 390,
+      "cards": [
+        {
+          "id": "jejak-karbon",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        },
+        {
+          "id": "jejak-air",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        },
+        {
+          "id": "energi-pusat-data",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        },
+        {
+          "id": "prompt-bijak",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        },
+        {
+          "id": "pelatihan-inferensi",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        },
+        {
+          "id": "membaca-estimasi",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        },
+        {
+          "id": "air-dan-lokasi",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "viewport": 390,
+      "documentWidth": 390,
+      "cards": [
+        {
+          "id": "jejak-karbon",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        },
+        {
+          "id": "jejak-air",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        },
+        {
+          "id": "energi-pusat-data",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        },
+        {
+          "id": "prompt-bijak",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        },
+        {
+          "id": "pelatihan-inferensi",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        },
+        {
+          "id": "membaca-estimasi",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        },
+        {
+          "id": "air-dan-lokasi",
+          "width": 350,
+          "overflow": false,
+          "coverWidth": 348
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "locale": "id",
+      "viewport": 320,
+      "documentWidth": 320,
+      "cards": [
+        {
+          "id": "jejak-karbon",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        },
+        {
+          "id": "jejak-air",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        },
+        {
+          "id": "energi-pusat-data",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        },
+        {
+          "id": "prompt-bijak",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        },
+        {
+          "id": "pelatihan-inferensi",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        },
+        {
+          "id": "membaca-estimasi",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        },
+        {
+          "id": "air-dan-lokasi",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "viewport": 320,
+      "documentWidth": 320,
+      "cards": [
+        {
+          "id": "jejak-karbon",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        },
+        {
+          "id": "jejak-air",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        },
+        {
+          "id": "energi-pusat-data",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        },
+        {
+          "id": "prompt-bijak",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        },
+        {
+          "id": "pelatihan-inferensi",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        },
+        {
+          "id": "membaca-estimasi",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        },
+        {
+          "id": "air-dan-lokasi",
+          "width": 288,
+          "overflow": false,
+          "coverWidth": 286
+        }
+      ]
+    }
+  ],
+  "dialogs": [
+    {
+      "id": "jejak-karbon",
+      "locale": "id",
+      "src": "/assets/images/education/articles/electricity-grid.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    },
+    {
+      "id": "jejak-air",
+      "locale": "id",
+      "src": "/assets/images/education/articles/water-cooling.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    },
+    {
+      "id": "energi-pusat-data",
+      "locale": "id",
+      "src": "/assets/images/education/articles/data-center-power.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    },
+    {
+      "id": "prompt-bijak",
+      "locale": "id",
+      "src": "/assets/images/education/articles/planning-a-question.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    },
+    {
+      "id": "pelatihan-inferensi",
+      "locale": "id",
+      "src": "/assets/images/education/articles/training-inference.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    },
+    {
+      "id": "membaca-estimasi",
+      "locale": "id",
+      "src": "/assets/images/education/articles/mean-median-distributions.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    },
+    {
+      "id": "air-dan-lokasi",
+      "locale": "id",
+      "src": "/assets/images/education/articles/water-location.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    },
+    {
+      "id": "jejak-karbon",
+      "locale": "en",
+      "src": "/assets/images/education/articles/electricity-grid.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    },
+    {
+      "id": "jejak-air",
+      "locale": "en",
+      "src": "/assets/images/education/articles/water-cooling.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    },
+    {
+      "id": "energi-pusat-data",
+      "locale": "en",
+      "src": "/assets/images/education/articles/data-center-power.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    },
+    {
+      "id": "prompt-bijak",
+      "locale": "en",
+      "src": "/assets/images/education/articles/planning-a-question.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    },
+    {
+      "id": "pelatihan-inferensi",
+      "locale": "en",
+      "src": "/assets/images/education/articles/training-inference.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    },
+    {
+      "id": "membaca-estimasi",
+      "locale": "en",
+      "src": "/assets/images/education/articles/mean-median-distributions.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    },
+    {
+      "id": "air-dan-lokasi",
+      "locale": "en",
+      "src": "/assets/images/education/articles/water-location.webp",
+      "loaded": true,
+      "captionTranslated": true,
+      "credits": true
+    }
+  ],
+  "filters": [
+    {
+      "width": 1440,
+      "locale": "id",
+      "waterCount": 2,
+      "searchTitle": "Angka kecil, konteks besar.",
+      "searchCount": 1
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "waterCount": 2,
+      "searchTitle": "Small figures, big context.",
+      "searchCount": 1
+    },
+    {
+      "width": 390,
+      "locale": "id",
+      "waterCount": 2,
+      "searchTitle": "Angka kecil, konteks besar.",
+      "searchCount": 1
+    },
+    {
+      "width": 390,
+      "locale": "en",
+      "waterCount": 2,
+      "searchTitle": "Small figures, big context.",
+      "searchCount": 1
+    },
+    {
+      "width": 320,
+      "locale": "id",
+      "waterCount": 2,
+      "searchTitle": "Angka kecil, konteks besar.",
+      "searchCount": 1
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "waterCount": 2,
+      "searchTitle": "Small figures, big context.",
+      "searchCount": 1
+    }
+  ],
+  "noJS": [
+    {
+      "id": "jejak-karbon",
+      "detailsReadable": true,
+      "loaded": true
+    },
+    {
+      "id": "jejak-air",
+      "detailsReadable": true,
+      "loaded": true
+    },
+    {
+      "id": "energi-pusat-data",
+      "detailsReadable": true,
+      "loaded": true
+    },
+    {
+      "id": "prompt-bijak",
+      "detailsReadable": true,
+      "loaded": true
+    },
+    {
+      "id": "pelatihan-inferensi",
+      "detailsReadable": true,
+      "loaded": true
+    },
+    {
+      "id": "membaca-estimasi",
+      "detailsReadable": true,
+      "loaded": true
+    },
+    {
+      "id": "air-dan-lokasi",
+      "detailsReadable": true,
+      "loaded": true
+    }
+  ],
+  "errors": [],
+  "failedArticleAssets": [],
+  "noJSBase": "http://127.0.0.1:4173/edukasi.html",
+  "passed": true,
+  "noJSWidth": 320
+}

@@ -1,0 +1,292 @@
+{
+  "passed": true,
+  "base": "http://127.0.0.1:5173",
+  "education": [
+    {
+      "width": 1440,
+      "locale": "id",
+      "total": 6,
+      "uniqueImages": 6,
+      "waterFilter": 2,
+      "existingSearch": 1,
+      "deletedArticleSearch": 0,
+      "countText": "6 materi untuk dijelajahi",
+      "documentWidth": 1440
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "total": 6,
+      "uniqueImages": 6,
+      "waterFilter": 2,
+      "existingSearch": 1,
+      "deletedArticleSearch": 0,
+      "countText": "6 resources to explore",
+      "documentWidth": 1440
+    },
+    {
+      "width": 320,
+      "locale": "id",
+      "total": 6,
+      "uniqueImages": 6,
+      "waterFilter": 2,
+      "existingSearch": 1,
+      "deletedArticleSearch": 0,
+      "countText": "6 materi untuk dijelajahi",
+      "documentWidth": 320
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "total": 6,
+      "uniqueImages": 6,
+      "waterFilter": 2,
+      "existingSearch": 1,
+      "deletedArticleSearch": 0,
+      "countText": "6 resources to explore",
+      "documentWidth": 320
+    }
+  ],
+  "readers": [
+    {
+      "width": 1440,
+      "locale": "id",
+      "id": "jejak-karbon",
+      "loaded": true,
+      "caption": "Komputasi AI memerlukan pasokan listrik.",
+      "creditClean": true
+    },
+    {
+      "width": 1440,
+      "locale": "id",
+      "id": "jejak-air",
+      "loaded": true,
+      "caption": "Menara pendingin membuang panas melalui aliran udara dan penguapan sebagian air.",
+      "creditClean": true
+    },
+    {
+      "width": 1440,
+      "locale": "id",
+      "id": "energi-pusat-data",
+      "loaded": true,
+      "caption": "Kabinet UPS membantu menjaga pasokan listrik. Infrastruktur pusat data mencakup peralatan pendukung selain server.",
+      "creditClean": true
+    },
+    {
+      "width": 1440,
+      "locale": "id",
+      "id": "prompt-bijak",
+      "loaded": true,
+      "caption": "Susun tujuan dan konteks sebelum menulis permintaan. Foto kegiatan mencatat; tidak mendokumentasikan sesi AI tertentu.",
+      "creditClean": true
+    },
+    {
+      "width": 1440,
+      "locale": "id",
+      "id": "pelatihan-inferensi",
+      "loaded": true,
+      "caption": "Di kiri, pelatihan memperbarui bobot model melalui beberapa langkah berulang. Di kanan, inferensi memakai model terlatih untuk menghasilkan prediksi dari data baru.",
+      "creditClean": true
+    },
+    {
+      "width": 1440,
+      "locale": "id",
+      "id": "air-dan-lokasi",
+      "loaded": true,
+      "caption": "Danau Sentarum, Kalimantan Barat, pada musim kemarau Agustus 2019. Kondisi air berubah menurut tempat dan musim; foto ini tidak menunjukkan dampak AI.",
+      "creditClean": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "id": "jejak-karbon",
+      "loaded": true,
+      "caption": "AI computing requires electricity.",
+      "creditClean": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "id": "jejak-air",
+      "loaded": true,
+      "caption": "A cooling tower releases heat through airflow and the evaporation of some water.",
+      "creditClean": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "id": "energi-pusat-data",
+      "loaded": true,
+      "caption": "UPS cabinets help maintain electrical supply. Data center infrastructure includes supporting equipment alongside servers.",
+      "creditClean": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "id": "prompt-bijak",
+      "loaded": true,
+      "caption": "Plan your goal and context before writing a request. A note-taking photograph; it does not document a particular AI session.",
+      "creditClean": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "id": "pelatihan-inferensi",
+      "loaded": true,
+      "caption": "On the left, training updates model weights through repeated steps. On the right, inference uses the trained model to predict from new data.",
+      "creditClean": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "id": "air-dan-lokasi",
+      "loaded": true,
+      "caption": "Lake Sentarum, West Kalimantan, in the August 2019 dry season. Water conditions vary by place and season; this photograph does not show an AI impact.",
+      "creditClean": true
+    },
+    {
+      "width": 320,
+      "locale": "id",
+      "id": "jejak-karbon",
+      "loaded": true,
+      "caption": "Komputasi AI memerlukan pasokan listrik.",
+      "creditClean": true
+    },
+    {
+      "width": 320,
+      "locale": "id",
+      "id": "jejak-air",
+      "loaded": true,
+      "caption": "Menara pendingin membuang panas melalui aliran udara dan penguapan sebagian air.",
+      "creditClean": true
+    },
+    {
+      "width": 320,
+      "locale": "id",
+      "id": "energi-pusat-data",
+      "loaded": true,
+      "caption": "Kabinet UPS membantu menjaga pasokan listrik. Infrastruktur pusat data mencakup peralatan pendukung selain server.",
+      "creditClean": true
+    },
+    {
+      "width": 320,
+      "locale": "id",
+      "id": "prompt-bijak",
+      "loaded": true,
+      "caption": "Susun tujuan dan konteks sebelum menulis permintaan. Foto kegiatan mencatat; tidak mendokumentasikan sesi AI tertentu.",
+      "creditClean": true
+    },
+    {
+      "width": 320,
+      "locale": "id",
+      "id": "pelatihan-inferensi",
+      "loaded": true,
+      "caption": "Di kiri, pelatihan memperbarui bobot model melalui beberapa langkah berulang. Di kanan, inferensi memakai model terlatih untuk menghasilkan prediksi dari data baru.",
+      "creditClean": true
+    },
+    {
+      "width": 320,
+      "locale": "id",
+      "id": "air-dan-lokasi",
+      "loaded": true,
+      "caption": "Danau Sentarum, Kalimantan Barat, pada musim kemarau Agustus 2019. Kondisi air berubah menurut tempat dan musim; foto ini tidak menunjukkan dampak AI.",
+      "creditClean": true
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "id": "jejak-karbon",
+      "loaded": true,
+      "caption": "AI computing requires electricity.",
+      "creditClean": true
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "id": "jejak-air",
+      "loaded": true,
+      "caption": "A cooling tower releases heat through airflow and the evaporation of some water.",
+      "creditClean": true
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "id": "energi-pusat-data",
+      "loaded": true,
+      "caption": "UPS cabinets help maintain electrical supply. Data center infrastructure includes supporting equipment alongside servers.",
+      "creditClean": true
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "id": "prompt-bijak",
+      "loaded": true,
+      "caption": "Plan your goal and context before writing a request. A note-taking photograph; it does not document a particular AI session.",
+      "creditClean": true
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "id": "pelatihan-inferensi",
+      "loaded": true,
+      "caption": "On the left, training updates model weights through repeated steps. On the right, inference uses the trained model to predict from new data.",
+      "creditClean": true
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "id": "air-dan-lokasi",
+      "loaded": true,
+      "caption": "Lake Sentarum, West Kalimantan, in the August 2019 dry season. Water conditions vary by place and season; this photograph does not show an AI impact.",
+      "creditClean": true
+    }
+  ],
+  "homeNavigation": [
+    {
+      "width": 1440,
+      "locale": "id",
+      "href": "./index.html",
+      "current": "page",
+      "text": "Home",
+      "afterContent": "none",
+      "afterDisplay": "inline",
+      "textDecoration": "none",
+      "clickNavigated": true
+    },
+    {
+      "width": 1440,
+      "locale": "en",
+      "href": "./index.html",
+      "current": "page",
+      "text": "Home",
+      "afterContent": "none",
+      "afterDisplay": "inline",
+      "textDecoration": "none",
+      "clickNavigated": true
+    },
+    {
+      "width": 320,
+      "locale": "id",
+      "href": "./index.html",
+      "current": "page",
+      "text": "Home",
+      "afterContent": "none",
+      "afterDisplay": "block",
+      "textDecoration": "none",
+      "clickNavigated": true
+    },
+    {
+      "width": 320,
+      "locale": "en",
+      "href": "./index.html",
+      "current": "page",
+      "text": "Home",
+      "afterContent": "none",
+      "afterDisplay": "block",
+      "textDecoration": "none",
+      "clickNavigated": true
+    }
+  ],
+  "errors": [],
+  "failedArticleAssets": []
+}

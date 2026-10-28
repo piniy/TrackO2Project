@@ -70,8 +70,14 @@
 }
 
 /* Reading cards and their focused reading view. */
-.learning-article { overflow: hidden; }
-.article-cover { display: block; width: calc(100% + 56px); max-width: none; height: 165px; margin: -28px -28px 22px; object-fit: cover; }
+.learning-article { --article-padding: 28px; overflow: hidden; }
+.article-cover-figure { margin: calc(-1 * var(--article-padding)) calc(-1 * var(--article-padding)) 22px; }
+.article-cover { display: block; width: 100%; height: 200px; object-fit: cover; }
+#jejak-karbon .article-cover, #air-dan-lokasi .article-cover { object-position: 50% 18%; }
+.article-cover.article-image-diagram { object-fit: contain; padding: 16px; background: #fff; }
+.article-image-credit { padding: 9px var(--article-padding) 0; color: var(--muted); font-size: 10px; line-height: 1.6; overflow-wrap: anywhere; }
+.article-image-credit a { text-decoration: underline; text-underline-offset: 2px; }
+.article-image-credit a:focus-visible { outline: 3px solid var(--green); outline-offset: 3px; }
 .article-heading { margin-bottom: 17px; }
 .learning-article summary { cursor: pointer; }
 .article-dialog { position: fixed; width: min(720px, calc(100% - 32px)); max-height: min(85vh, 900px); overflow-y: auto; padding: clamp(25px, 5vw, 48px); border: 1px solid #cbdcc7; border-radius: 22px; background: #fbfdf9; color: #183b32; box-shadow: 0 28px 90px #09282055; }
@@ -94,9 +100,14 @@
 .ed-study-switch button:hover { background: #f2f8f9; }
 .ed-study-switch button[aria-pressed='true'], .ed-study-switch .ed-history-tab[aria-pressed='true'] { color: #fff; border-color: #245b70; background: #245b70; box-shadow: 0 3px 9px #245b7029; }
 .ed-study-switch button:focus-visible { outline: 3px solid #245b70; outline-offset: 2px; }
-@media (max-width: 440px) { .article-cover { height: 140px; } .article-visual-pair { grid-template-columns: 1fr; } .article-visual-pair span { min-height: 52px; } }
+@media (max-width: 720px) { .learning-article { --article-padding: 24px; } }
+@media (max-width: 440px) { .article-cover { height: 170px; } .article-cover.article-image-diagram { padding: 12px; } .article-visual-pair { grid-template-columns: 1fr; } .article-visual-pair span { min-height: 52px; } }
 
 .article-photo { margin: 28px 0 0; }
 .article-photo img { display: block; width: 100%; height: auto; border-radius: 14px; }
 .article-photo figcaption { margin-top: 10px; color: var(--muted); font-size: 11px; line-height: 1.6; }
 .article-photo a { color: var(--green); text-decoration: underline; }
+.article-photo-credit { display: block; margin-top: 8px; }
+.article-photo .article-image-diagram { padding: 12px; background: #fff; }
+.article-full-image { display: block; }
+.article-full-image-label { display: inline-block; margin-top: 9px; font-size: 11px; }

@@ -13,6 +13,7 @@ import './styles/education-page.css';
 import './styles/calculator-refresh.css';
 import './styles/calculator-trial.css';
 import './styles/team.css';
+import './styles/game.css';
 import './styles/formula.css';
 import './styles/page-motion.css';
 import './styles/footer.css';

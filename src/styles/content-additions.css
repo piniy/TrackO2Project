@@ -43,3 +43,17 @@
   .home-service-art, .home-service h3 { transition: none; }
   .home-service:hover .home-service-art, .home-service:nth-child(even):hover .home-service-art, .home-service:focus-visible .home-service-art { transform: none; }
 }
+
+/* Compact, touch-friendly navigation on tablet and mobile. */
+@media (max-width: 960px) {
+  .js-ready .header-inner { min-height: 75px; flex-wrap: nowrap; }
+  .js-ready .primary-nav.is-open {
+    position: absolute; top: calc(100% + 8px); left: 16px; right: 16px;
+    display: flex; flex-direction: column; align-items: stretch; gap: 4px;
+    max-height: calc(100dvh - 96px); overflow-y: auto; padding: 10px;
+    border: 1px solid #d7e4d4; border-radius: 14px; background: #fff;
+    box-shadow: 0 14px 36px #103f3529;
+  }
+  .js-ready .primary-nav a { display: flex; align-items: center; min-height: 48px; padding: 12px 15px; border-radius: 8px; font-size: 15px; }
+  .js-ready .primary-nav a:hover, .js-ready .primary-nav a[aria-current] { background: #eaf3e6; }
+}

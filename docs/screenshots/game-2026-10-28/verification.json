@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-28",
+  "url": "http://127.0.0.1:5173/game.html",
+  "checks": [
+    "Language switch after an answer preserves answer, progress, feedback and score",
+    "Five-question mixed playthrough scores 4/5, explains all choices, and restarts cleanly",
+    "Keyboard and full games with review and English layouts at 320, 390, 768, 1024, 1440px",
+    "Homepage preview image loads and opens game",
+    "No-JavaScript instructions and education destination remain available"
+  ],
+  "layout": [
+    {
+      "width": 320,
+      "intro": true,
+      "keyboard": true,
+      "fullGame": true,
+      "review": true,
+      "english": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "intro": true,
+      "keyboard": true,
+      "fullGame": true,
+      "review": true,
+      "english": true,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "intro": true,
+      "keyboard": true,
+      "fullGame": true,
+      "review": true,
+      "english": true,
+      "overflow": false
+    },
+    {
+      "width": 1024,
+      "intro": true,
+      "keyboard": true,
+      "fullGame": true,
+      "review": true,
+      "english": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "intro": true,
+      "keyboard": true,
+      "fullGame": true,
+      "review": true,
+      "english": true,
+      "overflow": false
+    }
+  ],
+  "pageErrors": []
+}

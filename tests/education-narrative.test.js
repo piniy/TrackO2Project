@@ -11,7 +11,7 @@ test('home preview is separate from complete education and preserves surrounding
   assert.ok(home.indexOf('site:journey') < home.indexOf('site:education-preview'));
   assert.ok(home.indexOf('site:education-preview') < home.indexOf('id="carbsculator"'));
   assert.ok(!home.includes('<!-- site:education -->'));
-  for (const asset of ['emissions-hero.jpg', 'services/notebook.webp', 'services/calculator.webp', 'services/puzzle.webp']) assert.ok(home.includes(asset));
+  for (const asset of ['emissions-hero-current.webp', 'services/notebook.webp', 'services/calculator.webp', 'services/puzzle.webp']) assert.ok(home.includes(asset));
   assert.ok(home.includes('site:team'));
   const education = read('edukasi.html');
   const steps = ['id="education-heading"', 'education-video-slot', 'site:journey', 'id="pahami"', 'site:education-principles', '<!-- site:education -->', 'id="pilih"', 'id="reading-title"'];

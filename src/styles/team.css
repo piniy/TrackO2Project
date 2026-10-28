@@ -1,60 +1,89 @@
-/* The selected portrait makes room for its person; the other five remain in view. */
-.team-section { border-top: 1px solid var(--line); padding-block: 68px 80px; }
-.team-section-heading { margin-bottom: 34px; }
-.team-section-heading h2 { font-size: 39px; text-align: center; }
-.team-profile-details { min-height: 150px; margin-bottom: 12px; }
-.team-profile-copy { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; animation: team-profile-reveal 620ms cubic-bezier(.16,1,.3,1) both; }
-.team-profile-identity h3 { max-width: 420px; font-size: clamp(25px, 2.6vw, 34px); line-height: 1.18; letter-spacing: -.8px; }
-.team-profile-job { display: flex; flex-direction: column; gap: 3px; margin-top: 16px; font-size: 12px; color: var(--muted); }
-.team-profile-job > span:first-child { color: var(--green); font-size: 10px; font-weight: 600; }
-.team-profile-quote { margin: 0; padding-left: 26px; border-left: 2px solid #c7d9bf; color: var(--forest); }
-.team-profile-quote p { font-family: var(--display); font-weight: 500; font-size: clamp(19px, 1.8vw, 24px); line-height: 1.5; letter-spacing: -.3px; }
-.team-portraits { display: flex; align-items: end; gap: 14px; min-height: 390px; padding-block: 24px 12px; position: relative; }
-.team-portrait-button { flex: 1 1 0; min-width: 0; padding: 0; border: 0; background: transparent; text-align: left; transform-origin: center bottom; transition: flex-grow 620ms cubic-bezier(.22,.7,.2,1), transform 620ms cubic-bezier(.22,.7,.2,1); }
-.team-portrait-button.is-active { flex-grow: 2.4; transform: translateY(-14px); }
-.team-profile-image { display: grid; place-items: center; width: 100%; height: 230px; overflow: hidden; border: 2px solid transparent; border-radius: 20px; background: #dfe8d8; transition: height 620ms cubic-bezier(.22,.7,.2,1), border-color 400ms ease, box-shadow 620ms ease, background 400ms ease; }
-.team-portrait-button:nth-of-type(even) .team-profile-image { background: #e7ede2; }
-.team-profile-image > img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; filter: saturate(.75); transition: filter 500ms ease; }
-.team-portrait-button.is-active .team-profile-image { height: 320px; border-color: #89ad7c; box-shadow: 0 18px 34px #163d321a; }
-.team-portrait-button.is-active .team-profile-image > img { filter: saturate(1); }
-.team-profile-placeholder { display: grid; place-items: center; width: 76%; max-width: 142px; aspect-ratio: 1; border: 1px solid #98b38c66; border-radius: 50%; background: #ffffff4d; color: #78936b; font-family: var(--display); font-weight: 500; font-size: clamp(27px, 3.2vw, 48px); transition: transform 620ms cubic-bezier(.22,.7,.2,1), background 400ms ease; }
-.team-portrait-button.is-active .team-profile-placeholder { transform: scale(1.08); background: #ffffff80; }
-.team-profile-label { display: block; min-height: 42px; padding: 12px 2px 0; color: var(--muted); font-size: 11px; line-height: 1.5; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; transition: color 400ms ease; }
-.team-portrait-button.is-active .team-profile-label { color: var(--forest); font-weight: 700; }
-.team-portrait-button:focus-visible { outline-offset: 7px; border-radius: 22px; }
-@media (hover: hover) and (pointer: fine) {
-  .team-portrait-button:not(.is-active):hover { transform: translateY(-8px); }
-  .team-portrait-button:not(.is-active):hover .team-profile-image { border-color: #a6bca0; }
-}
-@keyframes team-profile-reveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+/* Team portraits use alternating curves inspired by the supplied reference. */
+.team-section { padding-block: 90px 100px; }
+.team-section-heading { text-align: center; margin-bottom: 58px; }
+.team-section-heading h2 { font-size: clamp(36px, 4vw, 54px); letter-spacing: -.04em; }
+.team-section-heading p { margin: 18px auto 0; color: var(--muted); font-size: 14px; }
+.team-portraits { display: flex; gap: 16px; align-items: start; overflow-x: auto; scrollbar-width: none; }
+.team-portraits::-webkit-scrollbar { display: none; }
+.team-card { flex: 1 0 0; min-width: 0; padding: 0; border: 0; background: transparent; text-align: center; cursor: pointer; transition: flex-grow 300ms ease, flex-basis 300ms ease; }
+.team-card.is-active { flex-grow: 1.5; }
+.team-card:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; border-radius: 8px; }
+.team-profile-image { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; background: #dbead2; border-radius: 50% 50% 50% 50% / 9% 9% 9% 9%; }
+.team-card:nth-child(3n + 2) .team-profile-image { background: #d9e9e2; border-radius: 50% 50% 50% 50% / 3% 3% 12% 12%; }
+.team-card:nth-child(3n) .team-profile-image { background: #e5edcf; }
+.team-profile-image img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.team-profile-placeholder { display: grid; place-items: center; width: 54%; aspect-ratio: 1; border-radius: 50%; color: #78936b; background: #ffffff80; font-size: clamp(24px, 2.5vw, 36px); font-weight: 600; }
+.team-profile-label { display: block; margin: 18px 0 0; color: var(--forest); font-size: 15px; line-height: 1.35; font-weight: 600; overflow-wrap: anywhere; }
+.team-card-role { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; }
+.team-portraits:focus-visible { outline: 2px solid var(--focus); outline-offset: 8px; border-radius: 8px; }
 @media (max-width: 960px) {
-  .team-profile-copy { gap: 28px; }
-  .team-portraits { gap: 10px; min-height: 355px; }
-  .team-profile-image { height: 210px; border-radius: 17px; }
-  .team-portrait-button.is-active .team-profile-image { height: 285px; }
-  .team-profile-label { font-size: 10px; }
+  .team-portraits {  gap: 16px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x proximity; padding: 4px 0 18px; scrollbar-width: none; }
+  .team-card { flex: 0 0 55%; scroll-snap-align: start; }
+  .team-card.is-active { flex-basis: 72%; }
 }
-@media (max-width: 760px) {
-  .team-section { padding-block: 50px 55px; }
-  .team-section-heading { margin-bottom: 30px; }
-  .team-section-heading h2 { font-size: 32px; }
-  .team-profile-details { min-height: 255px; margin-bottom: 4px; }
-  .team-profile-copy { grid-template-columns: 1fr; gap: 20px; }
-  .team-profile-identity h3 { max-width: 350px; font-size: 27px; }
-  .team-profile-job { margin-top: 12px; }
-  .team-profile-quote { padding-left: 18px; }
-  .team-profile-quote p { font-size: 19px; line-height: 1.5; }
-  .team-portraits { gap: 12px; min-height: 365px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: #b7c9ad transparent; scroll-padding-inline: 12px; padding: 26px 10px 16px; margin-inline: -10px; }
-  .team-portrait-button { flex: 0 0 148px; transition: flex-basis 620ms cubic-bezier(.22,.7,.2,1), transform 620ms cubic-bezier(.22,.7,.2,1); }
-  .team-portrait-button.is-active { flex: 0 0 242px; }
-  .team-profile-image { height: 218px; }
-  .team-portrait-button.is-active .team-profile-image { height: 288px; }
-  .team-profile-placeholder { font-size: 42px; }
-  .team-profile-label { min-height: 40px; font-size: 11px; }
+@media (max-width: 600px) {
+  .team-section { padding-block: 65px 70px; }
+  .team-section-heading { margin-bottom: 38px; }
+  .team-portraits {  gap: 16px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x proximity; padding: 4px 0 18px; scrollbar-width: none; }
+  .team-card { scroll-snap-align: start; }
 }
+
+@media (prefers-reduced-motion: reduce) { .team-card { transition: none; } }
+.team-card.is-active .team-profile-label { font-size: 18px; }
+.team-card.is-active .team-card-role { font-size: 14px; }
+
+/* The opening graphic's cloud texture crosses the Games / team boundary, then clears. */
+.team-section { position: relative; isolation: isolate; z-index: 1; }
+.team-section-heading, .team-portraits { position: relative; z-index: 1; }
+.team-smoke {
+  position: absolute; inset-inline: 0; top: -300px; height: 500px;
+  overflow: clip; pointer-events: none; visibility: hidden;
+  opacity: var(--team-smoke-opacity, 0);
+  transform: translate3d(0, var(--team-smoke-rise, 0px), 0);
+  mask-image: linear-gradient(transparent, #000 22%, #000 70%, transparent);
+}
+.is-smoke-active .team-smoke { visibility: visible; }
+.team-smoke-billow {
+  position: absolute; top: 6%; left: -12%; width: clamp(320px, 48vw, 700px); aspect-ratio: 1.5;
+  background: url('/assets/images/journey/cloud.webp') center / 100% 100% no-repeat;
+  filter: grayscale(1) brightness(.94) blur(10px);
+  animation: team-smoke-billow 10s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+.team-smoke-billow:nth-child(2) { left: 12%; top: 22%; opacity: .8; animation-duration: 13s; animation-delay: -6s; animation-direction: alternate-reverse; }
+.team-smoke-billow:nth-child(3) { left: 36%; top: -3%; animation-duration: 11s; animation-delay: -4s; }
+.team-smoke-billow:nth-child(4) { left: 64%; top: 17%; opacity: .85; animation-duration: 14s; animation-delay: -8s; animation-direction: alternate-reverse; }
+.team-smoke-billow:nth-child(5) { left: 5%; top: 30%; width: clamp(400px, 65vw, 940px); opacity: .5; animation-duration: 12s; animation-delay: -3s; }
+.is-smoke-active .team-smoke-billow { animation-play-state: running; }
+@keyframes team-smoke-billow {
+  from { transform: translate3d(-28px, 14px, 0) rotate(-4deg) scale(.94); }
+  to { transform: translate3d(32px, -22px, 0) rotate(4deg) scale(1.08); }
+}
+.team-section:focus-within .team-smoke { opacity: 0; visibility: hidden; }
+.team-section:focus-within .team-smoke-billow { animation-play-state: paused; }
+@media (max-width: 600px) {
+  .team-smoke { top: -220px; height: 360px; }
+  .team-smoke-billow { width: 80vw; filter: grayscale(1) brightness(.94) blur(7px); }
+  .team-smoke-billow:nth-child(2) { left: -20%; top: 25%; }
+  .team-smoke-billow:nth-child(3) { left: 38%; }
+  .team-smoke-billow:nth-child(4) { left: 58%; top: 28%; }
+  .team-smoke-billow:nth-child(5) { left: 3%; width: 100vw; }
+}
+.team-profile-image, .team-profile-label, .team-card-role { transition: transform 300ms ease, font-size 300ms ease; }
+.team-card.is-active .team-profile-image { transform: translateY(-4px); }
 @media (prefers-reduced-motion: reduce) {
-  .team-profile-copy { animation: none; }
-  .team-portrait-button, .team-profile-image, .team-profile-image > img, .team-profile-placeholder, .team-profile-label { transition: none; }
-  .team-portrait-button.is-active, .team-portrait-button:not(.is-active):hover { transform: none; }
-  .team-portrait-button.is-active .team-profile-placeholder { transform: none; }
+  .team-smoke { display: none; }
+  .team-smoke-billow { animation: none; }
+  .team-profile-image, .team-profile-label, .team-card-role { transition: none; }
+  .team-card.is-active .team-profile-image { transform: none; }
+}
+/* One centred profile per swipe on compact screens. */
+@media (max-width: 960px) {
+  .team-portraits { gap: 0; scroll-snap-type: x mandatory; }
+  .team-card, .team-card.is-active { flex: 0 0 100%; scroll-snap-align: center; scroll-snap-stop: always; padding: 10px 12px 6px; }
+  .team-profile-image { width: min(100%, 330px); margin-inline: auto; }
+  .team-card.is-active .team-profile-image { transform: translateY(-4px) scale(1.035); }
+}
+@media (max-width: 960px) and (prefers-reduced-motion: reduce) {
+  .team-card.is-active .team-profile-image { transform: none; }
 }

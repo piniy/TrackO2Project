@@ -49,16 +49,6 @@ export const articles = [
     takeaway: 'Sebutkan proses dan penyebutnya sebelum membandingkan angka.', sources: ['luccioni', 'water']
   },
   {
-    id: 'membaca-estimasi', topic: 'karbon', title: 'Angka kecil, konteks besar.', icon: 'book', readTime: '3 menit baca',
-    summary: 'Lima hal yang perlu diperiksa sebelum mengutip angka dampak AI.',
-    paragraphs: [
-      'Tanyakan: siapa sumbernya, kapan datanya, tugas apa yang dihitung, apa satuannya, dan jalur dampak apa yang termasuk? Ketiadaan data berarti belum dilaporkan, bukan nol.',
-      'Studi Google melaporkan median prompt teks Gemini Apps pada Mei 2025. Median adalah nilai tengah distribusi; nilainya tidak boleh diperlakukan sebagai rata-rata aritmetika untuk menghitung total penggunaanmu.',
-      'Contoh Shumba memakai asumsi inferensi historis 2024 dalam revisi paper 2026. Angka skenario tersebut tidak mengukur kinerja layanan saat ini. Sementara itu, CarbsCulator memakai parameter proposal untuk simulasi pembelajaran.'
-    ],
-    takeaway: 'Kutip fakta bersama batas terpenting dan sumber aslinya.', sources: ['gemini', 'shumba', 'proposal']
-  },
-  {
     id: 'air-dan-lokasi', topic: 'air', title: 'Mengapa lokasi air itu penting?', icon: 'drop', readTime: '2 menit baca',
     summary: 'Jumlah liter belum menjelaskan seluruh akibat bagi masyarakat dan lingkungan setempat.',
     paragraphs: [

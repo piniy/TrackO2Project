@@ -1,5 +1,6 @@
 import { activities, formatNumber } from '../content/activities.js';
 import { articles } from '../content/articles.js';
+import { articleImages } from '../content/article-images.js';
 import { references, reviewedDate } from '../content/references.js';
 
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
@@ -14,17 +15,15 @@ export const sourceMetadataLabels = {
   geography: 'Cakupan wilayah', evidence: 'Jenis bukti', included: 'Jalur yang dicakup', excluded: 'Batas dan pengecualian'
 };
 
-const articleImages = { karbon: 'home-emissions.jpg', air: 'home-water.jpg', energi: 'home-energy.jpg', kebiasaan: 'home-energy.jpg' };
-const photos = {
-  servers: { file: 'home-energy.jpg', alt: 'Deretan rak server di pusat data NERSC', caption: 'Contoh rak server di pusat data NERSC.', author: 'Derrick Coetzee', url: 'https://commons.wikimedia.org/wiki/File:Front_of_server_racks_at_NERSC.jpg', license: 'CC0' },
-  cooling: { file: 'home-water.jpg', alt: 'Menara pendingin di pusat data NERSC', caption: 'Contoh menara pendingin di pusat data NERSC.', author: 'Derrick Coetzee', url: 'https://commons.wikimedia.org/wiki/File:Marley_cooling_tower_at_NERSC_(1).jpg', license: 'CC0' },
-  students: { file: 'students-computer.jpg', alt: 'Siswa menggunakan komputer sekolah', caption: 'Siswa menggunakan komputer sekolah.', author: 'Bright Kwame Ayisi', url: 'https://commons.wikimedia.org/wiki/File:Students_using_a_computer.jpg', license: 'CC0' },
-  reservoir: { file: 'koto-panjang-reservoir.webp', alt: 'Waduk Koto Panjang di Riau', caption: 'Waduk Koto Panjang sebagai contoh konteks air setempat.', author: 'Fadillah Jafar', url: 'https://commons.wikimedia.org/wiki/File:Waduk_Koto_Panjang.jpg', license: 'CC BY 3.0' }
-};
-const articlePhoto = { 'jejak-karbon': 'servers', 'jejak-air': 'cooling', 'energi-pusat-data': 'servers', 'prompt-bijak': 'students', 'pelatihan-inferensi': 'servers', 'membaca-estimasi': 'students', 'air-dan-lokasi': 'reservoir' };
+const imageCredit = image => `<a href="${escape(image.source)}" target="_blank" rel="noopener noreferrer" data-i18n-ignore>${escape(image.credit ?? image.author)}</a> · <a href="${escape(image.licenseUrl)}" target="_blank" rel="noopener noreferrer" data-i18n-ignore>${escape(image.license)}</a>`;
+const imageMarkup = (image, className) => `<img class="${className}${image.fit === 'contain' ? ' article-image-diagram' : ''}" src="/assets/images/education/articles/${escape(image.file)}" alt="${escape(image.alt)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async">`;
 const articleBody = item => {
-  const photo = photos[articlePhoto[item.id]];
-  return `<div class="article-body">${item.paragraphs.map(text => `<p>${escape(text)}</p>`).join('')}<figure class="article-photo"><img src="/assets/images/education/${escape(photo.file)}" alt="${escape(photo.alt)}" loading="lazy" decoding="async"><figcaption><span>${escape(photo.caption)}</span> <span>Foto:</span> <a href="${escape(photo.url)}" target="_blank" rel="noopener noreferrer">${escape(photo.author)} / Wikimedia Commons (${escape(photo.license)})</a></figcaption></figure><div class="article-sources"><span>Sumber bacaan</span>${item.sources.map(sourceLink).join('')}</div></div>`;
+  const image = articleImages[item.id];
+  const readingImage = imageMarkup(image, 'article-reading-image');
+  const visual = image.fit === 'contain'
+    ? `<a class="article-full-image" href="/assets/images/education/articles/${escape(image.file)}" target="_blank" rel="noopener noreferrer">${readingImage}<span class="article-full-image-label"><span>Lihat gambar penuh</span> <span aria-hidden="true">↗</span><span class="sr-only"> (tab baru)</span></span></a>`
+    : readingImage;
+  return `<div class="article-body">${item.paragraphs.map(text => `<p>${escape(text)}</p>`).join('')}<figure class="article-photo">${visual}<figcaption><span>${escape(image.caption)}</span><span class="article-photo-credit">${imageCredit(image)}</span></figcaption></figure><div class="article-sources"><span>Sumber bacaan</span>${item.sources.map(sourceLink).join('')}</div></div>`;
 };
 
 export function renderContent(name) {
@@ -40,7 +39,7 @@ export function renderContent(name) {
   if (name === 'factor-rows') return activities.map(item => `<tr><th scope="row">${escape(item.title)}</th><td data-i18n-number="${item.factor}">${formatNumber(item.factor)}</td><td>g CO₂e / aktivitas</td></tr>`).join('');
   if (name === 'articles') return articles.map(item => `
     <article class="learning-article ${item.topic}" id="${item.id}" x-data="{}" x-show="matches('${item.id}')">
-      <img class="article-cover" src="/assets/images/education/${articleImages[item.topic]}" alt="" loading="lazy" decoding="async">
+      <figure class="article-cover-figure">${imageMarkup(articleImages[item.id], 'article-cover')}<figcaption class="article-image-credit">${imageCredit(articleImages[item.id])}</figcaption></figure>
       <div class="article-heading"><span class="eyebrow">${escape(item.topic)}</span><span class="read-time">${escape(item.readTime)}</span></div>
       <h3>${escape(item.title)}</h3><p class="article-summary">${escape(item.summary)}</p>
       <details><summary @click.prevent="$refs.readingDialog.showModal()">Baca materi <span aria-hidden="true">↗</span></summary>${articleBody(item)}</details>

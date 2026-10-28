@@ -1,7 +1,7 @@
 <a class="skip-link" href="#main">Langsung ke konten</a>
-<header class="site-header" x-data="{ menuOpen: false }" @keydown.escape.window="if (menuOpen) { menuOpen = false; $refs.menu.focus() }">
+<header class="site-header" x-data="{ menuOpen: false }" @click.outside="menuOpen = false" @keydown.escape.window="if (menuOpen) { menuOpen = false; $refs.menu.focus() }">
   <div class="header-inner container">
-    <a class="brand" href="./index.html" aria-label="TraCkO2 beranda"><img class="brand-logo" src="/assets/images/tracko2-logo.png" alt="TraCkO₂!" width="200" height="48"></a>
+    <a class="brand" href="./index.html" aria-label="TraCkO2 beranda"><img class="brand-logo" src="/assets/images/tracko2-logo.webp" alt="TraCkO₂!" width="200" height="48"></a>
     <nav class="primary-nav" id="primary-nav" aria-label="Navigasi utama" :class="{ 'is-open': menuOpen }" @click="if ($event.target.closest('a')) menuOpen = false">
       <a data-page="home" href="./index.html">Home</a>
       <a data-page="education" href="./edukasi.html">Edukasi</a>

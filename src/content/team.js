@@ -1,21 +1,16 @@
-// Keep unfinished profiles visibly provisional until the team supplies its copy.
 export const teamMembers = [
   {
     id: 'hisyam',
     name: 'Muhammad Hisyam Adz Dzaki',
-    photo: '/assets/images/hisyam.jpg',
+    photo: '/assets/images/hisyam.webp',
     initials: 'MH',
     jobDesk: 'Researcher',
     quote: 'hmm',
     placeholder: false
   },
-  ...Array.from({ length: 5 }, (_, index) => ({
-    id: `member-${index + 2}`,
-    name: `Anggota tim ${index + 2}`,
-    photo: null,
-    initials: `A${index + 2}`,
-    jobDesk: 'Researcher',
-    quote: 'Hmm',
-    placeholder: true
-  }))
+  { id: 'rafi', name: 'Rafi Nasir Ahmad Faeyza Jamil', photo: null, initials: 'RN', jobDesk: 'Web Developer' },
+  { id: 'carissa', name: 'Carissa Vania', photo: null, initials: 'CV', jobDesk: 'Creative and Video' },
+  { id: 'salma', name: 'Salma Nafidzatul', photo: '/assets/images/salma.webp', initials: 'SN', jobDesk: 'Creative and Video' },
+  { id: 'azzam', name: 'Azzam', photo: '/assets/images/azzam.webp', initials: 'A', jobDesk: '' },
+  { id: 'danish', name: 'Danish Nayotama', photo: '/assets/images/danish.webp', initials: 'DN', jobDesk: '' }
 ];

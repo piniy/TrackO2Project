@@ -57,16 +57,6 @@ export const englishArticles = {
     ],
     takeaway: 'Identify the process and denominator before comparing figures.'
   },
-  'membaca-estimasi': {
-    title: 'Small figures, big context.', readTime: '3 min read',
-    summary: 'Five things to check before quoting an AI impact figure.',
-    paragraphs: [
-      'Ask: who is the source, when is the data from, what task was counted, what are the units, and which impact pathways are included? Missing data means not reported, rather than zero.',
-      'Google’s study reports the median Gemini Apps text prompt in May 2025. A median is the middle value of a distribution; it must not be treated as an arithmetic mean to calculate your usage total.',
-      'Shumba’s examples use historical 2024 inference assumptions in a 2026 paper revision. Those scenario figures do not measure current service performance. CarbsCulator uses proposal parameters for a learning simulation.'
-    ],
-    takeaway: 'Quote the fact together with its essential qualification and original source.'
-  },
   'air-dan-lokasi': {
     title: 'Why does water location matter?', readTime: '2 min read',
     summary: 'A number of liters does not explain every consequence for local people and ecosystems.',

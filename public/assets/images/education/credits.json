@@ -9,7 +9,7 @@
     "changes": "Proportionally resized to 1600×1067 and converted to WebP; no crop or retouch.",
     "context": "Server room at CERN, Switzerland, photographed 2009-02-25. Illustrative computing infrastructure, not the systems measured by the AI studies."
   },
-  "water-drop-3d.png": {
+  "water-drop-3d.webp": {
     "title": "Droplet 3D — Fluent Emoji",
     "author": "Microsoft Corporation",
     "source": "https://github.com/microsoft/fluentui-emoji/blob/main/assets/Droplet/3D/droplet_3d.png",
@@ -17,7 +17,7 @@
     "license": "MIT",
     "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
     "licenseLocal": "LICENSE.fluentui-emoji.txt",
-    "changes": "Downloaded original PNG unchanged.",
+    "changes": "Converted the original PNG to WebP; transparency preserved.",
     "context": "Transparent 3D water-droplet illustration for the water concept. No numeric scale implied."
   },
   "koto-panjang-reservoir.webp": {

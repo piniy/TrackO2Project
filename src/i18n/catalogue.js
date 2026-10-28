@@ -1,5 +1,6 @@
 import { activities } from '../content/activities.js';
 import { articles } from '../content/articles.js';
+import { articleImageMessages } from '../content/article-images.js';
 import { references } from '../content/references.js';
 import { gameCards } from '../content/game-cards.js';
 import { educationMessages } from '../content/education-data.js';
@@ -9,6 +10,7 @@ import { narrativeMessages } from './narrative-messages.js';
 import { researchMessages } from './research-messages.js';
 import { libraryMessages } from './library-messages.js';
 import { campaignMessages } from './campaign-messages.js';
+import { gameMessages } from './game-messages.js';
 import { formulaMessages } from '../features/formula.js';
 import { englishActivities, englishArticles, englishReferences, englishGameCards } from './content-en.js';
 
@@ -24,6 +26,8 @@ export const uiTranslations = {
   'Waduk Koto Panjang di Riau': 'Koto Panjang reservoir in Riau',
   'Waduk Koto Panjang sebagai contoh konteks air setempat.': 'Koto Panjang reservoir as an example of a local water context.',
   'Foto:': 'Photo:',
+  'Kenali tim di balik TraCkO2.': 'Meet the team behind TraCkO2.',
+  'Anggota tim TraCkO2': 'TraCkO2 team members',
   'Deretan rak server di pusat data NERSC': 'Rows of server racks at the NERSC data center',
   'Contoh rak server di pusat data NERSC. Foto:': 'An example of server racks at the NERSC data center. Photo:',
   'Energi rata-rata per 1.000 inferensi studi': 'Mean energy per 1,000 study inferences',
@@ -292,6 +296,7 @@ export const uiTranslations = {
 };
 
 export const translations = new Map(Object.entries(uiTranslations));
+Object.entries(articleImageMessages).forEach(([source, english]) => translations.set(source, english));
 Object.entries(educationMessages).forEach(([source, english]) => translations.set(source, english));
 Object.entries(resultMessages).forEach(([source, english]) => translations.set(source, english));
 Object.entries(formulaMessages).forEach(([source, english]) => translations.set(source, english));
@@ -311,6 +316,6 @@ references.forEach(item => addFields(item, englishReferences[item.id]));
 gameCards.forEach((item, index) => addFields(item, englishGameCards[index]));
 
 // Current campaign copy follows legacy portal overrides and collection fields.
-for (const messages of [narrativeMessages, researchMessages, libraryMessages, campaignMessages]) {
+for (const messages of [narrativeMessages, researchMessages, libraryMessages, campaignMessages, gameMessages]) {
   Object.entries(messages).forEach(([source, english]) => translations.set(source, english));
 }

@@ -1,14 +1,106 @@
 <!doctype html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#103f35"><meta name="description" content="Latih keputusan tentang penggunaan AI melalui lima situasi belajar dengan penjelasan setiap jawaban."><title>Games — TraCkO2</title><script type="module" src="/src/main.js"></script></head>
-<body data-page="game"><!-- site:icons --><!-- site:header --><main id="main" class="container interior-main">
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#103f35">
+  <meta name="description" content="Latih keputusan tentang penggunaan AI melalui lima situasi belajar dengan penjelasan setiap jawaban.">
+  <title>Misi Jejak AI — TraCkO2</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body data-page="game">
+  <!-- site:icons -->
+  <!-- site:header -->
+  <main id="main" class="mission-page container">
+    <nav class="mission-breadcrumb" aria-label="Jejak navigasi"><a href="./index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Games</span></nav>
+    <header class="mission-heading">
+      <div>
+        <span class="mission-eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-game"></use></svg> Belajar sambil bermain</span>
+        <h1>Misi Jejak AI<span aria-hidden="true">.</span></h1>
+        <p>Jelajahi lima situasi sehari-hari. Pilih langkahmu, temukan alasannya, dan kenali jejak AI lebih dekat.</p>
+      </div>
+      <div class="mission-heading-note"><svg class="icon" aria-hidden="true"><use href="#i-leaf"></use></svg><span>Pilihan kecil.<br>Pemahaman baru.</span></div>
+    </header>
 
-  <div class="page-heading"><h1>Games</h1><p>Uji pemahaman tentang penggunaan AI melalui lima situasi sehari-hari. Pilih jawaban, lalu baca alasan di baliknya.</p></div>
-  <div class="game-layout" x-data="learningGame"><section class="game-panel panel" aria-label="Permainan pilihan AI">
-    <div x-show="!finished"><div class="game-topline"><span class="pill"><img class="icon" src="/assets/icons/gamepad-2.svg" alt="" aria-hidden="true"> Situasi <span x-text="index + 1">1</span> <span>dari</span> <span x-text="cards.length"></span></span></div><progress class="game-progress" :value="progress" value="0" max="100" aria-label="Progres permainan"></progress><p class="eyebrow" x-text="$t(card.topic)">Kebiasaan belajar</p><h2 x-ref="question" tabindex="-1" x-text="$t(card.title)">Tugas merangkum bacaan</h2><p class="game-question" x-text="$t(card.question)">Kamu punya artikel dan ingin memahami gagasan utamanya. Apa langkah awal yang paling membantu?</p>
-      <div class="game-choices"><template x-for="(option, optionIndex) in card.options" :key="index + '-' + optionIndex"><button class="choice-button" :class="{ chosen: selected === optionIndex, correct: selected !== null && option.correct }" type="button" :disabled="selected !== null" @click="choose(optionIndex)"><span class="choice-letter" x-text="optionIndex === 0 ? 'A' : 'B'"></span><span x-text="$t(option.text)"></span><img class="icon" src="/assets/icons/check.svg" x-show="selected !== null && option.correct" alt="" aria-hidden="true"></button></template></div>
-      <div class="answer-feedback" x-cloak x-show="selected !== null" role="status"><h3 x-text="$t(feedback?.correct ? 'Pilihan yang tepat.' : 'Yuk, lihat pertimbangannya.')"></h3><p x-text="$t(feedback?.feedback)"></p><button class="button" type="button" @click="next"><span x-text="$t(isLast ? 'Lihat hasil belajar' : 'Situasi berikutnya')"></span><img class="icon" src="/assets/icons/arrow-right.svg" alt="" aria-hidden="true"></button></div>
-    </div>
-    <div class="game-finish" x-cloak x-show="finished"><span class="finish-icon"><img class="icon" src="/assets/icons/check.svg" alt="" aria-hidden="true"></span><h2 tabindex="-1" x-ref="finish">Permainan selesai</h2><p><strong x-text="score"></strong> <span>dari</span> <span x-text="cards.length"></span> <span>pilihan sesuai dengan tujuan pembelajaran.</span></p><p>Skor menunjukkan pemahaman dalam permainan, bukan jumlah emisi yang berhasil dihemat. Baca kembali materi untuk mempelajari penjelasannya.</p><div class="button-row"><button class="button" type="button" @click="restart">Main lagi <img class="icon" src="/assets/icons/rotate-ccw.svg" alt="" aria-hidden="true"></button><a class="button button-quiet" href="./edukasi.html">Baca materinya</a></div></div>
-  </section><aside class="game-guide"><h2>Cara bermain</h2><p>Kamu akan bertemu situasi tentang belajar, membuat gambar, jejak air, estimasi karbon, dan energi.</p><ul class="check-list"><li>Pilih jawaban yang menurutmu paling sesuai.</li><li>Baca penjelasannya sebelum lanjut.</li><li>Coba lagi untuk menguatkan pemahaman.</li></ul><a class="text-link" href="./referensi.html">Lihat sumber belajar <img class="icon" src="/assets/icons/arrow-right.svg" alt="" aria-hidden="true"></a></aside></div>
-  <noscript><p class="notice">Aktifkan JavaScript untuk memainkan game. Materi dan referensi tetap dapat dibaca tanpa JavaScript.</p></noscript>
-</main><!-- site:footer --></body></html>
+    <section class="mission-board" x-data="learningGame" :class="{ 'is-playing': started && !finished, 'is-finished': finished }" aria-label="Permainan pilihan AI">
+      <aside class="mission-map" aria-label="Peta perjalanan misi">
+        <div class="mission-map-top"><span class="mission-eyebrow">Peta misimu</span><span class="mission-map-status" x-text="$t(finished ? 'Tuntas dijelajahi' : started ? 'Misi berlangsung' : 'Siap dijelajahi')">Siap dijelajahi</span></div>
+        <div class="mission-island-art" aria-hidden="true">
+          <div class="mission-map-ring"></div>
+          <img class="mission-island" src="/assets/images/game/mission-island.webp" alt="" width="1024" height="1024" fetchpriority="high" decoding="async">
+          <span class="mission-map-tag mission-map-tag-ai"><svg class="icon"><use href="#i-chat"></use></svg> AI</span>
+          <span class="mission-map-tag mission-map-tag-water"><svg class="icon"><use href="#i-drop"></use></svg> H₂O</span>
+          <span class="mission-map-tag mission-map-tag-energy"><svg class="icon"><use href="#i-bolt"></use></svg> kWh</span>
+        </div>
+        <div class="mission-route">
+          <div class="mission-route-caption"><span>Langkah perjalanan</span><span><strong x-text="answeredCount">0</strong> / <span x-text="cards.length">5</span></span></div>
+          <ol class="mission-stops">
+            <template x-for="(step, stepIndex) in cards" :key="step.title">
+              <li :class="{ 'is-current': started && !finished && index === stepIndex, 'is-complete': answeredCount > stepIndex }" :aria-current="started && !finished && index === stepIndex ? 'step' : null" :title="$t(step.topic)">
+                <span class="mission-stop-number"><span x-show="answeredCount <= stepIndex" x-text="String(stepIndex + 1).padStart(2, '0')"></span><svg class="icon" x-cloak x-show="answeredCount > stepIndex" aria-hidden="true"><use href="#i-check"></use></svg></span>
+                <span class="mission-stop-label" x-text="$t(step.topic)"></span>
+                <span class="sr-only" x-text="$t(answeredCount > stepIndex ? 'Selesai' : started && index === stepIndex ? 'Misi saat ini' : 'Belum dijelajahi')"></span>
+              </li>
+            </template>
+          </ol>
+          <progress class="sr-only" :value="progress" value="0" max="100" aria-label="Progres permainan"></progress>
+        </div>
+        <div class="mission-map-foot"><svg class="icon" aria-hidden="true"><use href="#i-leaf"></use></svg><p>Setiap pilihan adalah kesempatan belajar.</p></div>
+        <div class="mission-mobile-start" x-cloak x-show="!started"><button class="button mission-primary" type="button" @click="start()">Mulai misi <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button><p>Pilih jawaban, baca alasannya, lalu lanjutkan.</p></div>
+      </aside>
+
+      <div class="mission-play">
+        <div class="mission-intro" x-show="!started">
+          <span class="mission-small-label"><span class="mission-status-dot" aria-hidden="true"></span> Petualangan pengetahuan</span>
+          <h2>AI ada di keseharianmu.<br><span>Yuk, pahami jejaknya.</span></h2>
+          <p>Dari tugas sekolah sampai membuat poster, setiap situasi punya pilihan. Apa yang akan kamu lakukan?</p>
+          <div class="mission-facts"><span><svg class="icon" aria-hidden="true"><use href="#i-document"></use></svg> <strong x-text="cards.length">5</strong> misi singkat</span><span><svg class="icon" aria-hidden="true"><use href="#i-bulb"></use></svg> Tanpa batas waktu</span></div>
+          <button class="button mission-primary" type="button" @click="start()" x-cloak>Mulai misi <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+          <p class="mission-start-note">Pilih jawaban, baca alasannya, lalu lanjutkan.</p>
+          <div class="mission-intro-bottom"><span class="mission-mini-mark" aria-hidden="true"><svg class="icon"><use href="#i-leaf"></use></svg></span><span>Rasa ingin tahu adalah modal utamamu.</span></div>
+        </div>
+
+        <div class="mission-question-view" x-cloak x-show="started && !finished">
+          <div class="mission-question-top"><span class="mission-small-label" x-text="$t(card.topic)"></span><span class="mission-count"><span>Misi</span> <strong x-text="String(index + 1).padStart(2, '0')"></strong><span>/</span><span x-text="String(cards.length).padStart(2, '0')"></span></span></div>
+          <h2 class="mission-question-title" x-ref="question" tabindex="-1" x-text="$t(card.title)"></h2>
+          <p class="mission-question-copy" x-text="$t(card.question)"></p>
+          <div class="mission-choices" role="group" :aria-label="$t('Pilih jawabanmu')">
+            <template x-for="(option, optionIndex) in card.options" :key="index + '-' + optionIndex">
+              <button class="mission-choice" type="button" :class="{ 'is-selected': selected === optionIndex, 'is-correct': selected !== null && option.correct, 'is-incorrect': selected === optionIndex && !option.correct }" :disabled="selected !== null" @click="choose(optionIndex)">
+                <span class="mission-choice-letter" x-text="String.fromCharCode(65 + optionIndex)"></span>
+                <span class="mission-choice-copy"><span x-text="$t(option.text)"></span><small x-show="selected !== null && (selected === optionIndex || option.correct)" x-text="$t(option.correct ? 'Pilihan yang tepat' : 'Pilihanmu')"></small></span>
+                <svg class="icon mission-choice-check" x-show="selected !== null && option.correct" aria-hidden="true"><use href="#i-check"></use></svg>
+              </button>
+            </template>
+          </div>
+          <p class="mission-choice-hint" x-show="selected === null"><svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg> Pilih satu jawaban untuk membuka penjelasannya.</p>
+          <div class="mission-feedback" :class="{ 'is-rethink': feedback && !feedback.correct }" x-cloak x-show="selected !== null" role="status" aria-live="polite" aria-atomic="true">
+            <span class="mission-feedback-icon" aria-hidden="true"><svg class="icon"><use :href="feedback?.correct ? '#i-check' : '#i-bulb'"></use></svg></span>
+            <div><h3 x-text="$t(feedback?.correct ? 'Pilihan yang tepat.' : 'Yuk, lihat pertimbangannya.')"></h3><p x-text="$t(feedback?.feedback)"></p></div>
+          </div>
+          <div class="mission-question-next" x-cloak x-show="selected !== null"><button class="button mission-primary" type="button" @click="next()"><span x-text="$t(isLast ? 'Lihat hasil belajar' : 'Situasi berikutnya')"></span><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button></div>
+        </div>
+
+        <div class="mission-result" x-cloak x-show="finished">
+          <span class="mission-result-badge" aria-hidden="true"><svg class="icon"><use href="#i-leaf"></use></svg></span>
+          <span class="mission-small-label">Misi selesai</span>
+          <h2 x-ref="finish" tabindex="-1">Selangkah lebih paham.</h2>
+          <p>Kamu sudah menjelajahi semua situasi. Bawa pertimbangannya ke pilihanmu berikutnya.</p>
+          <div class="mission-score"><strong x-text="score">0</strong><span>/ <span x-text="cards.length">5</span><small>pilihan sesuai tujuan pembelajaran</small></span></div>
+          <p class="mission-score-note">Skor menunjukkan pemahaman dalam permainan, bukan jumlah emisi yang berhasil dihemat.</p>
+          <div class="button-row"><button class="button mission-primary" type="button" @click="restart()">Main lagi <svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg></button><a class="button button-quiet" href="./edukasi.html">Baca materinya <svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg></a></div>
+          <details class="mission-review"><summary>Lihat kembali pilihanmu <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"></use></svg></summary><ol><template x-for="entry in review" :key="entry.index"><li><span class="mission-review-marker" :class="{ 'is-correct': entry.correct }" x-text="String(entry.index + 1).padStart(2, '0')"></span><div><h3 x-text="$t(entry.card.title)"></h3><span class="mission-review-status" x-text="$t(entry.correct ? 'Pilihan yang tepat' : 'Perlu dipertimbangkan lagi')"></span><p><strong x-text="$t('Pilihanmu:')"></strong> <span x-text="$t(entry.option.text)"></span></p><p x-text="$t(entry.feedback)"></p></div></li></template></ol></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission-how" aria-labelledby="mission-how-heading">
+      <div class="mission-how-heading"><span class="mission-eyebrow">Cara bermain</span><h2 id="mission-how-heading">Pilih. Pahami. Coba lagi.</h2></div>
+      <ol><li><span class="mission-how-icon"><svg class="icon" aria-hidden="true"><use href="#i-chat"></use></svg></span><div><h3>Tentukan pilihanmu</h3><p>Baca situasinya, lalu pilih langkah yang paling sesuai.</p></div></li><li><span class="mission-how-icon"><svg class="icon" aria-hidden="true"><use href="#i-bulb"></use></svg></span><div><h3>Temukan alasannya</h3><p>Pelajari penjelasan di balik setiap jawaban.</p></div></li><li><span class="mission-how-icon"><svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg></span><div><h3>Bawa ke keseharianmu</h3><p>Coba lagi dan gunakan pemahamanmu saat memakai AI.</p></div></li></ol>
+    </section>
+    <div class="mission-source-note"><p><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg> Penasaran dengan dasar materinya?</p><a class="text-link" href="./referensi.html">Jelajahi referensi <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
+    <noscript><p class="notice">Aktifkan JavaScript untuk memainkan game. Materi dan referensi tetap dapat dibaca tanpa JavaScript. <a href="./edukasi.html">Baca materinya</a></p></noscript>
+  </main>
+  <!-- site:footer -->
+</body>
+</html>
