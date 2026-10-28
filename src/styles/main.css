@@ -116,7 +116,7 @@ p + p { margin-top: 14px; }
 .path-steps h3 { font-size: 22px; }
 .path-steps p { margin-top: 5px; color: var(--muted); font-size: 11px; }
 .path-steps > a > .icon { margin-left: auto; width: 18px; }
-.experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.experience-grid { display: grid; grid-template-columns: minmax(0, 700px); gap: 26px; }
 .campaign-preview, .game-preview { border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: white; transition: box-shadow .2s; }
 .campaign-preview:hover, .game-preview:hover { box-shadow: var(--shadow); }
 .campaign-visual { height: 230px; position: relative; overflow: hidden; background: var(--forest); display: flex; align-items: center; justify-content: center; color: var(--on-dark); }
@@ -265,7 +265,7 @@ details > summary::-webkit-details-marker { display: none; }
 .article-heading .icon { width: 20px; height: 20px; }
 .article-heading .eyebrow { font-size: 9px; }
 .read-time { margin-left: auto; font-size: 9px; color: var(--muted); }
-.learning-article h2 { font-size: 28px; letter-spacing: -.5px; max-width: 380px; }
+.learning-article h2, .learning-article h3 { font-size: 28px; letter-spacing: -.5px; max-width: 380px; }
 .article-summary { color: var(--muted); font-size: 12px; margin-top: 15px; margin-bottom: 25px; }
 .learning-article summary { border-top: 1px solid #e9ede6; padding-top: 17px; display: flex; align-items: center; justify-content: space-between; font-size: 11px; font-weight: 700; }
 .learning-article summary > .icon { width: 18px; height: 18px; transition: transform .2s; }
@@ -489,7 +489,7 @@ tbody tr + tr { border-top: 1px solid #edf0ea; }
   .filter-tabs button { padding-inline: 11px; font-size: 9px; }
   .article-grid, .reference-grid { grid-template-columns: 1fr; gap: 17px; }
   .learning-article, .reference-card { padding: 24px; }
-  .learning-article h2 { font-size: 28px; }
+  .learning-article h2, .learning-article h3 { font-size: 28px; }
   .article-heading { margin-bottom: 21px; }
   .next-step-banner { flex-direction: column; align-items: start; padding: 26px; margin-top: 35px; gap: 23px; }
   .next-step-banner h2 { font-size: 27px; }

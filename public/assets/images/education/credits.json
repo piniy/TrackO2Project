@@ -1,0 +1,33 @@
+{
+  "cern-server-room.webp": {
+    "title": "CERN Server 03.jpg",
+    "author": "Florian Hirzinger",
+    "source": "https://commons.wikimedia.org/wiki/File:CERN_Server_03.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/d7/CERN_Server_03.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "Proportionally resized to 1600×1067 and converted to WebP; no crop or retouch.",
+    "context": "Server room at CERN, Switzerland, photographed 2009-02-25. Illustrative computing infrastructure, not the systems measured by the AI studies."
+  },
+  "water-drop-3d.png": {
+    "title": "Droplet 3D — Fluent Emoji",
+    "author": "Microsoft Corporation",
+    "source": "https://github.com/microsoft/fluentui-emoji/blob/main/assets/Droplet/3D/droplet_3d.png",
+    "original": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Droplet/3D/droplet_3d.png",
+    "license": "MIT",
+    "licenseUrl": "https://github.com/microsoft/fluentui-emoji/blob/main/LICENSE",
+    "licenseLocal": "LICENSE.fluentui-emoji.txt",
+    "changes": "Downloaded original PNG unchanged.",
+    "context": "Transparent 3D water-droplet illustration for the water concept. No numeric scale implied."
+  },
+  "koto-panjang-reservoir.webp": {
+    "title": "Waduk Koto Panjang.jpg",
+    "author": "Fadillah Jafar",
+    "source": "https://commons.wikimedia.org/wiki/File:Waduk_Koto_Panjang.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Waduk_Koto_Panjang.jpg",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "changes": "Proportionally resized to 1400×1050 and converted to WebP; no crop or retouch.",
+    "context": "Koto Panjang reservoir, Kampar, Riau, Indonesia, photographed 2010-01-27. General local water context, not evidence of an AI facility's water source or impact."
+  }
+}

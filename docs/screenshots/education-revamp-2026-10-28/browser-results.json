@@ -1,0 +1,490 @@
+{
+  "matrix": [
+    {
+      "route": "index.html",
+      "language": "id",
+      "lang": "id",
+      "width": 1440,
+      "documentWidth": 1440,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "edukasi.html",
+      "language": "id",
+      "lang": "id",
+      "width": 1440,
+      "documentWidth": 1440,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "kalkulator.html",
+      "language": "id",
+      "lang": "id",
+      "width": 1440,
+      "documentWidth": 1440,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "kampanye.html",
+      "language": "id",
+      "lang": "id",
+      "width": 1440,
+      "documentWidth": 1440,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "referensi.html",
+      "language": "id",
+      "lang": "id",
+      "width": 1440,
+      "documentWidth": 1440,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "game.html",
+      "language": "id",
+      "lang": "id",
+      "width": 1440,
+      "documentWidth": 1440,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "index.html",
+      "language": "en",
+      "lang": "en",
+      "width": 1440,
+      "documentWidth": 1440,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "edukasi.html",
+      "language": "en",
+      "lang": "en",
+      "width": 1440,
+      "documentWidth": 1440,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "kalkulator.html",
+      "language": "en",
+      "lang": "en",
+      "width": 1440,
+      "documentWidth": 1440,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "kampanye.html",
+      "language": "en",
+      "lang": "en",
+      "width": 1440,
+      "documentWidth": 1440,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "referensi.html",
+      "language": "en",
+      "lang": "en",
+      "width": 1440,
+      "documentWidth": 1440,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "game.html",
+      "language": "en",
+      "lang": "en",
+      "width": 1440,
+      "documentWidth": 1440,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "index.html",
+      "language": "id",
+      "lang": "id",
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "edukasi.html",
+      "language": "id",
+      "lang": "id",
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "kalkulator.html",
+      "language": "id",
+      "lang": "id",
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "kampanye.html",
+      "language": "id",
+      "lang": "id",
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "referensi.html",
+      "language": "id",
+      "lang": "id",
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "game.html",
+      "language": "id",
+      "lang": "id",
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "index.html",
+      "language": "en",
+      "lang": "en",
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "edukasi.html",
+      "language": "en",
+      "lang": "en",
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "kalkulator.html",
+      "language": "en",
+      "lang": "en",
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "kampanye.html",
+      "language": "en",
+      "lang": "en",
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "referensi.html",
+      "language": "en",
+      "lang": "en",
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "game.html",
+      "language": "en",
+      "lang": "en",
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "index.html",
+      "language": "id",
+      "lang": "id",
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "edukasi.html",
+      "language": "id",
+      "lang": "id",
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "kalkulator.html",
+      "language": "id",
+      "lang": "id",
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "kampanye.html",
+      "language": "id",
+      "lang": "id",
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "referensi.html",
+      "language": "id",
+      "lang": "id",
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "game.html",
+      "language": "id",
+      "lang": "id",
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "index.html",
+      "language": "en",
+      "lang": "en",
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "edukasi.html",
+      "language": "en",
+      "lang": "en",
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "kalkulator.html",
+      "language": "en",
+      "lang": "en",
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "kampanye.html",
+      "language": "en",
+      "lang": "en",
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "referensi.html",
+      "language": "en",
+      "lang": "en",
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "game.html",
+      "language": "en",
+      "lang": "en",
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1,
+      "duplicateIds": []
+    },
+    {
+      "route": "edukasi.html",
+      "language": "id",
+      "study": 0,
+      "openMetadata": true,
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1
+    },
+    {
+      "route": "edukasi.html",
+      "language": "id",
+      "study": 1,
+      "openMetadata": true,
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1
+    },
+    {
+      "route": "edukasi.html",
+      "language": "id",
+      "study": 2,
+      "openMetadata": true,
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1
+    },
+    {
+      "route": "edukasi.html",
+      "language": "en",
+      "study": 0,
+      "openMetadata": true,
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1
+    },
+    {
+      "route": "edukasi.html",
+      "language": "en",
+      "study": 1,
+      "openMetadata": true,
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1
+    },
+    {
+      "route": "edukasi.html",
+      "language": "en",
+      "study": 2,
+      "openMetadata": true,
+      "width": 390,
+      "documentWidth": 390,
+      "h1s": 1
+    },
+    {
+      "route": "edukasi.html",
+      "language": "id",
+      "study": 0,
+      "openMetadata": true,
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1
+    },
+    {
+      "route": "edukasi.html",
+      "language": "id",
+      "study": 1,
+      "openMetadata": true,
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1
+    },
+    {
+      "route": "edukasi.html",
+      "language": "id",
+      "study": 2,
+      "openMetadata": true,
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1
+    },
+    {
+      "route": "edukasi.html",
+      "language": "en",
+      "study": 0,
+      "openMetadata": true,
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1
+    },
+    {
+      "route": "edukasi.html",
+      "language": "en",
+      "study": 1,
+      "openMetadata": true,
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1
+    },
+    {
+      "route": "edukasi.html",
+      "language": "en",
+      "study": 2,
+      "openMetadata": true,
+      "width": 320,
+      "documentWidth": 320,
+      "h1s": 1
+    }
+  ],
+  "errors": [],
+  "failedAssets": [],
+  "interactions": [
+    "all10 tasks immediately visible; selected task/carbon metric, source details, Li request/location survive language switch; knowledge invitation opens game",
+    "Gemini view has no prompt slider or total; breakdown choice survives translation",
+    "reduced-motion journey renders static learning story",
+    "home modal/count-only handoff recalculates 13.2 g; form values/result carousel survive translation",
+    "centered bold black education intro, video placeholder and direct motion link; Ajak removed; preserved anchors unique and keyboard focus visible",
+    "all three study views with open metadata checked in ID/EN at 390/320 px"
+  ],
+  "noJS": [
+    {
+      "route": "index.html",
+      "width": 320,
+      "documentWidth": 320,
+      "css": 1,
+      "h1s": 1
+    },
+    {
+      "route": "edukasi.html",
+      "width": 320,
+      "documentWidth": 320,
+      "css": 1,
+      "h1s": 1
+    },
+    {
+      "route": "kalkulator.html",
+      "width": 320,
+      "documentWidth": 320,
+      "css": 1,
+      "h1s": 1
+    },
+    {
+      "route": "kampanye.html",
+      "width": 320,
+      "documentWidth": 320,
+      "css": 1,
+      "h1s": 1
+    },
+    {
+      "route": "referensi.html",
+      "width": 320,
+      "documentWidth": 320,
+      "css": 1,
+      "h1s": 1
+    },
+    {
+      "route": "game.html",
+      "width": 320,
+      "documentWidth": 320,
+      "css": 1,
+      "h1s": 1
+    }
+  ]
+}

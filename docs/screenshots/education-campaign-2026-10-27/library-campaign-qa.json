@@ -1,0 +1,143 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "label": "game keyboard all five, final 5/5 and ID/EN state",
+      "passed": true
+    },
+    {
+      "label": "game 390 id",
+      "width": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "game 390 en",
+      "width": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "game 320 id",
+      "width": 320,
+      "scrollWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "game 320 en",
+      "width": 320,
+      "scrollWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "reading English search/filter and open/query state survive language change",
+      "passed": true
+    },
+    {
+      "label": "readings 390 id",
+      "width": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "readings 390 en",
+      "width": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "readings 320 id",
+      "width": 320,
+      "scrollWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "readings 320 en",
+      "width": 320,
+      "scrollWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "references all details open 1440 id",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "bodyWidth": 1440
+    },
+    {
+      "label": "references all details open 1440 en",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "bodyWidth": 1440
+    },
+    {
+      "label": "references all details open 390 id",
+      "width": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "references all details open 390 en",
+      "width": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "references all details open 320 id",
+      "width": 320,
+      "scrollWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "references all details open 320 en",
+      "width": 320,
+      "scrollWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "reference limitations, search, metadata and open state across ID/EN",
+      "passed": true
+    },
+    {
+      "label": "campaign keyboard claim check, translated state and clipboard-denied selectable fallback",
+      "passed": true
+    },
+    {
+      "label": "campaign 1440 id",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "bodyWidth": 1440
+    },
+    {
+      "label": "campaign 1440 en",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "bodyWidth": 1440
+    },
+    {
+      "label": "campaign 390 id",
+      "width": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "campaign 390 en",
+      "width": 390,
+      "scrollWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "campaign 320 id",
+      "width": 320,
+      "scrollWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "campaign 320 en",
+      "width": 320,
+      "scrollWidth": 320,
+      "bodyWidth": 320
+    }
+  ],
+  "errors": [],
+  "failedAssets": []
+}

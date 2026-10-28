@@ -9,7 +9,11 @@ export const inferenceTasks = [
   { id: 'summary', label: 'Meringkas teks', energy: 0.049, example: 'Bayangkan AI meringkas 1.000 bacaan menjadi teks yang lebih pendek.' },
   { id: 'text', label: 'Menghasilkan teks', energy: 0.047, example: 'Bayangkan AI melanjutkan atau menyusun teks baru untuk 1.000 permintaan.' },
   { id: 'qa', label: 'Menjawab dari bacaan', energy: 0.003, example: 'Bayangkan AI menemukan jawaban untuk 1.000 pertanyaan di dalam bacaan yang disediakan.' },
-  { id: 'classification', label: 'Mengklasifikasikan teks', energy: 0.002, example: 'Bayangkan AI mengelompokkan 1.000 teks, misalnya berdasarkan kategori atau sentimennya.' }
+  { id: 'classification', label: 'Mengklasifikasikan teks', energy: 0.002, example: 'Bayangkan AI mengelompokkan 1.000 teks, misalnya berdasarkan kategori atau sentimennya.' },
+  { id: 'object', label: 'Menemukan objek di gambar', energy: 0.038, example: 'AI menandai letak objek, misalnya sepeda, pada 1.000 gambar.' },
+  { id: 'image-classification', label: 'Mengelompokkan gambar', energy: 0.007, example: 'AI memberi kategori pada 1.000 gambar, misalnya kucing atau anjing.' },
+  { id: 'token', label: 'Menandai kata dalam teks', energy: 0.004, example: 'AI menandai kata seperti nama orang atau tempat dalam 1.000 masukan teks.' },
+  { id: 'masked', label: 'Melengkapi kata yang kosong', energy: 0.003, example: 'AI menebak bagian yang dikosongkan dalam 1.000 masukan teks.' }
 ];
 
 // Li et al., revision 26 March 2025, Table 1. GPT-3 175B, assumed
@@ -109,3 +113,24 @@ export const educationMessages = {
   'Buka CarbsCulator': 'Open CarbsCulator',
   'Aktifkan JavaScript untuk mencoba animasi dan memilih data grafik.': 'Enable JavaScript to try the animation and select chart data.'
 };
+
+
+// Every source retains its own population, unit and system boundaries.
+// No shared factor is available for cross-study personal totals.
+export const researchStudies = {
+  li: { id: 'li', source: waterSource, version: '2304.03271v5 · 2025-03-26', assumptionYear: '2023', evidence: 'Skenario dimodelkan', denominator: 'Permintaan GPT-3 yang didefinisikan studi', unit: 'mL', controls: ['requests', 'location'], geography: 'Empat skenario lokasi; Indonesia adalah proyeksi', included: 'Pendinginan langsung dan air terkait produksi listrik', excluded: 'Air pembuatan perangkat (embodied water)' },
+  gemini: { id: 'gemini', source: 'https://arxiv.org/html/2508.15734v1', version: '2508.15734v1 · 2025-08-21', assumptionYear: 'Mei 2025', evidence: 'Studi produksi oleh penyedia', denominator: 'Prompt teks median Gemini Apps, Mei 2025', unit: 'Wh · g CO₂e · mL', controls: ['energySegment'], geography: 'Armada layanan Google; bukan faktor khusus Indonesia', included: 'Energi infrastruktur serving; emisi market-based dan alokasi perangkat; air pendinginan', excluded: 'Air produksi listrik dan pembuatan perangkat; perangkat pengguna dan jaringan eksternal' },
+  shumba: { id: 'shumba', source: 'https://arxiv.org/html/2412.03716v3', version: '2412.03716v3 · 2026-06-12', assumptionYear: '2024', evidence: 'Contoh skenario historis dimodelkan', denominator: 'Laporan 5.000 token atau surel 250 token', unit: 'L per skenario', controls: [], geography: 'Skenario di 11 negara Afrika', included: 'Air langsung dan terkait listrik; kebocoran ditampilkan terpisah dalam paper', excluded: 'Air pembuatan perangkat dan konsumsi saat mesin idle' }
+};
+export const trainingWater = Object.freeze({ onsite: .708, offsite: 4.731, total: 5.439, unit: 'million L', denominator: 'one training run', location: 'US average scenario' });
+export const geminiMetrics = Object.freeze({ energyWh: .24, carbonGrams: .03, coolingWaterMl: .26, statistic: 'median', period: 'May 2025' });
+export const geminiEnergySegments = [
+  { id: 'accelerators', label: 'Akselerator aktif', energyWh: .14, explanation: 'Chip khusus mengerjakan perhitungan model untuk menghasilkan jawaban.' },
+  { id: 'host', label: 'CPU dan DRAM', energyWh: .06, explanation: 'Prosesor utama dan memori mendukung jalannya layanan AI.' },
+  { id: 'idle', label: 'Mesin siaga', energyWh: .02, explanation: 'Kapasitas yang disiapkan untuk keandalan dan respons cepat juga memakai energi.' },
+  { id: 'overhead', label: 'Kebutuhan fasilitas', energyWh: .02, explanation: 'Infrastruktur fasilitas, termasuk pendinginan, mendukung komputer yang melayani AI.' }
+];
+export const historicalWaterScenarios = [
+  { id: 'report', label: 'Laporan 5.000 token', gpt4Litres: 59, llamaLitres: .66 },
+  { id: 'email', label: 'Surel 250 token', gpt4Litres: 2.9, llamaLitres: .13 }
+];

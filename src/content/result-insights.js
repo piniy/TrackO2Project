@@ -50,6 +50,7 @@ export const resultMessages = {
   'Selisih dalam simulasi: {amount} g CO₂e ({percent}%).': 'Difference in this simulation: {amount} g CO₂e ({percent}%).',
   'Simulasi memakai faktor yang sama dengan kalkulator. Selisih ini bukan bukti pengurangan emisi nyata.': 'The simulation uses the same calculator factors. This difference is not evidence of real emissions reductions.',
   'Kalkulator menggunakan faktor proposal untuk pembelajaran. Hasilnya tidak mengukur emisi layanan AI tertentu.': 'The calculator uses proposal factors for learning. Its result does not measure emissions from a specific AI service.',
+  'Isi aktivitas dan lihat hasil emisi, rincian, serta penjelasan menarik.': 'Enter your activities to see your emissions estimate, a breakdown, and useful insights.',
   'Isi jumlah aktivitas, lalu pilih Hitung estimasi.': 'Enter activity counts, then select Calculate estimate.',
   'Hasil akan dilengkapi rincian, analogi, dan saran yang sesuai dengan aktivitasmu.': 'Your result will include a breakdown, analogies, and suggestions based on your activities.',
   'Konteks yang cukup membantu mengurangi pertanyaan ulang karena instruksi awal belum lengkap.': 'Enough context helps reduce follow-up questions caused by incomplete initial instructions.',

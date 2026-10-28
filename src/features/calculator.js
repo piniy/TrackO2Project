@@ -10,7 +10,6 @@ export default (mode = 'full') => ({
   result: null, error: '', dirty: false, displayTotal: 0,
   _calculationRevision: 0,
   resultStep: 0,
-  showScenario: false,
   resultTitles: ['Rincian aktivitas', 'Analogi emisi', 'Saran penggunaan AI'],
   comparisonSource: comparisonBasis.source,
   get equivalents() { return equivalentActivities(this.result?.total || 0); },
@@ -118,7 +117,7 @@ export default (mode = 'full') => ({
         return;
       }
       const revision = ++this._calculationRevision;
-      this.result = result; this.error = ''; this.dirty = false; this.resultStep = 0; this.showScenario = false;
+      this.result = result; this.error = ''; this.dirty = false; this.resultStep = 0;
       this.$nextTick(() => {
         if (revision !== this._calculationRevision) return;
         this.measureResultSlide();
@@ -148,7 +147,7 @@ export default (mode = 'full') => ({
     if (this.mode === 'trial') this.closeTrial();
     this._calculationRevision++;
     this._cancelTotal?.(); this.displayTotal = 0;
-    this.counts = { chat: 0, summary: 0, longText: 0, image: 0 }; this.result = null; this.error = ''; this.dirty = false; this.resultStep = 0; this.showScenario = false;
+    this.counts = { chat: 0, summary: 0, longText: 0, image: 0 }; this.result = null; this.error = ''; this.dirty = false; this.resultStep = 0;
     window.dispatchEvent(new CustomEvent('tracko2:reset'));
   }
 });

@@ -20,12 +20,11 @@ Server pengembangan: http://127.0.0.1:5173/. Pratinjau hasil produksi: http://12
 
 | Rute | Isi |
 | --- | --- |
-| `index.html` | Hero foto, empat layanan, animasi scroll, grafik edukasi, trial kalkulator, Games/video, dan tim |
+| `index.html` | Hero foto, empat layanan, animasi scroll, grafik edukasi, trial kalkulator, Games, dan tim |
 | `edukasi.html` | Edukasi: grafik Luccioni, diagram air, materi dengan pencarian dan filter |
 | `kalkulator.html` | CarbsCulator, rincian, analogi, saran, simulasi, rumus LaTeX interaktif dan metode |
 | `game.html` | Lima situasi penggunaan AI, penjelasan jawaban, hasil dan mulai ulang |
 | `referensi.html` | Referensi dan Metode: sumber bacaan dan tabel faktor proposal |
-| `kampanye.html` | Video Edukasi dan pertanyaan diskusi |
 
 ## Mengubah sumber
 

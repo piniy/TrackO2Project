@@ -1,0 +1,14 @@
+/* Use spacing to separate content; retain component outlines and chart guides. */
+.path-steps a, .about-project, .activity-row, .result-empty,
+.result-navigation, .equivalent-row, .result-learning, .result-reason,
+.method-notes details, .learning-article summary, .article-sources,
+tbody tr + tr, .answer-feedback, .footer-bottom, .footer-note,
+.journey-copy article, .home-calculator, .team-section,
+.education-concepts small, .education-action-list li, .reference-metadata div,
+.ed-panel-heading, .ed-task-analogy, .ed-reading-caption, .ed-method,
+.ed-metadata > div, .ed-study-switch, .ed-water-detail dl > div,
+.education-resource small, .math-inspection-values > div,
+.ed-gemini-metrics > div {
+  border-top: 0;
+  border-bottom: 0;
+}

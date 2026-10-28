@@ -1,15 +1,16 @@
-<div class="calculator-layout" x-data="calculator">
+<div class="calculator-layout calculator-full" x-data="calculator">
   <form class="calculator-form panel" @submit.prevent="calculate">
     <div class="panel-heading"><h2>Jumlah aktivitas AI</h2><button type="button" class="text-button" @click="example">Isi contoh</button></div>
-    <p class="calculator-description small muted">Masukkan jumlah permintaan untuk setiap jenis aktivitas dalam satu hari.</p>
-    <!-- site:activity-inputs -->
+
+    <div class="trial-activity-grid"><!-- site:trial-activity-inputs --></div>
     <p x-cloak x-show="error" x-text="$t(error)" class="form-error" role="alert"></p>
     <div class="form-actions"><button class="button" type="submit">Hitung estimasi <span aria-hidden="true">→</span></button><button class="button button-quiet" type="button" @click="reset">Atur ulang</button></div>
   </form>
   <section class="result-panel" id="hasil" tabindex="-1" x-ref="result" aria-labelledby="result-heading">
     <h2 id="result-heading">Hasil CarbsCulator</h2>
+
     <div class="result-total"><strong aria-hidden="true" x-text="formatNumber(displayTotal, 2)">0,00</strong><span class="sr-only" x-text="formatNumber(result?.total || 0, 2)">0,00</span><span>gram CO₂e</span></div>
-    <p class="result-caption" x-text="result ? (result.count === 1 ? $t('1 aktivitas dalam perhitungan ini') : $t('{count} aktivitas dalam perhitungan ini', { count: formatNumber(result.count, 0) })) : $t('Isi aktivitas, lalu hitung estimasinya.')">Isi aktivitas, lalu hitung estimasinya.</p>
+    <p class="result-caption" x-cloak x-show="result" x-text="result ? (result.count === 1 ? $t('1 aktivitas dalam perhitungan ini') : $t('{count} aktivitas dalam perhitungan ini', { count: formatNumber(result.count, 0) })) : ''"></p>
     <div class="result-carousel" x-cloak x-show="result">
       <span class="pill result-tier" x-text="$t(result?.tier?.label)"></span><p class="stale-note" x-show="dirty">Input berubah. Hitung kembali untuk memperbarui hasil.</p>
       <div class="result-tabs" role="group" aria-label="Pilih kartu hasil">
@@ -17,7 +18,7 @@
         <button type="button" :aria-pressed="resultStep === 1" aria-controls="result-equivalents" @click="goToResult(1)">Analogi emisi</button>
         <button type="button" :aria-pressed="resultStep === 2" aria-controls="result-actions" @click="goToResult(2)">Saran penggunaan AI</button>
       </div>
-      <div class="result-slides" x-ref="slides" tabindex="0" role="region" aria-label="Kartu hasil perhitungan" :aria-roledescription="$t('carousel')" aria-describedby="result-nav-help" @scroll.debounce.80ms="syncResultSlide" @keydown.right.prevent="goToResult(resultStep + 1)" @keydown.left.prevent="goToResult(resultStep - 1)" @keydown.home.prevent="goToResult(0)" @keydown.end.prevent="goToResult(2)">
+      <div class="result-slides" x-ref="slides" tabindex="0" role="region" aria-label="Kartu hasil perhitungan" :aria-roledescription="$t('carousel')" @scroll.debounce.80ms="syncResultSlide" @keydown.right.prevent="goToResult(resultStep + 1)" @keydown.left.prevent="goToResult(resultStep - 1)" @keydown.home.prevent="goToResult(0)" @keydown.end.prevent="goToResult(2)">
         <article class="result-slide" id="result-breakdown" role="group" :aria-roledescription="$t('kartu')" aria-labelledby="breakdown-title" :aria-hidden="resultStep !== 0" :inert="resultStep !== 0">
           <h3 class="result-card-title" id="breakdown-title">Rincian aktivitas</h3>
           <p class="result-card-intro">Lihat kontribusi setiap aktivitas dalam estimasimu.</p>
@@ -34,26 +35,18 @@
           <span class="action-focus" x-text="mainActivity ? $t('Fokus: {activity}', { activity: $t(mainActivity.title) }) : ''"></span>
           <h3 class="result-card-title" id="actions-title" x-text="$t(advice?.title)"></h3>
           <ol class="action-steps"><template x-for="step in (advice?.steps || [])" :key="step"><li><span x-text="$t(step)"></span></li></template></ol>
-          <div class="result-reason"><h4>Mengapa saran ini relevan?</h4><p x-text="$t(advice?.reason)"></p></div>
-          <button type="button" class="scenario-trigger" :aria-expanded="showScenario" aria-controls="result-scenario" @click="showScenario = !showScenario">Coba simulasi satu aktivitas lebih sedikit <span aria-hidden="true" x-text="showScenario ? '−' : '+'"></span></button>
-          <div class="result-scenario" id="result-scenario" x-show="showScenario" x-cloak>
+          <div class="result-scenario" id="result-scenario">
             <h4>Simulasi perbandingan</h4>
             <p x-text="scenario ? $t('Jika satu permintaan {activity} tidak diperlukan, bagaimana estimasinya berubah?', { activity: $t(scenario.activity.title) }) : ''"></p>
             <div class="scenario-values"><div><span>Hasil saat ini</span><strong x-text="formatNumber(scenario?.before || 0, 2)"></strong><small>g CO₂e</small></div><span aria-hidden="true">→</span><div><span>Hasil simulasi</span><strong x-text="formatNumber(scenario?.after || 0, 2)"></strong><small>g CO₂e</small></div></div>
             <p class="scenario-difference" x-text="scenario ? $t('Selisih dalam simulasi: {amount} g CO₂e ({percent}%).', { amount: formatNumber(scenario.delta, 1), percent: formatNumber(scenario.percent, scenario.percent < .1 ? 3 : 1) }) : ''"></p>
-            <p class="scenario-note">Simulasi memakai faktor yang sama dengan kalkulator. Selisih ini bukan bukti pengurangan emisi nyata.</p>
           </div>
           <a class="text-link result-learn-link" href="./edukasi.html#prompt-bijak">Pelajari kebiasaan bijak <span aria-hidden="true">→</span></a>
         </article>
       </div>
-      <div class="result-navigation">
-        <button class="result-arrow result-arrow-previous" type="button" aria-label="Kartu sebelumnya" :disabled="resultStep === 0" @click="goToResult(resultStep - 1)"><span aria-hidden="true">←</span></button>
-        <div><span class="result-position" aria-hidden="true" x-text="(resultStep + 1) + ' / 3'">1 / 3</span><p id="result-nav-help">Geser atau gunakan tombol panah.</p></div>
-        <button class="result-arrow" type="button" aria-label="Kartu berikutnya" :disabled="resultStep === 2" @click="goToResult(resultStep + 1)"><span aria-hidden="true">→</span></button>
-      </div>
       <span class="sr-only" role="status" x-text="$t('Kartu {number} dari {total}: {title}', { number: resultStep + 1, total: 3, title: $t(resultTitles[resultStep]) })"></span>
     </div>
-    <div class="result-empty" x-show="!result"><p>Isi jumlah aktivitas, lalu pilih Hitung estimasi.</p><p>Hasil akan dilengkapi rincian, analogi, dan saran yang sesuai dengan aktivitasmu.</p></div>
+    <div class="result-empty" x-show="!result"><p>Isi aktivitas dan lihat hasil emisi, rincian, serta penjelasan menarik.</p></div>
   </section>
 </div>
 <noscript><p class="notice">Aktifkan JavaScript untuk menggunakan kalkulator. <a href="./kalkulator.html#metode">Baca metode dan parameternya.</a></p></noscript>

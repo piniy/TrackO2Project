@@ -5,12 +5,54 @@ import { gameCards } from '../content/game-cards.js';
 import { educationMessages } from '../content/education-data.js';
 import { resultMessages } from '../content/result-insights.js';
 import { portalMessages } from './portal-messages.js';
+import { narrativeMessages } from './narrative-messages.js';
+import { researchMessages } from './research-messages.js';
+import { libraryMessages } from './library-messages.js';
+import { campaignMessages } from './campaign-messages.js';
 import { formulaMessages } from '../features/formula.js';
 import { englishActivities, englishArticles, englishReferences, englishGameCards } from './content-en.js';
 
 // Indonesian source text is the key. Keep translations as plain text, never HTML.
 // Entries cover text nodes separately so links, <br>, icons, and SVG remain intact.
 export const uiTranslations = {
+  'Tutup materi': 'Close reading',
+  'Contoh rak server di pusat data NERSC.': 'Server racks at the NERSC data center.',
+  'Menara pendingin di pusat data NERSC': 'Cooling tower at the NERSC data center',
+  'Contoh menara pendingin di pusat data NERSC.': 'A cooling tower at the NERSC data center.',
+  'Siswa menggunakan komputer sekolah': 'Students using a school computer',
+  'Siswa menggunakan komputer sekolah.': 'Students using a school computer.',
+  'Waduk Koto Panjang di Riau': 'Koto Panjang reservoir in Riau',
+  'Waduk Koto Panjang sebagai contoh konteks air setempat.': 'Koto Panjang reservoir as an example of a local water context.',
+  'Foto:': 'Photo:',
+  'Deretan rak server di pusat data NERSC': 'Rows of server racks at the NERSC data center',
+  'Contoh rak server di pusat data NERSC. Foto:': 'An example of server racks at the NERSC data center. Photo:',
+  'Energi rata-rata per 1.000 inferensi studi': 'Mean energy per 1,000 study inferences',
+  'Membuat gambar: 2,907 kWh': 'Image generation: 2.907 kWh',
+  'Meringkas teks: 0,049 kWh': 'Summarization: 0.049 kWh',
+  'Tugas dan model yang diuji; bukan faktor universal layanan AI.': 'Tested tasks and models; not a universal factor for AI services.',
+  'Dua jalur air operasional': 'Two operational water pathways',
+  'Ilustrasi jalur dalam studi Li, bukan angka tetap per prompt.': 'Illustration of pathways in Li’s study, not a fixed value per prompt.',
+  'Komponen pusat data': 'Data center components',
+  'Server dan perangkat': 'Servers and equipment',
+  'Sistem pendinginan': 'Cooling systems',
+  'Ilustrasi berdasarkan IEA; pusat data melayani lebih dari AI.': 'Illustration based on IEA; data centers serve more than AI.',
+  'Langkah penggunaan yang bertujuan': 'Steps for purposeful use',
+  'Tentukan tujuan dan konteks': 'Define the goal and context',
+  'Baca dan periksa hasil': 'Read and check the result',
+  'Ilustrasi panduan belajar dari proposal TraCkO2.': 'Illustration of learning guidance from the TraCkO2 proposal.',
+  'Dua proses berbeda': 'Two different processes',
+  'Pelatihan: mengubah parameter model': 'Training: changing model parameters',
+  'Inferensi: menjalankan model terlatih': 'Inference: running a trained model',
+  'Keduanya membutuhkan sumber daya dengan penyebut yang berbeda.': 'Both use resources with different denominators.',
+  'Periksa konteks sebelum membandingkan': 'Check context before comparing',
+  'Sumber dan tahun': 'Source and year',
+  'Tugas, satuan, dan cakupan': 'Task, unit, and scope',
+  'Ilustrasi cara membaca studi dan estimasi.': 'Illustration of how to read studies and estimates.',
+  'Konteks risiko air setempat': 'Local water risk context',
+  'Kebutuhan air': 'Water demand',
+  'Pasokan dan kondisi wilayah': 'Supply and local conditions',
+  'Ilustrasi konsep Aqueduct; dampak lokal perlu kajian tersendiri.': 'Illustration of Aqueduct concepts; local impacts require separate study.',
+  'Estimasi prototipe · Lihat metode →': 'Prototype estimate · View method →',
   'Langsung ke konten': 'Skip to content',
   'TraCkO2 beranda': 'TraCkO2 home',
   'Navigasi utama': 'Main navigation',
@@ -93,7 +135,7 @@ export const uiTranslations = {
   'Gulir untuk mengirim prompt': 'Scroll to send the prompt',
   'Sekarang, coba hitung': 'Now, explore', 'jejak aktivitasmu.': 'your activity footprint.',
   'Masukkan aktivitas AI dalam satu hari untuk menjelajahi estimasi jejak karbonnya.': 'Enter a day’s AI activities to explore their estimated carbon footprint.',
-  'Estimasi pembelajaran menggunakan parameter proposal TraCkO2.': 'An educational estimate using parameters from the TraCkO2 proposal.',
+  'Estimasi pembelajaran menggunakan parameter hasil riset TraCkO2.': 'An educational estimate using parameters from TraCkO2 research results.',
   'Lihat cara hitung & parameter': 'View method & parameters',
   'Lebih paham teknologi.': 'Understand technology.', 'Lebih sadar dampaknya.': 'Recognize its impact.', 'Lebih bijak memilih.': 'Make thoughtful choices.',
   'Kenali yang tak terlihat': 'Explore what is unseen', 'Jejak AI lebih dari karbon.': 'AI’s footprint goes beyond carbon.',
@@ -267,3 +309,8 @@ activities.forEach(item => addFields(item, englishActivities[item.id]));
 articles.forEach(item => addFields(item, englishArticles[item.id]));
 references.forEach(item => addFields(item, englishReferences[item.id]));
 gameCards.forEach((item, index) => addFields(item, englishGameCards[index]));
+
+// Current campaign copy follows legacy portal overrides and collection fields.
+for (const messages of [narrativeMessages, researchMessages, libraryMessages, campaignMessages]) {
+  Object.entries(messages).forEach(([source, english]) => translations.set(source, english));
+}

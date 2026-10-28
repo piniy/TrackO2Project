@@ -5,8 +5,8 @@ export const teamMembers = [
     name: 'Muhammad Hisyam Adz Dzaki',
     photo: '/assets/images/hisyam.jpg',
     initials: 'MH',
-    jobDesk: 'Lorem ipsum dolor sit amet.',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    jobDesk: 'Researcher',
+    quote: 'hmm',
     placeholder: false
   },
   ...Array.from({ length: 5 }, (_, index) => ({
@@ -14,8 +14,8 @@ export const teamMembers = [
     name: `Anggota tim ${index + 2}`,
     photo: null,
     initials: `A${index + 2}`,
-    jobDesk: 'Lorem ipsum dolor sit amet.',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    jobDesk: 'Researcher',
+    quote: 'Hmm',
     placeholder: true
   }))
 ];

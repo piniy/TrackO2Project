@@ -33,3 +33,23 @@ The initial Thiings server was replaced with Grab3D's CC0 render in the second r
 ## School map
 
 The shared footer embeds Google Maps for SMA Negeri 2 Semarang, Jl. Sendangguwo Baru No. 1, Gemah, Pedurungan, Semarang. Identity/address were checked against the [government school record, NPSN 20328896](https://referensi.data.kemendikdasmen.go.id/pendidikan/npsn/20328896) and the [school's own site](https://sma2smg.sch.id/v5/). The iframe is lazy-loaded, titled in the interface language, and retains Google's own map attribution. An external Google Maps link remains available below it.
+
+## Research chart themes — 28 October 2026
+
+The electricity, converted-emissions, and water charts use local Lucide assets: battery-charging.svg, cloud.svg, waves-horizontal.svg, cpu.svg, memory-stick.svg, and fan.svg. Retrieved unchanged from https://raw.githubusercontent.com/lucide-icons/lucide/main/icons/ on 28 October 2026. ISC license and copyright notice are retained in public/assets/icons/LICENSE.txt. Existing zap, droplet, and server icons are reused. Icons and CSS textures identify the resource; they do not encode additional measurements. The cloud is a symbol for greenhouse-gas emissions, not a photograph of CO2.
+
+Design references: [CFPB data visualization guidelines](https://cfpb.github.io/design-system/guidelines/data-visualization-guidelines), [SUNIVA energy dashboard](https://suniva.ch/solarpotenzial/eigenverbrauch-optimierung), and [Siemens daily water usage](https://sid.siemens.com/r/A6V15485821/widgets/daily-water-usage/_daily-water-usage?contentId=rxzWBcLPc3ZM3Ojc~sKg9A). References informed resource colors and clear component labels; no dashboard screenshots are bundled. All study values, logarithmic energy scaling, and linear stacked water scaling remain unchanged.
+
+## Homepage education preview photographs (28 October 2026)
+
+These are illustrative examples of computing and infrastructure; the photographs do not depict the particular AI systems discussed in the educational material and do not provide emissions or water measurements. The source pages identify each image as CC0 1.0; attribution is not required. Links and creators are retained here for provenance. The files are resized Wikimedia thumbnails; the CSS display may crop them.
+
+| Local file | Depicted subject and source | Creator and license |
+| --- | --- | --- |
+| `public/assets/images/education/home-energy.jpg` | [Front of server racks at NERSC](https://commons.wikimedia.org/wiki/File:Front_of_server_racks_at_NERSC.jpg), 14 October 2011. | Derrick Coetzee · [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `public/assets/images/education/home-emissions.jpg` | [Dry Fork Station coal-fired power plant, Wyoming](https://commons.wikimedia.org/wiki/File:Dry_Fork_Station_coal-fired_power_plant_in_Campbell_County,_Wyoming.jpg), 7 March 2019. This is one electricity source, not a representation of all electricity generation; do not describe visible plumes as CO₂. | Mr. Satterly · [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `public/assets/images/education/home-water.jpg` | [Marley cooling tower at NERSC](https://commons.wikimedia.org/wiki/File:Marley_cooling_tower_at_NERSC_(1).jpg), 14 October 2011. Do not infer this facility's water consumption from the photograph. | Derrick Coetzee · [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) |
+
+## Article photograph — 28 October 2026
+
+`public/assets/images/education/students-computer.jpg` is a 1280-pixel Wikimedia thumbnail of [Students using a computer](https://commons.wikimedia.org/wiki/File:Students_using_a_computer.jpg), by Bright Kwame Ayisi, CC0 1.0. It illustrates students using a computer, not a documented AI session. Other article photographs reuse the NERSC and Koto Panjang images documented above.

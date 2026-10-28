@@ -4,8 +4,7 @@ export const articles = [
     summary: 'Kenali hubungan antara permintaan AI, komputasi, listrik, dan emisi.',
     paragraphs: [
       'Saat kamu mengirim permintaan ke AI, komputer menjalankan model untuk menghasilkan jawaban. Proses menjalankan model ini disebut inferensi. Energi yang dipakai dan emisi yang terkait dapat berbeda menurut model, jenis tugas, perangkat keras, serta sumber listrik.',
-      'Luccioni dan rekan meneliti energi serta emisi untuk 1.000 inferensi pada konfigurasi model dan tugas tertentu. Perbandingan ini membantu kita memahami bahwa tugas AI tidak selalu memiliki kebutuhan sumber daya yang sama.',
-      'Hasil CarbsCulator adalah latihan estimasi dengan parameter proposal TraCkO2. Hasilnya tidak mengukur server yang sedang kamu gunakan dan tidak menunjukkan angka pasti suatu merek AI.'
+      'Luccioni dan rekan meneliti energi serta emisi untuk 1.000 inferensi pada konfigurasi model dan tugas tertentu. Perbandingan ini membantu kita memahami bahwa tugas AI tidak selalu memiliki kebutuhan sumber daya yang sama.'
     ],
     takeaway: 'Baca estimasi bersama satuan, asumsi, dan sumbernya.', sources: ['luccioni', 'proposal']
   },
@@ -15,7 +14,7 @@ export const articles = [
     paragraphs: [
       'Jejak lingkungan AI juga berkaitan dengan air. Penelitian Li dan rekan membahas penggunaan air dalam pengoperasian infrastruktur AI, termasuk pendinginan dan keterkaitannya dengan pembangkitan listrik.',
       'Perhatikan perbedaan pengambilan air (water withdrawal) dan konsumsi air (water consumption). Air yang diambil dari suatu sumber tidak selalu seluruhnya dikonsumsi; sebagian dapat dikembalikan. Menyamakan keduanya dapat membuat informasi menyesatkan.',
-      'Efisiensi air dapat berubah menurut lokasi, waktu, dan kondisi operasi. Karena itu, halaman ini tidak mengubah jumlah prompt menjadi jumlah gelas atau liter air dengan satu angka tetap.'
+      'Efisiensi air dapat berubah menurut lokasi, waktu, dan kondisi operasi. Koefisien pada penjelajah riset hanya berlaku di dalam skenario studi yang dipilih, dengan model, panjang permintaan, dan batas perhitungan yang ditentukan. Angka itu bukan konversi tetap untuk semua prompt.'
     ],
     takeaway: 'Jejak air bergantung pada konteks, bukan hanya jumlah prompt.', sources: ['water']
   },
@@ -38,5 +37,35 @@ export const articles = [
       'Gunakan hasil AI sebagai bahan berpikir. Periksa sumber dan kerjakan analisis dengan pemahamanmu sendiri. Saran ini merupakan panduan belajar; situs ini belum mengukur perubahan perilaku atau penghematan emisi nyata.'
     ],
     takeaway: 'Tentukan tujuan, beri konteks, lalu periksa hasilnya.', sources: ['proposal']
+  },
+  {
+    id: 'pelatihan-inferensi', topic: 'energi', title: 'Melatih model dan memakai model: apa bedanya?', icon: 'bolt', readTime: '2 menit baca',
+    summary: 'Bedakan proses membangun kemampuan model dari proses menjawab permintaan sehari-hari.',
+    paragraphs: [
+      'Pelatihan mengubah parameter model menggunakan data dan komputasi. Inferensi menjalankan model yang sudah dilatih untuk menghasilkan keluaran, misalnya penjelasan materi atau keterangan gambar. Mengirim satu pertanyaan tidak sama dengan melatih ulang seluruh model.',
+      'Keduanya membutuhkan sumber daya. Untuk membandingkannya, periksa penyebut: satu proses pelatihan, 1.000 inferensi pengujian, atau satu prompt median dalam layanan produksi adalah ukuran yang berbeda.',
+      'Kebutuhan dalam pemakaian juga bergantung pada tugas, model, dan konfigurasi. Data eksperimen Luccioni tidak menetapkan satu faktor untuk seluruh jawaban chatbot modern.'
+    ],
+    takeaway: 'Sebutkan proses dan penyebutnya sebelum membandingkan angka.', sources: ['luccioni', 'water']
+  },
+  {
+    id: 'membaca-estimasi', topic: 'karbon', title: 'Angka kecil, konteks besar.', icon: 'book', readTime: '3 menit baca',
+    summary: 'Lima hal yang perlu diperiksa sebelum mengutip angka dampak AI.',
+    paragraphs: [
+      'Tanyakan: siapa sumbernya, kapan datanya, tugas apa yang dihitung, apa satuannya, dan jalur dampak apa yang termasuk? Ketiadaan data berarti belum dilaporkan, bukan nol.',
+      'Studi Google melaporkan median prompt teks Gemini Apps pada Mei 2025. Median adalah nilai tengah distribusi; nilainya tidak boleh diperlakukan sebagai rata-rata aritmetika untuk menghitung total penggunaanmu.',
+      'Contoh Shumba memakai asumsi inferensi historis 2024 dalam revisi paper 2026. Angka skenario tersebut tidak mengukur kinerja layanan saat ini. Sementara itu, CarbsCulator memakai parameter proposal untuk simulasi pembelajaran.'
+    ],
+    takeaway: 'Kutip fakta bersama batas terpenting dan sumber aslinya.', sources: ['gemini', 'shumba', 'proposal']
+  },
+  {
+    id: 'air-dan-lokasi', topic: 'air', title: 'Mengapa lokasi air itu penting?', icon: 'drop', readTime: '2 menit baca',
+    summary: 'Jumlah liter belum menjelaskan seluruh akibat bagi masyarakat dan lingkungan setempat.',
+    paragraphs: [
+      'Air tersedia tidak merata. Tekanan air berkaitan dengan besarnya kebutuhan dibanding pasokan terbarukan di suatu wilayah. Kebutuhan tambahan perlu dilihat bersama musim, sumber air, dan pengguna lain di daerah tersebut.',
+      'Kerangka Aqueduct dari WRI membantu menyaring risiko air berdasarkan wilayah. Indikatornya perlu dilengkapi kajian lokal; indikator global tidak membuktikan dampak satu pusat data atau satu prompt terhadap warga.',
+      'Untuk diskusi sekolah, ajukan pertanyaan kepada penyedia layanan: dari mana air pendingin berasal, bagaimana efisiensinya, dan apakah dampak setempat dilaporkan? Proyeksi Indonesia dalam studi Li bukan pengukuran penggunaan ChatGPT Indonesia masa kini.'
+    ],
+    takeaway: 'Baca jumlah air bersama lokasi, musim, dan kondisi masyarakat.', sources: ['aqueduct', 'water']
   }
 ];
