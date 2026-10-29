@@ -14,10 +14,8 @@ function authoredCopy(html) {
     // Alpine-bound attributes contain expressions and are covered below.
     if (!attribute[1].includes('$t(') && !attribute[1].includes('?')) sources.add(attribute[1]);
   }
-  for (const binding of content.matchAll(/(?:x-text|:aria-label|:title)="([^"]*)"/g)) {
-    for (const literal of binding[1].matchAll(/'([^']+)'/g)) sources.add(literal[1]);
-  }
-  return [...sources].filter(source => source && !/^(?:Home|Games|Games — TraCkO2|AI|H₂O|kWh|\d+|[./])$/u.test(source));
+  for (const binding of content.matchAll(/\$t\('([^']+)'/g)) sources.add(binding[1]);
+  return [...sources].filter(source => source && !/^(?:Home|Games|Games — TraCkO2|AI|H₂O|kWh|\d+|[./↔←↗?✓●:·]|500 mL)$/u.test(source));
 }
 
 test('mission page copy, dynamic labels, and accessible names all have registered English translations', () => {

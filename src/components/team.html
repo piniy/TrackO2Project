@@ -15,7 +15,7 @@
       <template x-for="(member, index) in members" :key="member.id">
         <button class="team-card" type="button" :class="{ 'is-active': activeIndex === index }" :aria-pressed="activeIndex === index" @click="activeIndex = activeIndex === index ? null : index">
           <span class="team-profile-image">
-            <template x-if="member.photo"><img :src="member.photo" alt="" loading="lazy" width="480" height="600"></template>
+            <template x-if="member.photo"><img :src="member.photo" :style="{ '--portrait-scale': member.photoScale || 1, '--portrait-focus': member.photoFocus || '50% 30%' }" alt="" loading="lazy" width="480" height="600"></template>
             <template x-if="!member.photo"><span class="team-profile-placeholder" aria-hidden="true" x-text="member.initials"></span></template>
           </span>
           <span class="team-profile-label" x-text="$t(member.name)"></span>

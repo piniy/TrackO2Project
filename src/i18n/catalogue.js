@@ -2,7 +2,7 @@ import { activities } from '../content/activities.js';
 import { articles } from '../content/articles.js';
 import { articleImageMessages } from '../content/article-images.js';
 import { references } from '../content/references.js';
-import { gameCards } from '../content/game-cards.js';
+import { gameContentMessages } from '../content/game-cards.js';
 import { educationMessages } from '../content/education-data.js';
 import { resultMessages } from '../content/result-insights.js';
 import { portalMessages } from './portal-messages.js';
@@ -12,7 +12,7 @@ import { libraryMessages } from './library-messages.js';
 import { campaignMessages } from './campaign-messages.js';
 import { gameMessages } from './game-messages.js';
 import { formulaMessages } from '../features/formula.js';
-import { englishActivities, englishArticles, englishReferences, englishGameCards } from './content-en.js';
+import { englishActivities, englishArticles, englishReferences } from './content-en.js';
 
 // Indonesian source text is the key. Keep translations as plain text, never HTML.
 // Entries cover text nodes separately so links, <br>, icons, and SVG remain intact.
@@ -313,9 +313,8 @@ function addFields(source, english) {
 activities.forEach(item => addFields(item, englishActivities[item.id]));
 articles.forEach(item => addFields(item, englishArticles[item.id]));
 references.forEach(item => addFields(item, englishReferences[item.id]));
-gameCards.forEach((item, index) => addFields(item, englishGameCards[index]));
 
 // Current campaign copy follows legacy portal overrides and collection fields.
-for (const messages of [narrativeMessages, researchMessages, libraryMessages, campaignMessages, gameMessages]) {
+for (const messages of [narrativeMessages, researchMessages, libraryMessages, campaignMessages, gameMessages, gameContentMessages]) {
   Object.entries(messages).forEach(([source, english]) => translations.set(source, english));
 }

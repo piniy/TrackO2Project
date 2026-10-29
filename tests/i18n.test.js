@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { translate, readLocale, saveLocale, formatLocaleNumber } from '../src/i18n/index.js';
-import { englishArticles, englishGameCards, englishReferences } from '../src/i18n/content-en.js';
+import { englishArticles, englishReferences } from '../src/i18n/content-en.js';
 import { articles } from '../src/content/articles.js';
-import { gameCards } from '../src/content/game-cards.js';
+import { games, gameContentMessages } from '../src/content/game-cards.js';
 import { references } from '../src/content/references.js';
 import { matchesItem } from '../src/features/library.js';
 import promptJourney from '../src/features/journey.js';
@@ -50,16 +50,13 @@ test('all articles and references include complete English reading content', () 
   }
 });
 
-test('all five game scenarios translate without changing answer order or scoring', () => {
-  assert.equal(englishGameCards.length, gameCards.length);
-  gameCards.forEach((card, index) => {
-    const english = englishGameCards[index];
-    for (const field of ['title', 'question', 'topic']) assert.equal(translate(card[field], 'en'), english[field]);
-    assert.equal(english.options.length, card.options.length);
-    card.options.forEach((option, optionIndex) => {
-      for (const field of ['text', 'feedback']) assert.equal(translate(option[field], 'en'), english.options[optionIndex][field]);
-    });
-  });
+test('all three games register authored English content without positional mappings', () => {
+  assert.equal(games.length,3);
+  for(const [source,english] of Object.entries(gameContentMessages)){
+    assert.equal(translate(source,'en'),english);
+    assert.equal(translate(source,'id'),source);
+    assert.notEqual(english,source);
+  }
 });
 
 test('search follows the displayed language while keeping stable topic filters', () => {

@@ -4,102 +4,125 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#103f35">
-  <meta name="description" content="Latih keputusan tentang penggunaan AI melalui lima situasi belajar dengan penjelasan setiap jawaban.">
+  <meta name="description" content="Tiga game solo tentang energi, pilihan penggunaan AI, dan estimasi air dengan hasil setiap ronde.">
   <title>Misi Jejak AI — TraCkO2</title>
   <script type="module" src="/src/main.js"></script>
 </head>
 <body data-page="game">
   <!-- site:icons -->
   <!-- site:header -->
-  <main id="main" class="mission-page container">
-    <nav class="mission-breadcrumb" aria-label="Jejak navigasi"><a href="./index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Games</span></nav>
-    <header class="mission-heading">
-      <div>
-        <span class="mission-eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-game"></use></svg> Belajar sambil bermain</span>
-        <h1>Misi Jejak AI<span aria-hidden="true">.</span></h1>
-        <p>Jelajahi lima situasi sehari-hari. Pilih langkahmu, temukan alasannya, dan kenali jejak AI lebih dekat.</p>
-      </div>
-      <div class="mission-heading-note"><svg class="icon" aria-hidden="true"><use href="#i-leaf"></use></svg><span>Pilihan kecil.<br>Pemahaman baru.</span></div>
-    </header>
-
-    <section class="mission-board" x-data="learningGame" :class="{ 'is-playing': started && !finished, 'is-finished': finished }" aria-label="Permainan pilihan AI">
-      <aside class="mission-map" aria-label="Peta perjalanan misi">
-        <div class="mission-map-top"><span class="mission-eyebrow">Peta misimu</span><span class="mission-map-status" x-text="$t(finished ? 'Tuntas dijelajahi' : started ? 'Misi berlangsung' : 'Siap dijelajahi')">Siap dijelajahi</span></div>
-        <div class="mission-island-art" aria-hidden="true">
-          <div class="mission-map-ring"></div>
-          <img class="mission-island" src="/assets/images/game/mission-island.webp" alt="" width="1024" height="1024" fetchpriority="high" decoding="async">
-          <span class="mission-map-tag mission-map-tag-ai"><svg class="icon"><use href="#i-chat"></use></svg> AI</span>
-          <span class="mission-map-tag mission-map-tag-water"><svg class="icon"><use href="#i-drop"></use></svg> H₂O</span>
-          <span class="mission-map-tag mission-map-tag-energy"><svg class="icon"><use href="#i-bolt"></use></svg> kWh</span>
-        </div>
-        <div class="mission-route">
-          <div class="mission-route-caption"><span>Langkah perjalanan</span><span><strong x-text="answeredCount">0</strong> / <span x-text="cards.length">5</span></span></div>
-          <ol class="mission-stops">
-            <template x-for="(step, stepIndex) in cards" :key="step.title">
-              <li :class="{ 'is-current': started && !finished && index === stepIndex, 'is-complete': answeredCount > stepIndex }" :aria-current="started && !finished && index === stepIndex ? 'step' : null" :title="$t(step.topic)">
-                <span class="mission-stop-number"><span x-show="answeredCount <= stepIndex" x-text="String(stepIndex + 1).padStart(2, '0')"></span><svg class="icon" x-cloak x-show="answeredCount > stepIndex" aria-hidden="true"><use href="#i-check"></use></svg></span>
-                <span class="mission-stop-label" x-text="$t(step.topic)"></span>
-                <span class="sr-only" x-text="$t(answeredCount > stepIndex ? 'Selesai' : started && index === stepIndex ? 'Misi saat ini' : 'Belum dijelajahi')"></span>
-              </li>
-            </template>
-          </ol>
-          <progress class="sr-only" :value="progress" value="0" max="100" aria-label="Progres permainan"></progress>
-        </div>
-        <div class="mission-map-foot"><svg class="icon" aria-hidden="true"><use href="#i-leaf"></use></svg><p>Setiap pilihan adalah kesempatan belajar.</p></div>
-        <div class="mission-mobile-start" x-cloak x-show="!started"><button class="button mission-primary" type="button" @click="start()">Mulai misi <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button><p>Pilih jawaban, baca alasannya, lalu lanjutkan.</p></div>
-      </aside>
-
-      <div class="mission-play">
-        <div class="mission-intro" x-show="!started">
-          <span class="mission-small-label"><span class="mission-status-dot" aria-hidden="true"></span> Petualangan pengetahuan</span>
-          <h2>AI ada di keseharianmu.<br><span>Yuk, pahami jejaknya.</span></h2>
-          <p>Dari tugas sekolah sampai membuat poster, setiap situasi punya pilihan. Apa yang akan kamu lakukan?</p>
-          <div class="mission-facts"><span><svg class="icon" aria-hidden="true"><use href="#i-document"></use></svg> <strong x-text="cards.length">5</strong> misi singkat</span><span><svg class="icon" aria-hidden="true"><use href="#i-bulb"></use></svg> Tanpa batas waktu</span></div>
-          <button class="button mission-primary" type="button" @click="start()" x-cloak>Mulai misi <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
-          <p class="mission-start-note">Pilih jawaban, baca alasannya, lalu lanjutkan.</p>
-          <div class="mission-intro-bottom"><span class="mission-mini-mark" aria-hidden="true"><svg class="icon"><use href="#i-leaf"></use></svg></span><span>Rasa ingin tahu adalah modal utamamu.</span></div>
-        </div>
-
-        <div class="mission-question-view" x-cloak x-show="started && !finished">
-          <div class="mission-question-top"><span class="mission-small-label" x-text="$t(card.topic)"></span><span class="mission-count"><span>Misi</span> <strong x-text="String(index + 1).padStart(2, '0')"></strong><span>/</span><span x-text="String(cards.length).padStart(2, '0')"></span></span></div>
-          <h2 class="mission-question-title" x-ref="question" tabindex="-1" x-text="$t(card.title)"></h2>
-          <p class="mission-question-copy" x-text="$t(card.question)"></p>
-          <div class="mission-choices" role="group" :aria-label="$t('Pilih jawabanmu')">
-            <template x-for="(option, optionIndex) in card.options" :key="index + '-' + optionIndex">
-              <button class="mission-choice" type="button" :class="{ 'is-selected': selected === optionIndex, 'is-correct': selected !== null && option.correct, 'is-incorrect': selected === optionIndex && !option.correct }" :disabled="selected !== null" @click="choose(optionIndex)">
-                <span class="mission-choice-letter" x-text="String.fromCharCode(65 + optionIndex)"></span>
-                <span class="mission-choice-copy"><span x-text="$t(option.text)"></span><small x-show="selected !== null && (selected === optionIndex || option.correct)" x-text="$t(option.correct ? 'Pilihan yang tepat' : 'Pilihanmu')"></small></span>
-                <svg class="icon mission-choice-check" x-show="selected !== null && option.correct" aria-hidden="true"><use href="#i-check"></use></svg>
-              </button>
-            </template>
-          </div>
-          <p class="mission-choice-hint" x-show="selected === null"><svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg> Pilih satu jawaban untuk membuka penjelasannya.</p>
-          <div class="mission-feedback" :class="{ 'is-rethink': feedback && !feedback.correct }" x-cloak x-show="selected !== null" role="status" aria-live="polite" aria-atomic="true">
-            <span class="mission-feedback-icon" aria-hidden="true"><svg class="icon"><use :href="feedback?.correct ? '#i-check' : '#i-bulb'"></use></svg></span>
-            <div><h3 x-text="$t(feedback?.correct ? 'Pilihan yang tepat.' : 'Yuk, lihat pertimbangannya.')"></h3><p x-text="$t(feedback?.feedback)"></p></div>
-          </div>
-          <div class="mission-question-next" x-cloak x-show="selected !== null"><button class="button mission-primary" type="button" @click="next()"><span x-text="$t(isLast ? 'Lihat hasil belajar' : 'Situasi berikutnya')"></span><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button></div>
-        </div>
-
-        <div class="mission-result" x-cloak x-show="finished">
-          <span class="mission-result-badge" aria-hidden="true"><svg class="icon"><use href="#i-leaf"></use></svg></span>
-          <span class="mission-small-label">Misi selesai</span>
-          <h2 x-ref="finish" tabindex="-1">Selangkah lebih paham.</h2>
-          <p>Kamu sudah menjelajahi semua situasi. Bawa pertimbangannya ke pilihanmu berikutnya.</p>
-          <div class="mission-score"><strong x-text="score">0</strong><span>/ <span x-text="cards.length">5</span><small>pilihan sesuai tujuan pembelajaran</small></span></div>
-          <p class="mission-score-note">Skor menunjukkan pemahaman dalam permainan, bukan jumlah emisi yang berhasil dihemat.</p>
-          <div class="button-row"><button class="button mission-primary" type="button" @click="restart()">Main lagi <svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg></button><a class="button button-quiet" href="./edukasi.html">Baca materinya <svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg></a></div>
-          <details class="mission-review"><summary>Lihat kembali pilihanmu <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"></use></svg></summary><ol><template x-for="entry in review" :key="entry.index"><li><span class="mission-review-marker" :class="{ 'is-correct': entry.correct }" x-text="String(entry.index + 1).padStart(2, '0')"></span><div><h3 x-text="$t(entry.card.title)"></h3><span class="mission-review-status" x-text="$t(entry.correct ? 'Pilihan yang tepat' : 'Perlu dipertimbangkan lagi')"></span><p><strong x-text="$t('Pilihanmu:')"></strong> <span x-text="$t(entry.option.text)"></span></p><p x-text="$t(entry.feedback)"></p></div></li></template></ol></details>
-        </div>
+  <main id="main" class="play-page container" x-data="learningGame">
+    <nav class="play-breadcrumb" aria-label="Jejak navigasi"><a href="./index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Misi Jejak AI</span></nav>
+    <section x-show="phase === 'hub'" class="play-hub">
+      <header class="play-intro">
+        <span class="play-eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-game"></use></svg> Misi Jejak AI</span>
+        <h1 x-ref="hubHeading" tabindex="-1"><span>Seberapa dekat</span><br><em>tebakanmu?</em></h1>
+        <p>Tebak skalanya. Pilih caranya. Temukan jejak di balik aktivitas AI.</p>
+        <div class="play-meta"><span>Tiga game solo · masing-masing 5 ronde</span><span>Tanpa timer</span></div>
+      </header>
+      <div class="play-picker" x-cloak>
+        <template x-for="game in games" :key="game.id">
+          <article class="play-game" :class="'play-game-' + game.id">
+            <div class="play-art" aria-hidden="true">
+              <template x-if="game.id === 'energy'"><div class="art-energy"><span class="art-tile"><svg class="icon"><use href="#i-image"></use></svg></span><span class="art-vs">↔</span><span class="art-tile"><svg class="icon"><use href="#i-bulb"></use></svg></span><i class="art-meter"></i><i class="art-meter short"></i></div></template>
+              <template x-if="game.id === 'choice'"><div class="art-choice"><div class="art-sheet"><i></i><i></i><i></i><span><svg class="icon"><use href="#i-check"></use></svg></span></div><svg class="art-bulb icon"><use href="#i-bulb"></use></svg></div></template>
+              <template x-if="game.id === 'water'"><div class="art-water"><div class="play-bottle mini"><div class="bottle-fill"></div><span>500 mL</span></div><svg class="icon"><use href="#i-drop"></use></svg></div></template>
+            </div>
+            <div class="play-game-copy"><span class="play-round-tag" x-text="$t('5 ronde')"></span><h2 x-text="$t(game.name)"></h2><p x-text="$t(game.premise)"></p><button class="play-start" type="button" @click="start(game.id)"><span x-text="$t(game.action)"></span><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button></div>
+          </article>
+        </template>
       </div>
     </section>
-
-    <section class="mission-how" aria-labelledby="mission-how-heading">
-      <div class="mission-how-heading"><span class="mission-eyebrow">Cara bermain</span><h2 id="mission-how-heading">Pilih. Pahami. Coba lagi.</h2></div>
-      <ol><li><span class="mission-how-icon"><svg class="icon" aria-hidden="true"><use href="#i-chat"></use></svg></span><div><h3>Tentukan pilihanmu</h3><p>Baca situasinya, lalu pilih langkah yang paling sesuai.</p></div></li><li><span class="mission-how-icon"><svg class="icon" aria-hidden="true"><use href="#i-bulb"></use></svg></span><div><h3>Temukan alasannya</h3><p>Pelajari penjelasan di balik setiap jawaban.</p></div></li><li><span class="mission-how-icon"><svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg></span><div><h3>Bawa ke keseharianmu</h3><p>Coba lagi dan gunakan pemahamanmu saat memakai AI.</p></div></li></ol>
-    </section>
-    <div class="mission-source-note"><p><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg> Penasaran dengan dasar materinya?</p><a class="text-link" href="./referensi.html">Jelajahi referensi <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div>
-    <noscript><p class="notice">Aktifkan JavaScript untuk memainkan game. Materi dan referensi tetap dapat dibaca tanpa JavaScript. <a href="./edukasi.html">Baca materinya</a></p></noscript>
+    <template x-if="activeGame && phase !== 'hub'">
+      <section class="play-session" :class="'session-' + activeGameId" aria-label="Permainan pilihan AI">
+        <div class="play-topline"><button type="button" class="play-back" @click="hub()"><span aria-hidden="true">←</span><span x-text="$t('Pilih game')"></span></button><h1 x-text="$t(activeGame.name)"></h1><span x-text="$t('Ronde {current} / {total}', {current: roundIndex + 1, total: rounds.length})"></span></div>
+        <div class="play-progress" role="progressbar" :aria-valuenow="answers.length" :aria-valuemax="rounds.length" aria-valuemin="0" :aria-label="$t('Progres permainan')"><span :style="{width: progress + '%'}"></span></div>
+        <template x-if="phase === 'question' || phase === 'reveal'">
+          <div>
+            <template x-for="current in [round]" :key="current.id">
+              <div class="play-round">
+                <header class="play-question">
+                  <p class="play-eyebrow" x-text="context(current)"></p>
+                  <h2 x-ref="question" tabindex="-1" x-text="$t(current.question)"></h2>
+                  <p x-text="$t(activeGame.instruction)"></p>
+                  <p class="play-baseline" x-show="current.type === 'choice'" x-text="$t(current.baselineText || '')"></p>
+                </header>
+                <template x-if="current.type === 'water'">
+                  <div class="play-water-stage">
+                    <div class="play-bottle" role="img" :aria-label="$t('Botol 500 mL') + (outcome ? ': ' + water(outcome.totalMl) : '')">
+                      <div class="bottle-fill" :style="{height: outcome ? Math.min(outcome.bottles, 1) * 100 + '%' : '0%'}"></div>
+                      <span x-text="outcome ? water(outcome.totalMl) : '?'"></span>
+                    </div>
+                    <div><span class="play-eyebrow" x-text="$t('Botol 500 mL')"></span><p x-show="!outcome" x-text="$t('Pilih perkiraan terdekat, bukan angka persis.')"></p><p class="bottle-total" x-show="outcome" x-text="outcome ? $t('{count} botol × 500 mL', {count: num(outcome.bottles, 2)}) : ''"></p><p x-text="context(current)"></p></div>
+                  </div>
+                </template>
+                <div class="play-options" :class="'options-' + current.type" role="group" :aria-label="$t('Pilih jawabanmu')">
+                  <template x-for="(option, position) in current.options" :key="option.id">
+                    <button class="play-option" type="button" :data-option="option.id" :aria-pressed="selectedOptionId === option.id" :disabled="phase === 'reveal'" @click="select(option.id)" :class="{'is-selected': selectedOptionId === option.id, 'is-best': outcome && outcome.correctOptionId === option.id}">
+                      <svg class="option-art icon" x-show="current.type === 'energy'" aria-hidden="true"><use :href="'#i-' + option.icon"></use></svg>
+                      <span class="option-letter" x-show="current.type === 'choice'" x-text="String.fromCharCode(65 + position)"></span>
+                      <span class="option-label" x-text="optionText(current, option.id)"></span>
+                      <span class="option-state" x-show="selectedOptionId === option.id || (outcome && outcome.correctOptionId === option.id)" x-text="outcome && outcome.correctOptionId === option.id ? '✓' : '●'" aria-hidden="true"></span>
+                    </button>
+                  </template>
+                </div>
+                <template x-if="phase === 'reveal' && outcome">
+                  <section class="play-reveal">
+                    <div class="play-reward">
+                      <h3 x-ref="reveal" tabindex="-1" x-text="feedback(outcome, current)"></h3>
+                      <p class="play-best"><span x-text="$t('Jawaban terbaik:')"></span> <strong x-text="optionText(current, outcome.correctOptionId)"></strong></p>
+                      <template x-if="current.type === 'energy'">
+                        <div class="energy-reveal">
+                          <div class="reward-number" x-text="$t('≈ {ratio}× lebih banyak listrik', {ratio: num(outcome.ratio)})"></div>
+                          <template x-for="(option, i) in current.options" :key="option.id"><div class="energy-row"><div><span x-text="$t(option.text)"></span><strong x-text="wh(option.wh)"></strong></div><div class="energy-track"><span :style="{width: outcome.widths[i] + '%'}"></span></div></div></template>
+                          <p x-text="$t('Selisih sekitar {amount}', {amount: wh(outcome.differenceWh)})"></p>
+                        </div>
+                      </template>
+                      <template x-if="current.type === 'choice'">
+                        <div>
+                          <template x-if="outcome.savedWh !== null">
+                            <div><div class="reward-number" x-text="wh(Math.abs(outcome.savedWh))"></div><p class="reward-caption" x-text="$t(outcome.savedWh < 0 ? 'energi tambahan dalam simulasi' : 'dihemat dalam simulasi')"></p><p x-text="$t(current.comparisonText)"></p><div class="lamp-equivalent" x-show="outcome.savedWh > 0"><span class="reward-lamp" aria-hidden="true"><svg class="icon"><use href="#i-bulb"></use></svg></span><p><span x-text="$t('Setara menyalakan LED 9 W selama sekitar')"></span><strong x-text="duration(Math.max(0, outcome.ledMinutes))"></strong></p></div><p x-show="outcome.savedWh === 0" x-text="$t('Tidak ada perbedaan dari rencana awal.')"></p></div>
+                          </template>
+                          <template x-if="outcome.savedWh === null"><p class="reward-qualitative" x-text="$t(outcome.reason === 'inadequate' ? 'Tidak dihitung: kebutuhan tugas belum terpenuhi.' : (outcome.correct ? 'Selesai tanpa permintaan AI tambahan' : 'Tugas terpenuhi tanpa estimasi Wh'))"></p></template>
+                        </div>
+                      </template>
+                      <template x-if="current.type === 'water'">
+                        <div><span class="play-eyebrow" x-text="$t('Estimasi konsumsi air studi')"></span><div class="reward-number" x-text="'≈ ' + water(outcome.totalMl)"></div><p x-text="$t('{count} botol × 500 mL', {count: num(outcome.bottles, 2)})"></p><div class="water-breakdown"><p><span x-text="$t('Pendinginan langsung')"></span><strong x-text="water(outcome.onsiteMl)"></strong></p><p><span x-text="$t('Terkait penyediaan listrik')"></span><strong x-text="water(outcome.offsiteMl)"></strong></p></div></div>
+                      </template>
+                      <p class="reward-takeaway" x-text="$t(current.explanation)"></p>
+                    </div>
+                    <details class="play-method"><summary x-text="$t('Sumber & asumsi')"></summary><div><p x-text="$t(source.scope)"></p><p x-text="$t(source.assumptions)"></p><p x-show="current.assumptions" x-text="$t(current.assumptions || '')"></p><p x-text="$t(source.excluded)"></p><template x-if="current.type === 'choice' && outcome.savedWh !== null"><p class="play-equation" x-text="wh(outcome.baselineWh) + ' − ' + wh(outcome.chosenWh) + ' = ' + wh(outcome.savedWh)"></p></template><template x-if="current.type === 'water'"><p class="play-equation" x-text="num(outcome.onsiteMl, 3) + ' + ' + num(outcome.offsiteMl, 3) + ' = ' + num(outcome.totalMl, 3) + ' mL'"></p></template><p x-text="source.version"></p><a :href="source.url" target="_blank" rel="noopener" x-text="$t('Baca sumber penelitian')"></a></div></details>
+                  </section>
+                </template>
+                <div class="play-actions">
+                  <p x-show="phase === 'question'" x-text="$t('Pilih dulu, lalu buka hasilnya.')"></p>
+                  <button class="button play-primary" type="button" x-show="phase === 'question'" :disabled="!selectedOptionId" @click="confirm()" x-text="$t('Lihat hasilnya')"></button>
+                  <button class="button play-primary" type="button" x-show="phase === 'reveal'" @click="next()" x-text="$t(isLast ? 'Lihat hasil' : 'Ronde berikutnya')"></button>
+                </div>
+              </div>
+            </template>
+          </div>
+        </template>
+        <template x-if="phase === 'results'">
+          <div class="play-results">
+            <span class="play-eyebrow" x-text="$t('Misi selesai')"></span>
+            <h2 x-ref="finish" tabindex="-1" x-text="$t('Ronde selesai. Rasa ingin tahu berlanjut.')"></h2>
+            <p class="play-score" x-text="$t('{correct} dari {total} jawaban tepat', {correct: totals.correct, total: rounds.length})"></p>
+            <template x-if="activeGameId === 'choice'">
+              <div class="results-highlight"><span class="play-eyebrow" x-text="$t('Estimasi penghematan simulasi')"></span><div class="reward-number" x-text="wh(totals.savedWh)"></div><p x-text="$t('{count} dari {total} skenario memiliki angka energi', {count: rounds.filter(r => r.factorWh !== null).length, total: rounds.length})"></p><p x-text="$t('{count} pilihanmu memiliki estimasi yang memenuhi syarat', {count: totals.quantifiedCount})"></p><div class="lamp-equivalent" x-show="totals.savedWh > 0"><span class="reward-lamp" aria-hidden="true"><svg class="icon"><use href="#i-bulb"></use></svg></span><p><span x-text="$t('Setara menyalakan LED 9 W selama sekitar')"></span><strong x-text="duration(Math.max(0, totals.ledMinutes))"></strong></p></div><p x-text="$t('Penghematan nyata tidak diukur dalam game ini.')"></p></div>
+            </template>
+            <template x-if="activeGameId !== 'choice' && memorable">
+              <div class="results-highlight"><span class="play-eyebrow" x-text="$t(activeGameId === 'energy' ? 'Perbandingan yang perlu diingat' : 'Skenario air yang perlu diingat')"></span><p x-text="context(memorable.round)"></p><strong x-text="optionText(memorable.round, memorable.outcome.correctOptionId)"></strong><p class="result-amount" x-text="amountSummary(memorable.round, memorable.outcome)"></p><p x-text="$t(memorable.round.explanation)"></p></div>
+            </template>
+            <div class="play-result-actions"><button type="button" class="button" @click="replay()" x-text="$t('Main lagi')"></button><button type="button" class="button button-outline" @click="hub()" x-text="$t('Pilih game lain')"></button><a href="./edukasi.html#tahukah-kamu" x-text="$t('Baca materinya')"></a></div>
+            <details class="play-review"><summary x-text="$t('Lihat kembali pilihanmu')"></summary><ol><template x-for="row in review" :key="row.roundId"><li><span class="play-eyebrow" x-text="$t(row.outcome.correct ? 'Tepat' : 'Mari lihat alasannya')"></span><h3 x-text="$t(row.round.question)"></h3><p x-text="context(row.round)"></p><p><span x-text="$t('Jawabanmu')"></span>: <strong x-text="optionText(row.round, row.optionId)"></strong></p><p><span x-text="$t('Jawaban terdekat / terbaik')"></span>: <strong x-text="optionText(row.round, row.outcome.correctOptionId)"></strong></p><p class="review-amount" x-text="amountSummary(row.round, row.outcome)"></p><p x-text="$t(row.round.explanation)"></p><details class="play-method"><summary x-text="$t('Sumber & asumsi')"></summary><div><p x-text="$t(sourceFor(row.round).scope)"></p><p x-text="$t(sourceFor(row.round).assumptions)"></p><p x-show="row.round.assumptions" x-text="$t(row.round.assumptions || '')"></p><p x-text="$t(sourceFor(row.round).excluded)"></p><template x-if="row.round.type === 'choice' && row.outcome.savedWh !== null"><p class="play-equation" x-text="wh(row.outcome.baselineWh) + ' − ' + wh(row.outcome.chosenWh) + ' = ' + wh(row.outcome.savedWh)"></p></template><template x-if="row.round.type === 'water'"><p class="play-equation" x-text="num(row.outcome.onsiteMl, 3) + ' + ' + num(row.outcome.offsiteMl, 3) + ' = ' + num(row.outcome.totalMl, 3) + ' mL'"></p></template><p x-text="sourceFor(row.round).version"></p><a :href="sourceFor(row.round).url" target="_blank" rel="noopener" x-text="$t('Baca sumber penelitian')"></a></div></details></li></template></ol></details>
+          </div>
+        </template>
+      </section>
+    </template>
+    <p class="sr-only" aria-live="polite" aria-atomic="true" x-text="announcement"></p>
+    <aside class="play-source-note"><p>Semua nilai adalah estimasi studi atau simulasi dengan asumsi berlabel.</p><a href="./referensi.html">Jelajahi referensi <span aria-hidden="true">↗</span></a></aside>
+    <noscript><p class="notice">Aktifkan JavaScript untuk memainkan game. Materi dan referensi tetap dapat dibaca tanpa JavaScript. <a href="./edukasi.html#tahukah-kamu">Baca materinya</a> · <a href="./referensi.html">Jelajahi referensi</a></p></noscript>
   </main>
   <!-- site:footer -->
 </body>

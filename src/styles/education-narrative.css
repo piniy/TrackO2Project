@@ -61,7 +61,7 @@
 .education-preview-intro h2 { max-width: 700px; margin: 12px 0; color: var(--forest); }
 .education-preview-intro > div > p:last-child { color: var(--muted); font-size: 14px; line-height: 1.7; }
 .education-preview-intro .button { flex-shrink: 0; }
-.education-preview-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: 35px; overflow: hidden; border: 1px solid #cbdccc; border-radius: 22px; background: #cbdccc; }
+.education-preview-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 35px; overflow: hidden; border: 1px solid #cbdccc; border-radius: 22px; background: #cbdccc; }
 .education-preview-concept { min-width: 0; padding: 22px 25px 26px; background: #f8fbf6; }
 .education-preview-art { display: flex; align-items: center; justify-content: center; height: 150px; margin-bottom: 18px; border-radius: 14px; background: #e6f1e2; }
 .education-preview-concept:nth-child(2) .education-preview-art { background: #e9eee7; }
@@ -71,7 +71,7 @@
 .education-preview-concept p { min-height: 72px; color: var(--muted); font-size: 13px; line-height: 1.75; }
 @media (max-width: 760px) {
   .education-preview-intro { align-items: start; flex-direction: column; gap: 20px; }
-  .education-preview-flow { grid-template-columns: 1fr; gap: 1px; }
+  .education-preview-flow { grid-template-columns: 1fr; }
   .education-preview-concept { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 18px; padding: 17px; }
   .education-preview-art { height: 112px; margin: 0; }
   .education-preview-art img { width: 100px; height: 100px; }

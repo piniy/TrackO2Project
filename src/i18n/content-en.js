@@ -134,26 +134,3 @@ export const englishReferences = {
     excluded: 'Does not measure one AI service’s footprint or prove facility-specific impacts'
   }
 };
-
-export const englishGameCards = [
-  { title: 'Summarizing a reading', question: 'You have an article and want to understand its main ideas. What is the most helpful first step?', topic: 'Learning habits', options: [
-    { text: 'Skim the article, mark difficult sections, then ask a specific question.', feedback: 'A clear goal and context help you evaluate AI answers and stay involved in learning. Explain the idea in your own words and check sources before using the answer.' },
-    { text: 'Ask AI to rewrite the summary repeatedly without reading the results.', feedback: 'Reading the output and clarifying your needs is more useful than repeating requests without a purpose.' }
-  ] },
-  { title: 'A school event poster', question: 'You already have a suitable photo of the event. What is a reasonable choice for making the poster?', topic: 'Choosing tools', options: [
-    { text: 'Generate many new AI images even though the existing photo fits.', feedback: 'Image generation requires computing. First consider whether your existing material already meets your goal.' },
-    { text: 'Use the existing photo and focus on making the poster’s message clearer.', feedback: 'Use material that suits your goal and check permission to use it. You can explain this choice without assuming its emissions savings have been measured.' }
-  ] },
-  { title: 'A claim about water', question: 'A friend applies a paper’s GPT-3 water scenario to every AI service. What needs checking?', topic: 'Water footprint', options: [
-    { text: 'Check the source, data center location, and what is meant by water use.', feedback: 'Correct. Check the model, year, request length, location and water pathways counted. Consumption differs from withdrawal; coefficients apply only within their source scenario.' },
-    { text: 'Immediately apply that number to all models and locations.', feedback: 'One number does not automatically apply to all conditions. Check the study’s methods and limitations first.' }
-  ] },
-  { title: 'Reading CarbsCulator results', question: 'The calculator shows 4.5 g CO₂e for one image. What does this result mean?', topic: 'Data literacy', options: [
-    { text: 'An exact measurement from the AI server I just used.', feedback: 'The calculator is not connected to server measurements. Its figures come from prototype parameters in the proposal.' },
-    { text: 'An estimate based on prototype parameters, with assumptions to read.', feedback: 'Correct. The 4.5 factor comes from the TraCkO2 proposal and its usage categories are simulation categories. The result proves neither exact service emissions nor actual savings.' }
-  ] },
-  { title: 'A large energy figure', question: 'You read a report about electricity use across all data centers. Is this the same as electricity use by AI alone?', topic: 'Energy', options: [
-    { text: 'No. Data centers run many services, so the scope of the data needs checking.', feedback: 'Correct. Check service scope, year, units, and whether figures are measurements or projections. Figures for all data centers cannot be directly described as AI alone.' },
-    { text: 'Yes. Everything a data center does must be AI.', feedback: 'Data centers also support storage, networks, and other digital services. Do not treat their scopes as identical.' }
-  ] }
-];

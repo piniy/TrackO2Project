@@ -1,5 +1,12 @@
 # Asset sources
 
+## Team portraits — 29 October 2026
+
+- `public/assets/images/rafi.jpg`: user-supplied `IMG-20261028-WA0029.jpg`, selected as the replacement for Rafi's team profile.
+- `public/assets/images/vania.jpg`: user-supplied `IMG-20261028-WA0035.jpg`, selected for Carissa Vania's team profile.
+
+Both originals are copied unchanged. Per-member CSS framing crops the surrounding scenery for the portrait cards without altering the source photographs.
+
 Assets used in the education portal. Original assets were retrieved or copied on 25 October 2026; the homepage raster refresh below was retrieved on 27 October 2026.
 
 - `public/assets/images/data-center.webp`: photograph supplied by the user at `D:\Competitions\Iostc undip 2026\data center.webp`, copied without editing. The image shows energy infrastructure and a data center building. Cooling tower vapor is not presented as visible carbon emissions.

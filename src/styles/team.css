@@ -11,7 +11,7 @@
 .team-profile-image { display: grid; place-items: center; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; background: #dbead2; border-radius: 50% 50% 50% 50% / 9% 9% 9% 9%; }
 .team-card:nth-child(3n + 2) .team-profile-image { background: #d9e9e2; border-radius: 50% 50% 50% 50% / 3% 3% 12% 12%; }
 .team-card:nth-child(3n) .team-profile-image { background: #e5edcf; }
-.team-profile-image img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.team-profile-image img { width: 100%; height: 100%; object-fit: cover; object-position: var(--portrait-focus, 50% 30%); transform: scale(var(--portrait-scale, 1)); transform-origin: var(--portrait-focus, 50% 30%); }
 .team-profile-placeholder { display: grid; place-items: center; width: 54%; aspect-ratio: 1; border-radius: 50%; color: #78936b; background: #ffffff80; font-size: clamp(24px, 2.5vw, 36px); font-weight: 600; }
 .team-profile-label { display: block; margin: 18px 0 0; color: var(--forest); font-size: 15px; line-height: 1.35; font-weight: 600; overflow-wrap: anywhere; }
 .team-card-role { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; }

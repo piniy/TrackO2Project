@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { estimate } from '../src/features/calculation.js';
-import { gameCards, assessChoice } from '../src/content/game-cards.js';
+import { games } from '../src/content/game-cards.js';
+import { evaluateRound } from '../src/features/game-math.js';
 
 test('proposal factors produce consistent totals and breakdown', () => {
   const result = estimate({ chat: 10, summary: 3, longText: 1, image: 2 });
@@ -23,12 +24,10 @@ test('invalid, negative, fractional, and oversized activity counts are rejected'
   for (const value of [-1, 0.5, 10001, Infinity, NaN, 'abc']) assert.throws(() => estimate({ image: value }), RangeError);
   assert.equal(estimate({ image: 10000 }).total, 45000);
 });
-test('every learning scenario offers exactly one explainable best answer', () => {
-  assert.equal(gameCards.length, 5);
-  for (const card of gameCards) {
-    assert.equal(card.options.filter(item => item.correct).length, 1);
-    assert.ok(assessChoice(card, 0).feedback.length > 20);
-    assert.ok(assessChoice(card, 1).feedback.length > 20);
-    assert.throws(() => assessChoice(card, 2), RangeError);
+test('every round has exactly one explainable best answer and rejects invalid IDs', () => {
+  for (const round of games.flatMap(game=>game.rounds)) {
+    assert.equal(round.options.filter(option=>evaluateRound(round,option.id).correct).length,1);
+    assert.ok(round.explanation.length>20);
+    assert.throws(()=>evaluateRound(round,'invalid'),RangeError);
   }
 });

@@ -29,7 +29,7 @@ export default defineConfig({
         return expand(html
           .replace('<head>', `<head>${loadingHead}`)
           .replace(/<body\b[^>]*>/, match => `${match}${loadingBody}`)
-          .replace('</head>', '<link rel="icon" type="image/svg+xml" href="/favicon.svg"></head>'));
+          .replace('</head>', '<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261029"></head>'));
       }
     }
   }],

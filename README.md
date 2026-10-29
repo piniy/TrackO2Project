@@ -23,7 +23,7 @@ Server pengembangan: http://127.0.0.1:5173/. Pratinjau hasil produksi: http://12
 | `index.html` | Hero foto, empat layanan, animasi scroll, grafik edukasi, trial kalkulator, Games, dan tim |
 | `edukasi.html` | Edukasi: grafik Luccioni, diagram air, materi dengan pencarian dan filter |
 | `kalkulator.html` | CarbsCulator, rincian, analogi, saran, simulasi, rumus LaTeX interaktif dan metode |
-| `game.html` | Lima situasi penggunaan AI, penjelasan jawaban, hasil dan mulai ulang |
+| `game.html` | Tiga game solo × lima ronde: perbandingan energi, pilihan tugas dan estimasi air; konfirmasi, hasil, review, replay, ID/EN |
 | `referensi.html` | Referensi dan Metode: sumber bacaan dan tabel faktor proposal |
 
 ## Mengubah sumber
