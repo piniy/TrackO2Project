@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve, basename } from 'node:path';
 import { renderContent } from './src/build/content.js';
 import { loadingHead, loadingBody } from './src/build/loading.js';
+import { buildSharedMetadata } from './src/build/site-metadata.js';
 
 const routes = { index: 'home', kalkulator: 'calculator', edukasi: 'education', referensi: 'references', game: 'game' };
 
@@ -14,6 +15,11 @@ export default defineConfig({
       order: 'pre',
       handler(html, context) {
         const page = routes[basename(context.filename, '.html')];
+        const sharedMetadata = buildSharedMetadata({
+          page: basename(context.filename),
+          title: html.match(/<title>([^<]*)<\/title>/i)?.[1] ?? 'TraCkO2',
+          description: html.match(/<meta name="description" content="([^"]*)"/i)?.[1] ?? ''
+        });
         const expand = (source, stack = []) => source.replace(/<!-- site:([a-z-]+) -->/g, (_, name) => {
           if (stack.includes(name)) throw new Error(`Circular HTML fragment: ${[...stack, name].join(' -> ')}`);
           const fragment = ['header', 'footer', 'icons', 'calculator', 'calculator-trial', 'team', 'journey', 'education', 'education-preview', 'education-concepts', 'education-principles', 'formula', 'calculation-formula'].includes(name)
@@ -29,7 +35,7 @@ export default defineConfig({
         return expand(html
           .replace('<head>', `<head>${loadingHead}`)
           .replace(/<body\b[^>]*>/, match => `${match}${loadingBody}`)
-          .replace('</head>', '<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261029"></head>'));
+          .replace('</head>', `${sharedMetadata}</head>`));
       }
     }
   }],

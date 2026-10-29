@@ -29,6 +29,7 @@ Server pengembangan: http://127.0.0.1:5173/. Pratinjau hasil produksi: http://12
 ## Mengubah sumber
 
 - Header dan footer: `src/components/`.
+- Favicon dan gambar preview tautan: `public/favicon.png`, `public/favicon.ico`, `public/apple-touch-icon.png`, dan `public/assets/images/brand/tracko2-share.png`. Metadata Open Graph/Twitter dan origin publik berada di `src/build/site-metadata.js`; setiap route memakai judul, deskripsi, dan canonical URL masing-masing. Aset perlu ikut deployment agar preview tautan publik berubah.
 - Diagram edukasi: `src/components/education.html`, `src/features/education.js`, `src/content/education-data.js`, `src/styles/education.css`.
 - Kalkulator lengkap: `src/components/calculator.html`, `src/features/calculator.js`, `src/features/calculation.js`. Trial Home: `src/components/calculator-trial.html` dan `src/styles/calculator-trial.css`; pemindahan input: `src/features/calculator-handoff.js`.
 - Profil tim: `src/content/team.js` untuk enam anggota; `src/components/team.html`, `src/features/team.js`, dan `src/styles/team.css` untuk pemilihan profil. Muhammad Hisyam Adz Dzaki memakai foto asli. Lima nama/foto lainnya masih placeholder; job desk dan kutipan memakai Lorem ipsum sesuai permintaan.

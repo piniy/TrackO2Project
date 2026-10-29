@@ -21,7 +21,9 @@ function authoredCopy(html) {
 test('mission page copy, dynamic labels, and accessible names all have registered English translations', () => {
   const page = readFileSync(new URL('../game.html', import.meta.url), 'utf8');
   const sources = authoredCopy(page);
-  assert.ok(sources.length > 40, 'The authored UI copy was collected');
+  for (const source of ['Seberapa dekat', 'tebakanmu?', 'Pilih game', 'Lihat hasilnya', 'Sumber & asumsi']) {
+    assert.ok(sources.includes(source), `The authored UI copy includes ${source}`);
+  }
   for (const source of sources) {
     assert.ok(translations.has(source), `Missing game translation: ${source}`);
     assert.notEqual(translate(source, 'en'), source, `Untranslated game copy: ${source}`);

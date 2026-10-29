@@ -65,6 +65,7 @@ export const gameMessages = {
 };
 
 Object.assign(gameMessages, {
+  "Bandingkan energi, pilih cara yang tepat, dan tebak estimasi air di balik AI.": "Compare energy, choose a suitable approach, and guess the estimated water consumption behind AI.",
   "Seberapa dekat": "How close",
   "tebakanmu?": "is your guess?",
   "Tebak skalanya. Pilih caranya. Temukan jejak di balik aktivitas AI.": "Guess the scale. Choose an approach. Discover the footprint behind AI activities.",

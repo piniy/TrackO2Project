@@ -127,22 +127,31 @@
 .mission-source-note .text-link { font-size: 10px; }
 .mission-page > noscript .notice { margin-top: 24px; }
 
-/* A home invitation that shares the mission map's visual language. */
+/* Home invitation uses the same three visual concepts as the game picker. */
 .mission-home { padding-block: 70px 80px; }
 .mission-home .section-heading { margin-bottom: 27px; }
-.mission-preview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); background: #e9f0e3; border-radius: 26px; overflow: clip; border: 1px solid #dee7d7; transition: box-shadow .25s; }
-.mission-preview-art { min-width: 0; position: relative; display: grid; place-items: center; isolation: isolate; }
-.mission-preview-art::before { content: ''; position: absolute; width: 68%; aspect-ratio: 1; border: 1px dashed #b3c8a4; border-radius: 50%; z-index: -1; }
-.mission-preview-art img { width: min(100%, 390px); height: auto; aspect-ratio: 1; object-fit: contain; margin-block: -10px; transition: transform .5s; }
-.mission-preview-copy { display: flex; flex-direction: column; align-items: start; justify-content: center; padding: 38px 48px 38px 20px; }
+.mission-preview { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr); align-items: center; gap: 32px; padding: 42px; background: #e9f0e3; border-radius: 26px; overflow: clip; border: 1px solid #dee7d7; transition: box-shadow .25s; }
+.mission-preview-copy { display: flex; flex-direction: column; align-items: start; justify-content: center; min-width: 0; }
 .mission-preview-copy h3 { font-size: clamp(27px, 2.8vw, 38px); line-height: 1.2; font-weight: 600; letter-spacing: -.045em; color: var(--forest); margin-top: 0; }
-.mission-preview-copy .button { margin-top: 23px; min-height: 45px; font-size: 11px; }
+.mission-preview-copy h3 > span { color: #458234; }
+.mission-preview-link { display: inline-flex; align-items: center; gap: 18px; color: var(--forest); font-size: 12px; font-weight: 600; min-height: 44px; margin-top: 18px; }
+.mission-preview-link .icon { width: 18px; height: 18px; transition: transform .2s; }
+.mission-preview-games { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; min-width: 0; }
+.mission-mini-game { display: flex; flex-direction: column; min-width: 0; background: #f7faf4; border: 1px solid #d8e3d1; border-radius: 16px; overflow: hidden; }
+.mission-mini-choice { background: #f8f9f0; }
+.mission-mini-water { background: #eff7fa; border-color: #d2e3e7; }
+.mission-mini-art { position: relative; height: 170px; display: grid; place-items: center; overflow: hidden; }
+.mission-mini-art > div { position: absolute; }
+.mission-mini-art > .art-energy { transform: scale(.58) rotate(-5deg); width: 220px; }
+.mission-mini-art > .art-choice { transform: scale(.7); }
+.mission-mini-art > .art-water { transform: scale(.8); gap: 18px; }
+.mission-mini-title { display: block; padding: 0 12px 18px; color: var(--forest); font-size: 12px; font-weight: 600; line-height: 1.6; text-align: center; }
 .mission-preview:focus-visible { outline-offset: 6px; }
 @keyframes mission-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 @media (hover: hover) {
   .mission-choice:not(:disabled):hover { background: #f6f9f2; border-color: #8cab79; transform: translateX(3px); }
   .mission-preview:hover { box-shadow: 0 15px 35px #103f3510; }
-  .mission-preview:hover .mission-preview-art img { transform: translateY(-6px) rotate(-2deg); }
+  .mission-preview:hover .mission-preview-link .icon { transform: translateX(4px); }
 }
 @media (max-width: 1050px) {
   .mission-play { padding: 32px 28px; }
@@ -194,8 +203,7 @@
   .mission-how p { max-width: none; font-size: 11px; }
   .mission-source-note { padding: 17px; margin-top: 29px; }
   .mission-home { padding-block: 45px 50px; }
-  .mission-preview { grid-template-columns: 1fr 1.15fr; border-radius: 20px; }
-  .mission-preview-copy { padding: 27px 25px 27px 0; }
+  .mission-preview { grid-template-columns: 1fr; border-radius: 20px; padding: 28px; gap: 18px; }
   .mission-preview-copy h3 { font-size: 25px; }
 }
 @media (max-width: 480px) {
@@ -219,16 +227,19 @@
   .mission-result .button-row > * { flex: 1; white-space: nowrap; }
   .mission-source-note { display: grid; gap: 8px; }
   .mission-preview { grid-template-columns: 1fr; }
-  .mission-preview-art { height: 235px; }
-  .mission-preview-art img { width: 290px; margin-block: -20px; }
-  .mission-preview-art::before { width: 220px; }
-  .mission-preview-copy { padding: 12px 25px 29px; }
+  .mission-preview { padding: 24px 20px; }
+  .mission-preview-games { gap: 8px; }
+  .mission-mini-art { height: 125px; }
+  .mission-mini-art > .art-energy { transform: scale(.38) rotate(-5deg); }
+  .mission-mini-art > .art-choice { transform: scale(.45); }
+  .mission-mini-art > .art-water { transform: scale(.55); }
+  .mission-mini-title { padding: 0 7px 14px; font-size: 10px; }
   .mission-preview-copy h3 { font-size: 28px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .mission-island { animation: none; }
-  .mission-stop-number, .mission-choice, .mission-review > summary .icon, .mission-preview, .mission-preview-art img { transition: none; }
-  .mission-preview:hover .mission-preview-art img, .mission-choice:not(:disabled):hover { transform: none; }
+  .mission-stop-number, .mission-choice, .mission-review > summary .icon, .mission-preview, .mission-preview-link .icon { transition: none; }
+  .mission-preview:hover .mission-preview-link .icon, .mission-choice:not(:disabled):hover { transform: none; }
 }
 
 /* Three solo games. Scoped independently from the existing homepage invitation. */
@@ -238,18 +249,14 @@
 .play-page :is(h1,h2,h3,p) { margin: 0; }
 .play-page :is(h1,h2,h3)[tabindex] { scroll-margin-top: 110px; }
 .play-page :focus-visible { outline: 3px solid var(--green); outline-offset: 5px; }
-.play-breadcrumb { display: flex; gap: 12px; color: var(--muted); font-size: 12px; margin-bottom: 43px; }
-.play-breadcrumb a { color: var(--forest); }
 .play-intro { max-width: 690px; margin-bottom: 36px; }
 .play-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .07em; line-height: 1.7; display: inline-flex; align-items: center; gap: 8px; }
 .play-eyebrow .icon { width: 17px; height: 17px; }
 .play-intro h1 { font-size: clamp(38px, 4.9vw, 65px); line-height: 1.08; letter-spacing: -.055em; font-weight: 600; margin: 18px 0; }
 .play-intro h1 em { font-style: normal; color: #458234; }
 .play-intro > p { font-size: 15px; line-height: 1.8; color: var(--muted); max-width: 530px; }
-.play-meta { display: flex; flex-wrap: wrap; gap: 9px 24px; color: var(--muted); margin-top: 20px; font-size: 11px; }
-.play-meta span:last-child::before { content: '◷'; margin-right: 7px; }
 .play-picker { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 22px; }
-.play-game { border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: white; display: flex; flex-direction: column; transition: box-shadow .2s, border-color .2s; }
+.play-game { position: relative; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: white; display: flex; flex-direction: column; cursor: pointer; transition: box-shadow .2s, border-color .2s; }
 .play-game:hover, .play-game:focus-within { border-color: #8cab79; box-shadow: 0 12px 32px #103f350c; }
 .play-art { height: 205px; display: grid; place-items: center; background: #edf3e8; overflow: hidden; position: relative; }
 .play-game-choice .play-art { background: #f0f2e7; }
@@ -257,11 +264,12 @@
 .play-art::before { content: ''; width: 160px; height: 160px; border-radius: 50%; border: 1px solid #103f3510; position: absolute; }
 .play-art::after { content: ''; width: 196px; height: 196px; border-radius: 50%; border: 1px dashed #103f3510; position: absolute; }
 .play-game-copy { padding: 24px; display: flex; flex-direction: column; align-items: start; flex: 1; }
-.play-round-tag { color: #596e60; font-size: 10px; font-weight: 600; }
-.play-game h2 { font-size: 21px; letter-spacing: -.7px; line-height: 1.25; margin: 10px 0 12px; }
-.play-game p { color: var(--muted); font-size: 13px; line-height: 1.7; margin-bottom: 26px; }
-.play-start { background: none; border: 0; border-top: 1px solid var(--line); padding: 18px 0 0; min-height: 48px; margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; text-align: left; font-weight: 600 !important; font-size: 12px !important; color: var(--forest); }
-.play-start .icon { width: 17px; height: 17px; }
+.play-game h2 { font-size: 21px; letter-spacing: -.7px; line-height: 1.25; margin: 0 0 12px; }
+.play-game p { color: var(--muted); font-size: 13px; line-height: 1.7; }
+.play-start { background: none; border: 0; padding: 0; text-align: left; color: inherit; letter-spacing: inherit; }
+.play-start::after { content: ''; position: absolute; inset: 0; z-index: 2; border-radius: 22px; }
+.play-start:focus-visible { outline: none; }
+.play-start:focus-visible::after { outline: 3px solid var(--green); outline-offset: -4px; }
 .art-energy { width: 220px; display: grid; grid-template-columns: 1fr 30px 1fr; align-items: center; gap: 8px; position: relative; z-index: 1; transform: rotate(-5deg); }
 .art-tile { display: grid; place-items: center; height: 88px; background: white; border: 1px solid #ccd9c7; border-radius: 15px; box-shadow: 0 8px 0 #dbe7d4; }
 .art-tile .icon { width: 40px; height: 40px; stroke-width: 1.4; }
@@ -293,6 +301,7 @@
 .play-progress > span { display: block; background: var(--brand-leaf); height: 100%; transition: width .25s; }
 .play-round { padding: 34px 42px 30px; }
 .play-question h2 { font-size: clamp(27px, 3.2vw, 38px); letter-spacing: -.04em; line-height: 1.2; margin-top: 14px; }
+.session-energy .play-question h2 { margin-top: 0; }
 .play-question > p:not(.play-eyebrow) { margin-top: 14px; font-size: 13px; line-height: 1.8; color: var(--muted); }
 .play-question .play-baseline { padding: 12px 16px; border-radius: 9px; background: var(--paper); color: var(--forest) !important; font-weight: 500; }
 .play-options { display: grid; gap: 14px; margin-top: 28px; }
@@ -317,7 +326,6 @@
 .play-water-stage p { font-size: 12px; line-height: 1.7; margin-top: 10px; }
 .play-water-stage .bottle-total { font-size: 19px; font-weight: 600; }
 .play-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 26px; }
-.play-actions > p { color: var(--muted); font-size: 11px; }
 .play-page .play-primary { margin-left: auto; min-height: 48px; border-radius: 10px; font-size: 12px; padding: 14px 24px; }
 .play-primary:disabled { background: #e7ebe6; color: #64705e; box-shadow: none; }
 .play-reveal { margin-top: 24px; }
@@ -369,8 +377,6 @@
 .play-review h3 { font-size: 19px; line-height: 1.5; margin-top: 8px; }
 .play-review p { font-size: 12px; line-height: 1.8; margin-top: 10px; }
 .play-review .review-amount { font-weight: 600; color: var(--green); }
-.play-source-note { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 28px; margin-top: 30px; font-size: 11px; line-height: 1.8; color: var(--muted); }
-.play-source-note a { color: var(--forest); font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; gap: 9px; }
 @media (max-width: 950px) {
   .play-picker { gap: 14px; }
   .play-game-copy { padding: 20px; }
@@ -381,14 +387,12 @@
 }
 @media (max-width: 700px) {
   .play-page { padding-top: 20px; }
-  .play-breadcrumb { margin-bottom: 29px; }
   .play-intro h1 { font-size: clamp(37px,8vw,54px); }
   .play-intro > p { font-size: 13px; }
   .play-picker { grid-template-columns: 1fr; gap: 20px; }
   .play-art { height: 190px; }
   .play-game h2 { font-size: 24px; }
   .play-game-copy { padding: 24px; }
-  .play-game p { margin-bottom: 18px; }
   .art-energy { width: 220px; }
   .play-topline { padding: 10px 20px; flex-wrap: wrap; gap: 3px 12px; }
   .play-topline > h1 { order: 3; flex-basis: 100%; padding-bottom: 10px; }

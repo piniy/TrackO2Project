@@ -73,3 +73,17 @@ Each of the six articles now has its own online-sourced image, shared by its car
 | `prompt-bijak` | `public/assets/images/education/articles/planning-a-question.webp` | [Person writing in notebook while using laptop at a modern workspace.jpg](https://commons.wikimedia.org/wiki/File:Person_writing_in_notebook_while_using_laptop_at_a_modern_workspace.jpg) · Shixart1985 | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
 | `pelatihan-inferensi` | `public/assets/images/education/articles/training-inference.webp` | [Conceptual illustration of the process of training and inference — Figure 1](https://www.mdpi.com/1424-8220/21/7/2364) · Donghee Ha, Mooseop Kim, KyeongDeok Moon, and Chi Yoon Jeong | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 | `air-dan-lokasi` | `public/assets/images/education/articles/water-location.webp` | [Danau Sentarum musim kemarau 2.jpg](https://commons.wikimedia.org/wiki/File:Danau_Sentarum_musim_kemarau_2.jpg) · Rendika Wijayanto | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
+# Brand icon and shared-link preview — 29 October 2026
+
+User-provided artwork: `C:/Users/DELL/Downloads/Untitled design (2).webp`. Original copied unchanged to `public/assets/images/brand/tracko2-icon-source.webp`. The existing logo was prepared deterministically with Pillow: trim empty padding, preserve artwork proportions/colors and the original background, and center it for the required output sizes. No generative alterations were made.
+
+- `public/favicon.png`: 64 × 64 browser icon.
+- `public/favicon.ico`: 16/32/48/64 px fallback.
+- `public/apple-touch-icon.png`: 180 × 180 touch icon.
+- `public/assets/images/brand/tracko2-share.png`: 1200 × 630 link-preview image.
+
+Open Graph and Twitter metadata reference the owner-supplied public origin `https://track-o2-project.vercel.app`; the files still need to be included in a deployment before social services can fetch the updated artwork.
+
+### Favicon-only revision
+
+The user subsequently supplied `C:/Users/DELL/Downloads/Untitled design (5).webp` for the browser favicon only. Its original is preserved as `public/assets/images/brand/tracko2-favicon-source.webp`. Transparent outer padding was trimmed, preserving the white frame, mint panel, logo artwork, and alpha channel. `public/favicon.png` and `public/favicon.ico` now use this version; the favicon URL is versioned `20261029-3`. The shared-link image and touch icon retain the previous artwork.

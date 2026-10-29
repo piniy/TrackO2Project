@@ -22,7 +22,7 @@ export default () => ({
       const entrance = smoothstep((height * 1.3 - section.getBoundingClientRect().top) / (height * .4));
       // Clear by the time portraits reach the central reading area, at any screen size.
       const cleared = smoothstep((height * .94 - portraits.getBoundingClientRect().top) / (height * .42));
-      const opacity = preference.matches ? 0 : entrance * (1 - cleared) * .56;
+      const opacity = preference.matches ? 0 : entrance * (1 - cleared) * .78;
       section.style.setProperty('--team-smoke-opacity', String(opacity));
       section.style.setProperty('--team-smoke-rise', `${-100 * cleared}px`);
       section.classList.toggle('is-smoke-active', opacity > 0);

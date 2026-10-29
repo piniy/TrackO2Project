@@ -12,13 +12,10 @@
   <!-- site:icons -->
   <!-- site:header -->
   <main id="main" class="play-page container" x-data="learningGame">
-    <nav class="play-breadcrumb" aria-label="Jejak navigasi"><a href="./index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Misi Jejak AI</span></nav>
     <section x-show="phase === 'hub'" class="play-hub">
       <header class="play-intro">
-        <span class="play-eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-game"></use></svg> Misi Jejak AI</span>
         <h1 x-ref="hubHeading" tabindex="-1"><span>Seberapa dekat</span><br><em>tebakanmu?</em></h1>
         <p>Tebak skalanya. Pilih caranya. Temukan jejak di balik aktivitas AI.</p>
-        <div class="play-meta"><span>Tiga game solo · masing-masing 5 ronde</span><span>Tanpa timer</span></div>
       </header>
       <div class="play-picker" x-cloak>
         <template x-for="game in games" :key="game.id">
@@ -28,7 +25,7 @@
               <template x-if="game.id === 'choice'"><div class="art-choice"><div class="art-sheet"><i></i><i></i><i></i><span><svg class="icon"><use href="#i-check"></use></svg></span></div><svg class="art-bulb icon"><use href="#i-bulb"></use></svg></div></template>
               <template x-if="game.id === 'water'"><div class="art-water"><div class="play-bottle mini"><div class="bottle-fill"></div><span>500 mL</span></div><svg class="icon"><use href="#i-drop"></use></svg></div></template>
             </div>
-            <div class="play-game-copy"><span class="play-round-tag" x-text="$t('5 ronde')"></span><h2 x-text="$t(game.name)"></h2><p x-text="$t(game.premise)"></p><button class="play-start" type="button" @click="start(game.id)"><span x-text="$t(game.action)"></span><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button></div>
+            <div class="play-game-copy"><h2><button class="play-start" type="button" @click="start(game.id)" :aria-describedby="'game-premise-' + game.id" x-text="$t(game.name)"></button></h2><p :id="'game-premise-' + game.id" x-text="$t(game.premise)"></p></div>
           </article>
         </template>
       </div>
@@ -42,9 +39,8 @@
             <template x-for="current in [round]" :key="current.id">
               <div class="play-round">
                 <header class="play-question">
-                  <p class="play-eyebrow" x-text="context(current)"></p>
+                  <template x-if="current.type !== 'energy'"><p class="play-eyebrow" x-text="context(current)"></p></template>
                   <h2 x-ref="question" tabindex="-1" x-text="$t(current.question)"></h2>
-                  <p x-text="$t(activeGame.instruction)"></p>
                   <p class="play-baseline" x-show="current.type === 'choice'" x-text="$t(current.baselineText || '')"></p>
                 </header>
                 <template x-if="current.type === 'water'">
@@ -95,7 +91,6 @@
                   </section>
                 </template>
                 <div class="play-actions">
-                  <p x-show="phase === 'question'" x-text="$t('Pilih dulu, lalu buka hasilnya.')"></p>
                   <button class="button play-primary" type="button" x-show="phase === 'question'" :disabled="!selectedOptionId" @click="confirm()" x-text="$t('Lihat hasilnya')"></button>
                   <button class="button play-primary" type="button" x-show="phase === 'reveal'" @click="next()" x-text="$t(isLast ? 'Lihat hasil' : 'Ronde berikutnya')"></button>
                 </div>
@@ -121,7 +116,6 @@
       </section>
     </template>
     <p class="sr-only" aria-live="polite" aria-atomic="true" x-text="announcement"></p>
-    <aside class="play-source-note"><p>Semua nilai adalah estimasi studi atau simulasi dengan asumsi berlabel.</p><a href="./referensi.html">Jelajahi referensi <span aria-hidden="true">↗</span></a></aside>
     <noscript><p class="notice">Aktifkan JavaScript untuk memainkan game. Materi dan referensi tetap dapat dibaca tanpa JavaScript. <a href="./edukasi.html#tahukah-kamu">Baca materinya</a> · <a href="./referensi.html">Jelajahi referensi</a></p></noscript>
   </main>
   <!-- site:footer -->
