@@ -10,7 +10,7 @@
 .welcome-question { font-size: clamp(27px, 3vw, 40px); line-height: 1.22; letter-spacing: -1.1px; margin-top: 17px; text-wrap: balance; }
 .welcome-question > span { color: var(--white); }
 .welcome-question .welcome-highlight { color: inherit; background: linear-gradient(transparent 18%, #747d88b3 18%, #747d88b3 90%, transparent 90%); padding: .02em .13em; margin-inline: -.02em; border-radius: .05em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-.welcome-copy h1 > .welcome-brand-slate { color: #9ca6b6; }
+.welcome-copy h1 > .welcome-brand-slate { color: #bdc9dc; text-shadow: 0 0 20px #d9e6ff55, 0 0 50px #a8c5e52b; }
 .welcome-copy h1 > span { color: var(--lime); }
 .welcome-description { font-size: 14px; line-height: 1.95; color: #d1dfdc; max-width: 475px; margin-block: 27px 30px; }
 .welcome-copy .button { border-color: var(--lime); background: var(--lime); color: #16392b; }
@@ -54,3 +54,6 @@
   .welcome-hero { min-height: 0; padding-top: 22px; }
   .welcome-layout { padding-block: 20px 36px; }
 }
+
+/* A steady halo keeps the brand legible against the photographic hero. */
+.welcome-copy h1 { color: #86c75f; text-shadow: 0 0 18px #b9ef785c, 0 0 45px #95e76633, 0 2px 3px #06171366; }

@@ -131,8 +131,11 @@
   .calculator-full .result-panel { border-radius: 0 0 18px 18px; }
 }
 
-/* Activity count stays editable above the paired controls. */
-:is(.calculator-trial, .calculator-full) .trial-activity .stepper { margin-top: 10px; display: grid; grid-template-columns: repeat(2, 44px); overflow: hidden; background: #fff; border-color: #d3e0cf; box-shadow: none; }
-:is(.calculator-trial, .calculator-full) .trial-activity .stepper input { grid-column: 1 / -1; grid-row: 1; width: 100%; min-height: 45px; color: #111; background: #fff; border: 0; font-size: 22px; }
-:is(.calculator-trial, .calculator-full) .trial-activity .stepper button { grid-row: 2; width: 44px; min-height: 40px; color: #111; background: #fff; font-size: 20px; }
+/* Place the editable count after the activity details, within easy reach. */
+:is(.calculator-trial, .calculator-full) .trial-activity { grid-template-columns: minmax(0, 1fr); }
+:is(.calculator-trial, .calculator-full) .trial-activity-art { grid-column: 1; grid-row: 1; }
+:is(.calculator-trial, .calculator-full) .trial-activity .activity-label { grid-column: 1; grid-row: 2; }
+:is(.calculator-trial, .calculator-full) .trial-activity .stepper { grid-column: 1; grid-row: 3; display: flex; align-self: end; width: 100%; margin: 8px 0 0; overflow: hidden; background: #fff; border-color: #d3e0cf; box-shadow: none; }
+:is(.calculator-trial, .calculator-full) .trial-activity .stepper input { flex: 1; width: 0; min-width: 0; min-height: 48px; color: #103f35; background: #fff; border: 0; font-size: 22px; }
+:is(.calculator-trial, .calculator-full) .trial-activity .stepper button { flex: 0 0 48px; width: 48px; min-height: 48px; border-left: 1px solid #d3e0cf; color: #103f35; background: #fff; font-size: 22px; }
 :is(.calculator-trial, .calculator-full) .trial-activity .stepper button:hover { background: #edf5e9; }
