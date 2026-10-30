@@ -97,4 +97,4 @@
   .education-preview-concept > div:last-child { padding: 20px; }
 }
 
-.education-preview-action { display: flex; justify-content: center; margin-top: 28px; }
+.education-preview-action { display: flex; justify-content: flex-end; margin-top: 28px; }
