@@ -87,7 +87,6 @@ export const uiTranslations = {
   'Latih keputusan tentang penggunaan AI melalui lima situasi belajar dengan penjelasan setiap jawaban.': 'Practice decisions about AI use through five learning scenarios with explanations for every answer.',
   'Di balik': 'Behind', 'satu prompt.': 'a single prompt.',
   'TraCkO2 · AI & lingkungan': 'TraCkO2 · AI & the environment',
-  'Selamat datang di': 'Welcome to',
   'Selamat datang': 'Welcome',
   'AI juga punya': 'Does AI have a',
   'jejak karbon?': 'carbon footprint?',

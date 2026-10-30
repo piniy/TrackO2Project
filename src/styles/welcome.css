@@ -25,8 +25,11 @@
 #jejak-ai { scroll-margin-top: 0; }
 @media (max-width: 960px) {
   .welcome-hero { min-height: calc(100svh - 76px); padding-top: 48px; }
-  .welcome-copy { max-width: 590px; }
-  .welcome-copy h1 { font-size: clamp(66px, 9vw, 86px); letter-spacing: -3px; }
+  .welcome-layout { justify-content: center; }
+  .welcome-copy { width: 100%; max-width: 680px; text-align: center; }
+  .welcome-description { margin-inline: auto; font-size: 16px; }
+  .welcome-copy .button-row { justify-content: center; }
+  .welcome-copy h1 { font-size: clamp(76px, 11vw, 100px); letter-spacing: -3px; }
   .welcome-photo { object-position: 60% center; }
 }
 @media (max-width: 720px) {
@@ -35,15 +38,15 @@
   .welcome-photo { object-position: 62% center; }
   .welcome-layout { padding-block: 25px 48px; }
   .welcome-label { font-size: 12px; margin-bottom: 21px; }
-  .welcome-copy h1 { font-size: clamp(59px, 17vw, 82px); letter-spacing: -2.5px; line-height: 1.08; }
+  .welcome-copy h1 { font-size: clamp(64px, 18vw, 90px); letter-spacing: -2.5px; line-height: 1.08; }
   .welcome-question { font-size: clamp(26px, 7vw, 35px); letter-spacing: -.8px; margin-top: 17px; }
-  .welcome-description { font-size: 12px; line-height: 1.9; margin-block: 23px 27px; max-width: 370px; }
+  .welcome-description { font-size: 15px; line-height: 1.85; margin-block: 23px 27px; max-width: 440px; }
   .welcome-copy .button-row { gap: 10px; flex-wrap: wrap; }
-  .welcome-copy .button { font-size: 10px; padding-inline: 15px; min-height: 47px; gap: 9px; }
+  .welcome-copy .button { font-size: 12px; padding-inline: 18px; min-height: 48px; gap: 9px; }
   .welcome-caption { align-items: start; flex-direction: column; gap: 8px; font-size: 9px; }
 }
 @media (max-width: 380px) {
-  .welcome-copy h1 { font-size: 57px; letter-spacing: -2px; }
+  .welcome-copy h1 { font-size: 62px; letter-spacing: -2px; }
   .welcome-copy .button-row { align-items: stretch; flex-direction: column; }
   .welcome-copy .button { width: 100%; }
 }

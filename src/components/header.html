@@ -15,7 +15,7 @@
         <button type="button" lang="id" aria-label="Bahasa Indonesia" :aria-pressed="$store.i18n.locale === 'id'" @click="$store.i18n.setLocale('id')">ID</button>
         <button type="button" lang="en" aria-label="English" :aria-pressed="$store.i18n.locale === 'en'" @click="$store.i18n.setLocale('en')">EN</button>
       </div>
-      <button class="menu-toggle" type="button" x-ref="menu" @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><svg class="icon" aria-hidden="true"><use href="#i-menu"></use></svg><span>Menu</span></button>
+      <button class="menu-toggle" type="button" x-ref="menu" @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><svg class="icon" aria-hidden="true"><use href="#i-menu"></use></svg></button>
     </div>
     <span class="sr-only" role="status" x-text="$store.i18n.announcement"></span>
   </div>

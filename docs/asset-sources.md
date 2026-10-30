@@ -87,3 +87,7 @@ Open Graph and Twitter metadata reference the owner-supplied public origin `http
 ### Favicon-only revision
 
 The user subsequently supplied `C:/Users/DELL/Downloads/Untitled design (5).webp` for the browser favicon only. Its original is preserved as `public/assets/images/brand/tracko2-favicon-source.webp`. Transparent outer padding was trimmed, preserving the white frame, mint panel, logo artwork, and alpha channel. `public/favicon.png` and `public/favicon.ico` now use this version; the favicon URL is versioned `20261029-3`. The shared-link image and touch icon retain the previous artwork.
+
+### Favicon replacement — 30 October 2026
+
+User-provided `C:/Users/DELL/Downloads/Untitled design.png` replaces the browser favicon. The original is preserved unchanged as `public/assets/images/brand/tracko2-favicon-source.png`. The complete square artwork, including its white border and transparency, was resized with Pillow to the 64 × 64 PNG and 16/32/48/64 px ICO. The favicon URL is versioned `20261030-1` to refresh browser caches.

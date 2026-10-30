@@ -132,7 +132,7 @@
 }
 
 /* Activity count stays editable above the paired controls. */
-:is(.calculator-trial, .calculator-full) .trial-activity .stepper { display: grid; grid-template-columns: repeat(2, 44px); overflow: hidden; background: #fff; border-color: #d3e0cf; box-shadow: none; }
+:is(.calculator-trial, .calculator-full) .trial-activity .stepper { margin-top: 10px; display: grid; grid-template-columns: repeat(2, 44px); overflow: hidden; background: #fff; border-color: #d3e0cf; box-shadow: none; }
 :is(.calculator-trial, .calculator-full) .trial-activity .stepper input { grid-column: 1 / -1; grid-row: 1; width: 100%; min-height: 45px; color: #111; background: #fff; border: 0; font-size: 22px; }
 :is(.calculator-trial, .calculator-full) .trial-activity .stepper button { grid-row: 2; width: 44px; min-height: 40px; color: #111; background: #fff; font-size: 20px; }
 :is(.calculator-trial, .calculator-full) .trial-activity .stepper button:hover { background: #edf5e9; }
