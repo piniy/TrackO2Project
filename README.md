@@ -1,5 +1,11 @@
 # TraCkO2
 
+## Integrasi prompt Gemini
+
+Halaman CarbsCulator sekarang memiliki form prompt → backend → Gemini API → metadata token → estimasi emisi. Jawaban dan token dapat ditampilkan tanpa faktor karbon; angka emisi hanya muncul bila faktor bersumber telah dikonfigurasi. Kalkulator aktivitas tetap tersedia terpisah.
+
+Panduan key, model, faktor, menjalankan dua server lokal, endpoint, dan deployment: [docs/gemini-backend.md](docs/gemini-backend.md). Salin `.env.example` ke `.env`, isi key/model Gemini di backend, lalu jalankan `npm run dev:api` dan `npm run dev` pada terminal terpisah. Tidak ada secret yang disertakan dalam repositori.
+
 Website edukasi bilingual Indonesia/Inggris tentang jejak lingkungan AI. Struktur beranda: Home, Layanan, Edukasi, CarbsCulator, Games, dan About Team. Tampilan utama, palet warna, dan animasi scroll sinematik dipertahankan. Hero memakai foto pusat data yang diberikan pengguna, dengan layout dua kolom sebelumnya.
 
 ## Menjalankan dan memeriksa

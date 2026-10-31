@@ -18,6 +18,8 @@ import './styles/formula.css';
 import './styles/page-motion.css';
 import './styles/footer.css';
 import './styles/no-separators.css';
+import './styles/ai-calculator.css';
+import aiCalculator from './features/ai-calculator.js';
 import Alpine from 'alpinejs';
 import calculator from './features/calculator.js';
 import teamProfiles from './features/team.js';
@@ -36,6 +38,7 @@ Alpine.store('i18n', createI18n(document, languageStorage));
 Alpine.magic('t', () => (text, values) => Alpine.store('i18n').t(text, values));
 
 Alpine.data('calculator', calculator);
+Alpine.data('aiCalculator', aiCalculator);
 Alpine.data('teamProfiles', teamProfiles);
 Alpine.data('formulaExplorer', formulaExplorer);
 Alpine.data('education', education);
