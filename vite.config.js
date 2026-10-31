@@ -22,7 +22,7 @@ export default defineConfig({
         });
         const expand = (source, stack = []) => source.replace(/<!-- site:([a-z-]+) -->/g, (_, name) => {
           if (stack.includes(name)) throw new Error(`Circular HTML fragment: ${[...stack, name].join(' -> ')}`);
-          const fragment = ['header', 'footer', 'icons', 'calculator', 'calculator-trial', 'team', 'journey', 'education', 'education-preview', 'education-concepts', 'education-principles', 'formula', 'calculation-formula'].includes(name)
+          const fragment = ['header', 'footer', 'icons', 'ai-calculator', 'calculator', 'calculator-trial', 'team', 'journey', 'education', 'education-preview', 'education-concepts', 'education-principles', 'formula', 'calculation-formula'].includes(name)
             ? readFileSync(resolve(import.meta.dirname, `src/components/${name}.html`), 'utf8')
             : renderContent(name);
           // Only the education route continues to the next lesson; home keeps
@@ -39,8 +39,8 @@ export default defineConfig({
       }
     }
   }],
-  server: { port: 5173, strictPort: true },
-  preview: { port: 4173, strictPort: true },
+  server: { port: 5173, strictPort: true, proxy: { '/api': 'http://127.0.0.1:3001' } },
+  preview: { port: 4173, strictPort: true, proxy: { '/api': 'http://127.0.0.1:3001' } },
   build: {
     target: 'es2022',
     rolldownOptions: { input: Object.fromEntries(Object.keys(routes).map(name => [name, resolve(import.meta.dirname, `${name}.html`)])) }
