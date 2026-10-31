@@ -12,8 +12,8 @@ export function buildSharedMetadata({ page, title, description }) {
   const values = { title, description, pageUrl, image: shareImageUrl };
   const meta = (key, value, property = false) => `<meta ${property ? 'property' : 'name'}="${key}" content="${attribute(value)}">`;
   return [
-    '<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png?v=20261030-1">',
-    '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261029-2">',
+    '<link rel="icon" type="image/png" sizes="64x64" href="/favicon.png?v=20261031-2">',
+    '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261031-2">',
     `<link rel="canonical" href="${attribute(pageUrl)}">`,
     meta('og:type', 'website', true),
     meta('og:site_name', 'TraCkO2', true),

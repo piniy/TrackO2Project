@@ -69,7 +69,7 @@ p + p { margin-top: 14px; }
 .menu-toggle .icon { width: 24px; height: 24px; }
 .header-controls { display: flex; align-items: center; gap: 12px; order: 2; }
 .header-cta { order: 1; }
-.language-switch { display: inline-flex; padding: 3px; border: 1px solid var(--line); border-radius: 10px; background: #edf2eb; flex-shrink: 0; }
+.language-switch { display: inline-flex; padding: 3px; border: 1px solid transparent; border-radius: 10px; background: transparent; flex-shrink: 0; }
 .language-switch button { border: 0; border-radius: 7px; background: transparent; color: var(--muted); min-width: 40px; min-height: 38px; padding: 6px 9px; font-size: 11px; font-weight: 700; line-height: 1; }
 .language-switch button[aria-pressed='true'] { background: var(--forest); color: white; }
 .language-switch button:hover { color: var(--forest); background: #dce8d8; }

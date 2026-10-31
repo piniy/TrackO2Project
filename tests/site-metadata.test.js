@@ -12,7 +12,7 @@ test('sharing metadata uses the supplied public origin and distinct canonical ro
     assert.ok(html.includes('content="summary_large_image"'));
     assert.ok(html.includes('property="og:image:width" content="1200"'));
     assert.ok(html.includes('property="og:image:height" content="630"'));
-    assert.ok(html.includes('type="image/png" sizes="64x64" href="/favicon.png?v=20261030-1"'));
+    assert.ok(html.includes('type="image/png" sizes="64x64" href="/favicon.png?v=20261031-2"'));
   }
 });
 

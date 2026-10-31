@@ -1,0 +1,23 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/auth/:path*",
+      "destination": "https://jvvfskotiwgzgovxsvpb.supabase.co/functions/v1/tracko2/auth/:path*"
+    },
+    {
+      "source": "/v1/:path*",
+      "destination": "https://jvvfskotiwgzgovxsvpb.supabase.co/functions/v1/tracko2/v1/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/auth/:path*",
+      "headers": [{ "key": "Cache-Control", "value": "private, no-store" }]
+    },
+    {
+      "source": "/v1/:path*",
+      "headers": [{ "key": "Cache-Control", "value": "private, no-store" }]
+    }
+  ]
+}

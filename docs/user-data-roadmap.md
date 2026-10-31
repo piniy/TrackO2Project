@@ -1,5 +1,7 @@
 # Batas arsitektur: materi publik dan database pengguna
 
+Pembaruan online 31 Oktober 2026: akun, pairing, snapshot metadata dan ekspor akun diimplementasikan dengan PostgreSQL/Supabase Edge Function. Routing Vercel berada di vercel.json. Riwayat akun dapat dibaca dari web dan tab Account Android 0.4.0; tinjauan/koreksi tetap pada ponsel asal. Materi, kalkulator dan game publik tidak memerlukan akun. Bagian lama di bawah merupakan catatan arah awal; lihat README untuk implementasi terkini.
+
 Status: arah pengembangan yang dikonfirmasi pengguna pada 25 Oktober 2026. Database pengguna direncanakan untuk tahap berikutnya; dokumen ini tidak menyatakan bahwa layanan tersebut sudah tersedia.
 
 ## Dua tanggung jawab yang berbeda

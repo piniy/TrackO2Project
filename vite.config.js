@@ -5,7 +5,8 @@ import { renderContent } from './src/build/content.js';
 import { loadingHead, loadingBody } from './src/build/loading.js';
 import { buildSharedMetadata } from './src/build/site-metadata.js';
 
-const routes = { index: 'home', kalkulator: 'calculator', edukasi: 'education', referensi: 'references', game: 'game' };
+const routes = { index: 'home', kalkulator: 'calculator', edukasi: 'education', referensi: 'references', game: 'game', android: 'android', login: 'login', dashboard: 'dashboard' };
+const apiProxy = Object.fromEntries(['/auth', '/v1'].map(path => [path, { target: process.env.TRACKO2_API_TARGET || 'http://127.0.0.1:8787', changeOrigin: Boolean(process.env.TRACKO2_API_TARGET) }]));
 
 export default defineConfig({
   appType: 'mpa',
@@ -39,8 +40,8 @@ export default defineConfig({
       }
     }
   }],
-  server: { port: 5173, strictPort: true },
-  preview: { port: 4173, strictPort: true },
+  server: { port: 5173, strictPort: true, proxy: apiProxy },
+  preview: { port: 4173, strictPort: true, proxy: apiProxy },
   build: {
     target: 'es2022',
     rolldownOptions: { input: Object.fromEntries(Object.keys(routes).map(name => [name, resolve(import.meta.dirname, `${name}.html`)])) }

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#103f35">
+  <meta name="description" content="Unduh TraCkO₂ Android untuk mendeteksi aktivitas AI otomatis dan menyinkronkan riwayatnya dengan akun online.">
+  <title>Android — TraCkO2</title>
+  <script type="module" src="/src/main.js"></script>
+  <link rel="stylesheet" href="/src/styles/device-mockup.css">
+  <link rel="stylesheet" href="/src/styles/android.css">
+</head>
+<body>
+  <!-- site:icons -->
+  <!-- site:header -->
+  <main id="main" class="android-page">
+    <section class="container android-hero" aria-labelledby="android-title">
+      <div class="android-intro">
+        <h1 id="android-title"><span class="android-brand" data-i18n-ignore>Tra<span class="welcome-brand-slate">C</span>k<span class="welcome-brand-slate">O₂</span></span> <span class="android-mobile">Mobile</span></h1>
+        <p class="android-lead">Aktifkan deteksi otomatis untuk ChatGPT dan Gemini. Hubungkan akunmu sekali untuk mengakses riwayat dan estimasi dampak dari ponsel maupun web.</p>
+        <div class="button-row">
+          <a class="button android-download" href="/downloads/tracko2-online-0.4.0-debug.apk" download="TraCkO2-0.4.0.apk"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg><span>Unduh APK Android</span></a>
+        </div>
+        <p class="android-download-note">Versi 0.4.0 · Android 8.0+ · APK uji coba (debug)</p>
+      </div>
+      <figure class="android-device-preview" aria-label="Pratinjau aplikasi TraCkO₂">
+        <div class="iphone-frame">
+          <span class="iphone-side iphone-side-left" aria-hidden="true"></span><span class="iphone-side iphone-side-right" aria-hidden="true"></span>
+          <div class="iphone-screen">
+            <div class="iphone-status" aria-hidden="true"><span>9:41</span><span class="iphone-island"></span><svg viewBox="0 0 48 14"><path d="M1 12V9h3v3zm5 0V6h3v6zm5 0V3h3v9z" fill="currentColor"/><path d="M19 5q6-6 12 0m-10 3q4-4 8 0m-6 3q2-2 4 0" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="35" y="3" width="11" height="8" rx="2" stroke="currentColor" fill="none"/><path d="M47 5v4" stroke="currentColor"/><rect x="37" y="5" width="7" height="4" rx="1" fill="currentColor"/></svg></div>
+            <div class="phone-app">
+              <div class="phone-app-title" data-i18n-ignore>TraCkO₂</div>
+              <p class="phone-tagline">Aktivitas AI, terdeteksi otomatis.</p>
+              <div class="phone-tabs"><span>Ringkasan</span><span>Riwayat</span><span>Pengaturan</span></div>
+              <div class="phone-welcome"><span>DETEKSI OTOMATIS AKTIF</span><strong>Sedikit kesadaran.<br>Lebih memahami jejak AI.</strong><p>ChatGPT + Gemini · Sinkronisasi online</p></div>
+              <div class="phone-entry"><strong>Hubungkan akun online</strong><p>Pasangkan sekali dari dashboard web.</p><span class="phone-add"><span aria-hidden="true">＋</span> Hubungkan akun</span></div>
+              <div class="phone-impact"><span>Estimasi pembelajaran</span><strong>— <small>g CO₂e</small></strong><p>Tinjau hasil deteksi untuk melihat estimasi.</p></div>
+            </div>
+            <div class="iphone-home" aria-hidden="true"></div>
+          </div>
+        </div>
+        <figcaption>Ilustrasi tampilan · Aplikasi untuk Android</figcaption>
+      </figure>
+    </section>
+
+    <section class="container android-features" aria-labelledby="android-features-title">
+      <div class="android-section-heading"><h2 id="android-features-title">Kenali kebiasaanmu,<br>satu aktivitas setiap kali.</h2></div>
+      <div class="android-feature-grid">
+        <article><svg class="icon" aria-hidden="true"><use href="#i-pen"></use></svg><h3>Deteksi aktivitas otomatis</h3><p>Aktifkan akses Accessibility untuk mendeteksi kiriman prompt teks pada aplikasi ChatGPT dan Gemini. Klasifikasi berjalan lokal; tinjau hasil deteksi sebelum masuk ke estimasi.</p></article>
+        <article><svg class="icon" aria-hidden="true"><use href="#i-document"></use></svg><h3>Lihat kembali riwayatmu</h3><p>Riwayat ponsel tetap tersedia tanpa internet. Setelah akun terhubung, metadata disinkronkan ke cloud dan dapat diakses dari web serta tab Account di ponsel.</p></article>
+        <article><svg class="icon" aria-hidden="true"><use href="#i-leaf"></use></svg><h3>Pahami estimasinya</h3><p>Jelajahi estimasi CO₂e berdasarkan kategori yang kamu pilih. Hasil bergantung pada parameter prototipe dan tidak memverifikasi pemrosesan oleh penyedia AI.</p></article>
+      </div>
+    </section>
+
+    <section class="container android-faq" aria-labelledby="android-faq-title">
+      <h2 id="android-faq-title">Sebelum mulai</h2>
+      <div>
+        <details open><summary>Apa yang disimpan aplikasi?</summary><p>TraCkO₂ memakai Accessibility untuk membaca kolom prompt yang didukung dan mengenali sinyal pengiriman. Isi prompt diklasifikasi dalam memori, tidak disimpan atau diunggah. Hanya metadata layanan, kategori, waktu, dan status tinjauan yang disinkronkan.</p></details>
+        <details><summary>Apakah perlu akun dan internet?</summary><p>Deteksi dan riwayat lokal tetap dapat digunakan tanpa akun. Buat akun di web dan pasangkan ponsel untuk sinkronisasi online. Perubahan diunggah saat internet tersedia; Android dapat menunda pekerjaan latar belakang.</p></details>
+        <details><summary>Apakah angka CO₂e merupakan emisi sebenarnya?</summary><p>Angka tersebut adalah estimasi pembelajaran dengan faktor proposal TraCkO₂. Aplikasi tidak mengukur konsumsi listrik atau emisi aktual dari aktivitasmu di ChatGPT maupun Gemini.</p><a class="text-link" href="./kalkulator.html#metode">Pelajari metode perhitungan <span aria-hidden="true">↗</span></a></details>
+        <details><summary>Bagaimana cara memperbarui aplikasi?</summary><p>Pasang pembaruan dengan identitas aplikasi dan tanda tangan yang sama agar riwayat lokal tetap tersedia. Ekspor metadata sebelum memperbarui. Menghapus aplikasi akan menghapus data lokal.</p></details>
+      </div>
+    </section>
+  </main>
+  <!-- site:footer -->
+</body>
+</html>

@@ -91,3 +91,17 @@ The user subsequently supplied `C:/Users/DELL/Downloads/Untitled design (5).webp
 ### Favicon replacement — 30 October 2026
 
 User-provided `C:/Users/DELL/Downloads/Untitled design.png` replaces the browser favicon. The original is preserved unchanged as `public/assets/images/brand/tracko2-favicon-source.png`. The complete square artwork, including its white border and transparency, was resized with Pillow to the 64 × 64 PNG and 16/32/48/64 px ICO. The favicon URL is versioned `20261030-1` to refresh browser caches.
+
+
+### Website and Android icon replacement — 31 October 2026
+
+User-provided `C:/Users/DELL/Downloads/Untitled design (1).png` (2000 × 2000 RGBA) now supplies the website favicon and Android launcher icon. The original is preserved unchanged as `public/assets/images/brand/tracko2-favicon-source.png` and in the Android repository at `docs/assets/tracko2-app-icon-source.png`. Pillow performs deterministic resizing only, retaining the neon glow, logo, colors and transparency. Website outputs are 64px PNG, multi-size ICO (16/32/48/64px), and 180px Apple touch icon; cache version `20261031-1`. Android includes mdpi through xxxhdpi launcher PNGs and an adaptive icon: the full artwork occupies 72dp of a 108dp foreground canvas over its original dark green (#17320B), allowing launcher masks without cutting the central logo. Shared-link previews and the site header logo retain their existing artwork.
+
+### Updated website and Android icon — 31 October 2026
+
+The later user-provided `C:/Users/DELL/Downloads/Untitled design (2).png` (2000 × 2000 RGBA) supersedes the preceding icon. Its unchanged original replaces both source PNGs above. System.Drawing performs deterministic bicubic resizing, preserving the white frame, mint panel, logo and transparent outer corners. Website outputs are the 64px PNG, 16/32/48/64px ICO and 180px Apple touch icon, with cache version `20261031-2`. Android density icons are 48/72/96/144/192px; the adaptive foreground is 432px with the complete artwork centered at 288px over mint `#CAF2CE`, sampled from the source panel. The shared-link preview and header logo retain their existing artwork.
+
+
+### Android download-page device mockup — 31 October 2026
+
+The iPhone-style frame in `android.html` and `src/styles/android.css` is original HTML/CSS, visually informed by the online reference https://github.com/marvelapp/devices.css (pure CSS phones and tablets). No third-party code or device image is bundled. The screen is an illustrative rendering based on the neighboring Android project’s manual-entry Overview, with an empty estimate rather than invented usage. The caption identifies it as an illustration for the Android app. The download remains Android-only.

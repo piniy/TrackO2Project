@@ -16,6 +16,20 @@ npm.cmd run preview
 
 Server pengembangan: http://127.0.0.1:5173/. Pratinjau hasil produksi: http://127.0.0.1:4173/. Sumber HTML menggunakan fragmen yang diproses Vite; untuk hosting statis gunakan isi `dist/` setelah build.
 
+## Akun dan koneksi Android
+
+Akun online memakai PostgreSQL dan Edge Function Supabase pada proyek TraCkO2 (jvvfskotiwgzgovxsvpb). Vercel meneruskan /auth/* dan /v1/* melalui vercel.json. Kredensial server tetap di Edge Function, tidak disertakan pada website atau APK.
+
+Buka https://track-o2-project.vercel.app/login.html, buat akun, lalu buka Dashboard dan buat kode koneksi. Di aplikasi Android 0.4.0, buka Settings → Connect an account dan masukkan kode tersebut; alamat cloud sudah terisi. USB atau komputer yang terus menyala tidak diperlukan.
+
+Dashboard web dan tab Account Android menampilkan data akun yang sama dari semua ponsel terhubung. Keduanya menyediakan halaman riwayat dan ekspor seluruh metadata. Riwayat lokal Android tetap terpisah agar data ponsel lain tidak diunggah ulang. Tinjauan/koreksi dilakukan pada ponsel asal, lalu diunggah otomatis. Pemutusan ponsel dari web menghapus unggahannya dan mencabut aksesnya.
+
+Cookie sesi cloud bersifat HttpOnly, Secure, SameSite=Lax dan berlaku 30 hari. Dashboard web serta tab Account Android memperbarui data setiap lima detik saat terlihat. Android mengunggah setelah perubahan dan saat aplikasi dibuka, dengan JobScheduler untuk percobaan ulang. Koneksi terputus mempertahankan catatan lokal dan halaman akun yang terakhir diunduh. Android dapat menunda pekerjaan latar belakang; sinkronisasi memerlukan internet.
+
+Backend SQLite pada ../TrackO2Android/backend/ tetap tersedia untuk pengembangan lokal. Vite meneruskan API ke port 8787 secara default. Untuk memakai cloud saat menjalankan Vite, gunakan TRACKO2_API_TARGET=https://jvvfskotiwgzgovxsvpb.supabase.co/functions/v1/tracko2. Akun lokal tidak dipindahkan otomatis ke cloud: buat akun online dan pasangkan ponsel untuk mengunggah riwayatnya.
+
+Implementasi ini dibuat tanpa menjalankan tes, QA atau verifikasi atas permintaan pengguna. Build APK dan build deployment hanya untuk menghasilkan artefak yang dapat dipasang/dipublikasikan.
+
 ## Halaman
 
 | Rute | Isi |
@@ -25,6 +39,9 @@ Server pengembangan: http://127.0.0.1:5173/. Pratinjau hasil produksi: http://12
 | `kalkulator.html` | CarbsCulator, rincian, analogi, saran, simulasi, rumus LaTeX interaktif dan metode |
 | `game.html` | Tiga game solo × lima ronde: perbandingan energi, pilihan tugas dan estimasi air; konfirmasi, hasil, review, replay, ID/EN |
 | `referensi.html` | Referensi dan Metode: sumber bacaan dan tabel faktor proposal |
+| `android.html` | Unduhan APK Android, deteksi aktivitas otomatis, sinkronisasi akun, dan FAQ; ID/EN |
+
+APK online: `public/downloads/tracko2-online-0.4.0-debug.apk`, disalin dari build Android 0.4.0 (kode 5). Minimum Android 8.0/API 26. Build debug untuk pengembangan. Build Vite menyertakannya di `dist/downloads/`.
 
 ## Mengubah sumber
 

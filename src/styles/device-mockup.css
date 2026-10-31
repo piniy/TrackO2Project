@@ -1,0 +1,11 @@
+/* Shared iPhone-style frame for illustrative app previews. */
+.iphone-frame { container-type: inline-size; position: relative; width: min(100%, 308px); padding: 9px; border: 2px solid #a8aaa7; border-radius: 48px; background: #282c2b; box-shadow: inset 0 0 0 2px #555956, inset 0 0 0 4px #101211, 0 25px 45px #103f3524; }
+.iphone-screen { position: relative; overflow: hidden; border-radius: 37px; background: var(--paper); aspect-ratio: 286 / 604; }
+.iphone-status { position: relative; display: flex; justify-content: space-between; align-items: center; height: 47px; padding: 0 22px; color: #202b2a; font-size: 11px; font-weight: 700; }
+.iphone-status svg { width: 46px; height: 14px; }
+.iphone-island { position: absolute; width: 82px; height: 23px; border-radius: 20px; background: #101211; left: 50%; top: 9px; transform: translateX(-50%); }
+.iphone-island::after { content: ''; position: absolute; width: 7px; height: 7px; right: 10px; top: 8px; border-radius: 50%; background: #1b2230; box-shadow: inset 0 0 2px #4c5678; }
+.iphone-side { position: absolute; width: 3px; background: #676b68; border-radius: 2px; }
+.iphone-side-left { left: -4px; top: 120px; height: 46px; box-shadow: 0 59px #676b68; }
+.iphone-side-right { right: -4px; top: 154px; height: 67px; }
+.iphone-home { position: absolute; bottom: 7px; left: 50%; transform: translateX(-50%); width: 94px; height: 4px; background: #202b2a; border-radius: 5px; }

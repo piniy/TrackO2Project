@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#103f35"><meta name="robots" content="noindex"><meta name="description" content="Masuk ke TraCkO₂ dan hubungkan aktivitas AI dari ponselmu."><title>Masuk — TraCkO₂</title><script type="module" src="/src/main.js"></script><link rel="stylesheet" href="/src/styles/device-mockup.css"></head>
+<body data-page="login"><!-- site:icons --><!-- site:header -->
+<main id="main" class="container account-page" x-data="loginForm">
+  <div class="login-layout">
+    <aside class="account-story account-device" aria-label="Pratinjau aplikasi TraCkO₂">
+      <div class="iphone-frame">
+        <span class="iphone-side iphone-side-left" aria-hidden="true"></span><span class="iphone-side iphone-side-right" aria-hidden="true"></span>
+        <div class="iphone-screen login-splash">
+          <div class="iphone-status" aria-hidden="true"><span>9:41</span><span class="iphone-island"></span><svg viewBox="0 0 48 14"><path d="M1 12V9h3v3zm5 0V6h3v6zm5 0V3h3v9z" fill="currentColor"/><path d="M19 5q6-6 12 0m-10 3q4-4 8 0m-6 3q2-2 4 0" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="35" y="3" width="11" height="8" rx="2" stroke="currentColor" fill="none"/><path d="M47 5v4" stroke="currentColor"/><rect x="37" y="5" width="7" height="4" rx="1" fill="currentColor"/></svg></div>
+          <img class="login-splash-logo" src="/apple-touch-icon.png" alt="TraCkO₂" width="180" height="180">
+          <div class="iphone-home" aria-hidden="true"></div>
+        </div>
+      </div>
+    </aside>
+    <section class="login-panel" aria-labelledby="login-title">
+      <div class="auth-tabs" role="group" aria-label="Pilihan akun"><button type="button" :aria-pressed="mode === 'login'" @click="setMode('login')" x-text="$t('Masuk')">Masuk</button><button type="button" :aria-pressed="mode === 'register'" @click="setMode('register')" x-text="$t('Daftar')">Daftar</button></div>
+      <h2 id="login-title" x-text="mode === 'register' ? $t('Buat akunmu') : $t('Selamat datang kembali')"></h2><p class="muted" x-text="mode === 'register' ? $t('Mulai hubungkan aktivitas AI-mu.') : $t('Masuk untuk melihat aktivitas dari ponselmu.')"></p>
+      <form @submit.prevent="submit" class="account-form">
+        <label for="account-email">Email</label><input id="account-email" name="email" type="email" autocomplete="username" maxlength="254" x-model="email" required>
+        <label for="account-password" x-text="$t('Kata sandi')">Kata sandi</label><div class="password-field"><input id="account-password" name="password" :type="showPassword ? 'text' : 'password'" :autocomplete="mode === 'register' ? 'new-password' : 'current-password'" minlength="12" maxlength="256" x-model="password" aria-describedby="password-help" required><button type="button" @click="showPassword = !showPassword" :aria-pressed="showPassword" x-text="showPassword ? $t('Sembunyikan') : $t('Tampilkan')"></button></div><p id="password-help" class="small muted" x-text="$t('Minimal 12 karakter')">Minimal 12 karakter</p>
+        <template x-if="mode === 'register'"><div class="confirm-field"><label for="confirm-password" x-text="$t('Ulangi kata sandi')">Ulangi kata sandi</label><input id="confirm-password" name="confirmPassword" :type="showPassword ? 'text' : 'password'" autocomplete="new-password" x-model="confirmPassword" required></div></template>
+        <p class="account-error" role="alert" x-show="error" x-text="error" x-cloak></p><button class="button" type="submit" :disabled="busy" x-text="busy ? $t('Menghubungkan…') : mode === 'register' ? $t('Buat akun') : $t('Masuk')"></button>
+      </form>
+    </section>
+  </div><noscript><p>Aktifkan JavaScript untuk masuk ke akun TraCkO₂.</p></noscript>
+</main><!-- site:footer --></body></html>

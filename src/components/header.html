@@ -7,6 +7,7 @@
       <a data-page="education" href="./edukasi.html">Edukasi</a>
       <a data-page="calculator" href="./kalkulator.html">CarbsCulator</a>
       <a data-page="game" href="./game.html">Games</a>
+      <a data-page="android" href="./android.html">Android</a>
       <a href="./index.html#tentang">About Team</a>
     </nav>
     <a class="button button-small header-cta" href="./kalkulator.html">Mulai hitung <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
@@ -14,6 +15,10 @@
       <div class="language-switch" role="group" aria-label="Pilih bahasa" x-cloak>
         <button type="button" lang="id" aria-label="Bahasa Indonesia" :aria-pressed="$store.i18n.locale === 'id'" @click="$store.i18n.setLocale('id')">ID</button>
         <button type="button" lang="en" aria-label="English" :aria-pressed="$store.i18n.locale === 'en'" @click="$store.i18n.setLocale('en')">EN</button>
+      </div>
+      <div class="account-nav" x-data="{ profileOpen: false }" @click.outside="profileOpen = false" @keydown.escape="profileOpen = false" data-i18n-ignore>
+        <template x-if="!$store.account.user"><div class="account-links"><a href="./login.html" x-text="$store.i18n.locale === 'en' ? 'Sign in' : 'Masuk'"></a><a class="account-signup" href="./login.html?mode=register" x-text="$store.i18n.locale === 'en' ? 'Sign up' : 'Daftar'"></a></div></template>
+        <template x-if="$store.account.user"><div class="profile-wrap"><button class="profile-trigger" type="button" @click="profileOpen = !profileOpen" :aria-expanded="profileOpen" aria-controls="profile-menu"><span class="profile-avatar" x-text="$store.account.user.email.slice(0,1).toUpperCase()"></span><span x-text="$store.i18n.locale === 'en' ? 'Profile' : 'Profil'"></span><span aria-hidden="true">⌄</span></button><div id="profile-menu" class="profile-menu" x-show="profileOpen" x-cloak><span class="profile-email" x-text="$store.account.user.email"></span><a href="./dashboard.html">Dashboard</a><button type="button" @click="$store.account.logout()" x-text="$store.i18n.locale === 'en' ? 'Sign out' : 'Keluar'"></button><p role="status" x-text="$store.account.error"></p></div></div></template>
       </div>
       <button class="menu-toggle" type="button" x-ref="menu" @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><svg class="icon" aria-hidden="true"><use href="#i-menu"></use></svg></button>
     </div>
