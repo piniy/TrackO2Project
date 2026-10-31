@@ -1,4 +1,5 @@
 import { activities } from '../content/activities.js';
+import { accountMessages } from './account-messages.js';
 import { articles } from '../content/articles.js';
 import { articleImageMessages } from '../content/article-images.js';
 import { references } from '../content/references.js';
@@ -226,7 +227,7 @@ export const uiTranslations = {
   'Baca cara hitungnya.': 'Read how it is calculated.', 'Cara membaca hasil': 'How to read your results', 'Transparan dari awal.': 'Transparent from the start.',
   'Setiap jumlah aktivitas dikalikan faktor prototipenya, lalu seluruh kategori dijumlahkan.': 'Each activity count is multiplied by its prototype factor, then all categories are added together.',
   'Total estimasi = Σ (jumlah aktivitas × faktor emisi)': 'Total estimate = Σ (activity count × emission factor)',
-  'Faktor: 0,1 untuk tanya singkat; 0,4 untuk ringkasan; 2,0 untuk teks panjang; 4,5 untuk gambar, dalam g CO₂e per aktivitas. Sumber: proposal TraCkO2, halaman 5.': 'Factors: 0.1 for short questions; 0.4 for summaries; 2.0 for long text; 4.5 for images, in g CO₂e per activity. Source: TraCkO2 proposal, page 5.',
+  'Faktor: 0,1 untuk tanya singkat; 0,4 untuk ringkasan; 2,0 untuk teks panjang; 4,5 untuk gambar, dalam g CO₂e per aktivitas. Sumber: proposal TraCkO2, halaman 5.': 'Factors: 0.1 for short questions; 0.4 for summaries; 2.0 for long text; 4.5 for images, in g CO₂e per activity. Source — TraCkO2 proposal, page 5.',
   'Apa batasan estimasi ini?': 'What are the limitations of this estimate?',
   'Hasil sebenarnya dapat berbeda menurut model, panjang masukan dan keluaran, perangkat keras, lokasi, serta sumber listrik. Faktor proposal belum divalidasi sebagai angka per prompt untuk seluruh layanan komersial.': 'Actual results may vary with the model, input and output length, hardware, location, and electricity source. The proposal factors have not been validated as per-prompt figures for all commercial services.',
   'Apakah air dan energi ikut dihitung?': 'Are water and energy calculated too?',
@@ -314,6 +315,6 @@ articles.forEach(item => addFields(item, englishArticles[item.id]));
 references.forEach(item => addFields(item, englishReferences[item.id]));
 
 // Current campaign copy follows legacy portal overrides and collection fields.
-for (const messages of [narrativeMessages, researchMessages, libraryMessages, campaignMessages, gameMessages, gameContentMessages]) {
+for (const messages of [narrativeMessages, researchMessages, libraryMessages, campaignMessages, gameMessages, gameContentMessages, accountMessages]) {
   Object.entries(messages).forEach(([source, english]) => translations.set(source, english));
 }

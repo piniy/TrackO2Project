@@ -8,6 +8,10 @@
       <a data-page="calculator" href="./kalkulator.html">CarbsCulator</a>
       <a data-page="game" href="./game.html">Games</a>
       <a href="./index.html#tentang">About Team</a>
+      <div class="account-nav" x-data="{ profileOpen: false }" @click.outside="profileOpen = false" @keydown.escape="profileOpen = false" data-i18n-ignore>
+        <template x-if="!$store.account.user"><div class="account-links"><a href="./login.html" x-text="$store.i18n.locale === 'en' ? 'Sign in' : 'Masuk'"></a><a class="account-signup" href="./login.html?mode=register" x-text="$store.i18n.locale === 'en' ? 'Sign up' : 'Daftar'"></a></div></template>
+        <template x-if="$store.account.user"><div class="profile-wrap"><button class="profile-trigger" type="button" @click="profileOpen = !profileOpen" :aria-expanded="profileOpen" aria-controls="profile-menu"><span class="profile-avatar" x-text="$store.account.user.email.slice(0,1).toUpperCase()"></span><span x-text="$store.i18n.locale === 'en' ? 'Profile' : 'Profil'"></span><span aria-hidden="true">⌄</span></button><div id="profile-menu" class="profile-menu" x-show="profileOpen" x-cloak><span class="profile-email" x-text="$store.account.user.email"></span><a href="./dashboard.html">Dashboard</a><button type="button" @click="$store.account.logout()" x-text="$store.i18n.locale === 'en' ? 'Sign out' : 'Keluar'"></button><p role="status" x-text="$store.account.error"></p></div></div></template>
+      </div>
     </nav>
     <a class="button button-small header-cta" href="./kalkulator.html">Mulai hitung <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
     <div class="header-controls">
