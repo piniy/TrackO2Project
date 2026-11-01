@@ -5,9 +5,11 @@
 <section class="education-intro section container" x-data="{}" aria-labelledby="education-heading">
   <h1 id="education-heading" x-text="$store.i18n.locale === 'en' ? 'Education' : 'Edukasi'">Edukasi</h1>
   <p class="education-tagline">Pakai AI, Pahami Jejaknya.</p>
-  <div class="education-video-slot" role="img" aria-label="Tempat video edukasi yang akan ditambahkan">
-    <div class="education-video-art" aria-hidden="true"><img src="/assets/images/journey/servers.webp" alt="" width="320" height="320"><span class="education-video-play"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M12 7v18l15-9Z"/></svg></span><img src="/assets/images/journey/electricity.webp" alt="" width="200" height="200"></div>
-    <p>Video edukasi akan hadir di sini.</p>
+  <div class="education-video-slot">
+    <video controls playsinline preload="none" poster="/assets/videos/tracko2-education-poster.jpg" aria-label="Video edukasi TraCkO₂">
+      <source src="/assets/videos/tracko2-education.mp4" type="video/mp4">
+      <p><span>Browser kamu tidak mendukung pemutaran video.</span> <a href="/assets/videos/tracko2-education.mp4">Unduh video edukasi</a>.</p>
+    </video>
   </div>
   <p class="education-video-description">Kenali bagaimana AI memengaruhi lingkungan melalui listrik yang digunakan, emisi yang terkait, dan air untuk mendukung prosesnya.</p>
   <a class="button" href="#jejak-ai">Lihat perjalanan satu prompt <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"></use></svg></a>

@@ -2,15 +2,8 @@
 .education-page .education-intro { padding-block: 56px 68px; text-align: center; }
 .education-page .education-intro h1 { max-width: none; margin: 0; color: #151b19; font-weight: 700; font-size: clamp(42px, 5vw, 66px); letter-spacing: -.045em; line-height: 1.1; }
 .education-tagline { margin-top: 18px; font-size: clamp(19px, 2.1vw, 27px); letter-spacing: -.04em; color: var(--ink); }
-.education-video-slot { position: relative; isolation: isolate; display: flex; flex-direction: column; justify-content: center; align-items: center; width: min(960px, 100%); aspect-ratio: 16 / 8; margin: 34px auto 24px; border-radius: 18px; overflow: hidden; background: #102b24; color: #c8ddd3; }
-.education-video-slot::before { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 55% 70%, #426a4d66, transparent 65%); }
-.education-video-art { display: flex; align-items: center; justify-content: center; gap: clamp(10px, 5vw, 65px); width: 80%; }
-.education-video-art > img { height: auto; object-fit: contain; }
-.education-video-art > img:first-child { width: 24%; max-width: 180px; opacity: .55; filter: saturate(.6); transform: rotate(-5deg); }
-.education-video-art > img:last-child { width: 18%; max-width: 125px; opacity: .55; filter: saturate(.6); transform: rotate(9deg); }
-.education-video-play { display: grid; place-items: center; width: clamp(56px, 7vw, 90px); aspect-ratio: 1; border-radius: 50%; border: 1px solid #c5e0cc4d; background: #ffffff09; color: var(--lime); flex-shrink: 0; }
-.education-video-play svg { width: 40%; }
-.education-video-slot > p { margin-top: 26px; font-size: 12px; color: #c0d1c9; }
+.education-video-slot { width: min(960px, 100%); margin: 34px auto 24px; border-radius: 18px; overflow: hidden; background: #102b24; }
+.education-video-slot video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; }
 .education-video-description { max-width: 700px; margin: 0 auto 24px; font-size: 14px; line-height: 1.9; color: var(--muted); }
 .education-page .education-understand { padding-bottom: 0; background: var(--paper); }
 .education-principles { padding-block: 96px 68px; }
@@ -44,8 +37,7 @@
 }
 @media (max-width: 680px) {
   .education-page .education-intro { padding-block: 38px 44px; }
-  .education-video-slot { margin-top: 26px; aspect-ratio: 16 / 10; border-radius: 12px; }
-  .education-video-art { width: 90%; }.education-video-slot > p { font-size: 10px; margin-top: 16px; }
+  .education-video-slot { margin-top: 26px; border-radius: 12px; }
   .education-video-description { font-size: 12px; margin-bottom: 20px; }
   .education-principles { padding-block: 58px 46px; }
   .education-principles-intro { grid-template-columns: minmax(0,1fr); gap: 30px; }

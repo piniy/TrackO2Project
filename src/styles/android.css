@@ -30,29 +30,9 @@
   .android-faq { padding-block: 48px 60px; gap: 28px; }
 }
 
-/* Original responsive frame, with Marvel devices.css as a visual reference. */
+/* Share the homepage phone pair beside the download. */
 .android-brand { color: var(--brand-leaf); white-space: nowrap; text-shadow: 0 0 20px #b9ef7840; }
 .android-brand .welcome-brand-slate { color: var(--brand-slate); }
 .android-mobile { display: block; margin-top: 8px; font-size: .65em; letter-spacing: -1.2px; }
-.android-device-preview { margin: 0; display: grid; justify-items: center; gap: 22px; }
-.android-device-preview figcaption { font-size: 11px; color: var(--muted); text-align: center; }
-.phone-app { padding: 10px 16px 25px; zoom: .85; }
-.phone-app-title { font-size: 25px; font-weight: 700; line-height: 1.2; letter-spacing: -.8px; }
-.phone-tagline { margin-top: 5px; color: var(--muted); font-size: 10px; }
-.phone-tabs { display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 9px; margin-block: 17px; }
-.phone-tabs > span { padding: 7px 9px; }
-.phone-tabs > span:first-child { color: white; background: var(--forest); border-radius: 8px; }
-.phone-welcome { background: var(--forest); color: white; padding: 19px 17px; border-radius: 16px; }
-.phone-welcome > span { color: var(--lime); font-size: 8px; font-weight: 600; letter-spacing: .6px; }
-.phone-welcome > strong { display: block; margin-top: 10px; font-size: 21px; line-height: 1.2; letter-spacing: -.6px; }
-.phone-welcome > p { color: var(--muted-on-dark); margin-top: 12px; font-size: 10px; line-height: 1.6; }
-.phone-entry, .phone-impact { background: white; padding: 17px; border-radius: 16px; margin-top: 12px; }
-.phone-entry > strong { font-size: 15px; }
-.phone-entry > p, .phone-impact > p { color: var(--muted); font-size: 10px; line-height: 1.6; margin-top: 7px; }
-.phone-add { display: flex; align-items: center; justify-content: center; gap: 7px; background: var(--forest); color: white; border-radius: 8px; padding: 10px 5px; font-size: 10px; font-weight: 600; margin-top: 13px; }
-.phone-impact > span { font-size: 10px; color: var(--muted); }
-.phone-impact > strong { display: block; font-size: 27px; line-height: 1.4; }
-.phone-impact small { font-size: 13px; font-weight: 500; }
-@media (max-width: 700px) { .android-device-preview { margin-top: 8px; } .android-mockup-frame { width: min(100% - 8px, 308px); } }
-
-@container (max-width: 270px) { .phone-app { zoom: .72; } }
+.android-device-preview { margin: 0; width: 100%; max-width: 440px; justify-self: center; }
+@media (max-width: 700px) { .android-device-preview { width: min(95%, 400px); margin-top: 8px; } }

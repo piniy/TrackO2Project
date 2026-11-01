@@ -102,6 +102,10 @@ User-provided `C:/Users/DELL/Downloads/Untitled design (1).png` (2000 × 2000 RG
 The later user-provided `C:/Users/DELL/Downloads/Untitled design (2).png` (2000 × 2000 RGBA) supersedes the preceding icon. Its unchanged original replaces both source PNGs above. System.Drawing performs deterministic bicubic resizing, preserving the white frame, mint panel, logo and transparent outer corners. Website outputs are the 64px PNG, 16/32/48/64px ICO and 180px Apple touch icon, with cache version `20261031-2`. Android density icons are 48/72/96/144/192px; the adaptive foreground is 432px with the complete artwork centered at 288px over mint `#CAF2CE`, sampled from the source panel. The shared-link preview and header logo retain their existing artwork.
 
 
-### Android download-page device mockup — 31 October 2026
+### Shared Home and Android device mockup — 1 November 2026
 
-The iPhone-style frame in `android.html` and `src/styles/android.css` is original HTML/CSS, visually informed by the online reference https://github.com/marvelapp/devices.css (pure CSS phones and tablets). No third-party code or device image is bundled. The screen is an illustrative rendering based on the neighboring Android project’s manual-entry Overview, with an empty estimate rather than invented usage. The caption identifies it as an illustration for the Android app. The download remains Android-only.
+Home and the Android download page now share the original HTML/CSS two-phone illustration in src/components/app-phone-preview.html and src/styles/hero-app-preview.css. It shows a branded splash screen and an illustrative local-tracking setup screen. The separate Android caption was removed at the user's request.
+
+### Education video — 1 November 2026
+
+User-provided C:/Users/DELL/Downloads/TrackO2 Video.mp4 supplies public/assets/videos/tracko2-education.mp4. FFmpeg creates a 1280 × 720 H.264/AAC version (CRF 24, 128 kbit/s audio, fast-start MP4), preserving the full duration and audio. The poster is a frame at 12 seconds from the same video. The player uses native controls, inline playback and preload=none.
