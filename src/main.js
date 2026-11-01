@@ -4,6 +4,7 @@ import '@fontsource/inter/latin-600.css';
 import '@fontsource/inter/latin-700.css';
 import './styles/main.css';
 import './styles/welcome.css';
+import './styles/hero-app-preview.css';
 import './styles/journey.css';
 import './styles/content-additions.css';
 import './styles/education.css';

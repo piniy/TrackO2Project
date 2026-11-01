@@ -23,7 +23,7 @@ export default defineConfig({
         });
         const expand = (source, stack = []) => source.replace(/<!-- site:([a-z-]+) -->/g, (_, name) => {
           if (stack.includes(name)) throw new Error(`Circular HTML fragment: ${[...stack, name].join(' -> ')}`);
-          const fragment = ['header', 'footer', 'icons', 'calculator', 'calculator-trial', 'team', 'journey', 'education', 'education-preview', 'education-concepts', 'education-principles', 'formula', 'calculation-formula'].includes(name)
+          const fragment = ['header', 'footer', 'icons', 'calculator', 'calculator-trial', 'team', 'journey', 'education', 'education-preview', 'education-concepts', 'education-principles', 'formula', 'calculation-formula', 'hero-app-preview'].includes(name)
             ? readFileSync(resolve(import.meta.dirname, `src/components/${name}.html`), 'utf8')
             : renderContent(name);
           // Only the education route continues to the next lesson; home keeps

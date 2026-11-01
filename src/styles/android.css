@@ -53,6 +53,6 @@
 .phone-impact > span { font-size: 10px; color: var(--muted); }
 .phone-impact > strong { display: block; font-size: 27px; line-height: 1.4; }
 .phone-impact small { font-size: 13px; font-weight: 500; }
-@media (max-width: 700px) { .android-device-preview { margin-top: 8px; } .iphone-frame { width: min(100% - 8px, 308px); } }
+@media (max-width: 700px) { .android-device-preview { margin-top: 8px; } .android-mockup-frame { width: min(100% - 8px, 308px); } }
 
 @container (max-width: 270px) { .phone-app { zoom: .72; } }
